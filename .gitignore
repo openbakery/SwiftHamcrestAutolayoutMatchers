@@ -1,0 +1,7 @@
+.gradle
+Carthage/
+idea
+build/
+
+HamcrestAutolayoutMatchers.xcodeproj/xcuserdata
+HamcrestAutolayoutMatchers.xcodeproj/project.xcworkspace/
