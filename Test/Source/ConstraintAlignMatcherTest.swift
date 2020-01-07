@@ -25,7 +25,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 	}
 
 
-	func test_isAligned_matcher() {
+	func test_first_is_aligned_to_second_bottom_matcher() {
 		// given
 		let first = UIView()
 		let second = UIView()
@@ -42,9 +42,26 @@ class ConstraintAlignMatcherTest : XCTestCase {
 	}
 	
 	
+	
+	func test_first_is_aligned_to_second_bottom_matcher_also_matches_when_reversed() {
+		// given
+		let first = UIView()
+		let second = UIView()
+		let superview = UIView()
+		superview.addSubview(first)
+		superview.addSubview(second)
+		
+		// when
+		
+		first.bottomAnchor.constraint(equalTo: second.bottomAnchor).isActive = true
+		
+		// then
+		assertThat(second, isAligned(with:first, to:.bottom))
+	}
+	
 
 
-	func test_isAligned_matcher_reverse() {
+	func test_first_isAligned_matcher_reverse() {
 		// given
 		let first = UIView()
 		let second = UIView()
@@ -88,5 +105,35 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		// then
 		assertThat(superview, not(isAligned(with:first, to:.bottom)))
 	}
+	
+	
 
+	
+	func test_view_is_aligned_with_superview_to_top() {
+		// given
+		let first = UIView()
+		let superview = UIView()
+		superview.addSubview(first)
+		
+		// when
+		superview.topAnchor.constraint(equalTo: first.topAnchor).isActive = true
+		
+		// then
+		assertThat(first, isAligned(with:superview, to:.top))
+	}
+
+	
+	func test_view_is_aligned_to_top_to_its_superview() {
+		// given
+		let first = UIView()
+		let superview = UIView()
+		superview.addSubview(first)
+		
+		// when
+		superview.topAnchor.constraint(equalTo: first.topAnchor).isActive = true
+		
+		// then
+		assertThat(first, isAligned(to:.top))
+	}
+	
 }
