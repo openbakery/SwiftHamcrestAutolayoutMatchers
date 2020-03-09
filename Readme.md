@@ -16,7 +16,7 @@ func test_height_matcher() {
 
 ## Center and Size
 
-![Center Example](Documentation/center.svg)
+![Center Example](Documentation/center.png)
 
 ```swift
 assertThat(view, isVerticalCenter())
@@ -33,7 +33,7 @@ assertThat(view, hasHeight(of:44))
 ## Pinned
 
 
-![Pinned Example](Documentation/pinned.svg){:height="30%" width="30%"}
+![Pinned Example](Documentation/pinned.png)
 
 ```swift
 assertThat(view, isPinned(.top, gap: 20))
@@ -49,7 +49,7 @@ assertThat(view, isPinned(.trailing, gap: 20))
 
 ## Pinned to other
 
-![Top Example](Documentation/top-center.svg)
+![Top Example](Documentation/top-center.png)
 
 ```swift
 assertThat(first, isPinned(.top, gap: 20))
