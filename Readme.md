@@ -33,7 +33,7 @@ assertThat(view, hasHeight(of:44))
 ## Pinned
 
 
-![Pinned Example](Documentation/pinned.svg)
+![Pinned Example](Documentation/pinned.svg){:height="30%" width="30%"}
 
 ```swift
 assertThat(view, isPinned(.top, gap: 20))
