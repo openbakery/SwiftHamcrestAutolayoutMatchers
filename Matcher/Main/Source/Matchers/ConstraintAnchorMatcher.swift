@@ -14,11 +14,30 @@ private func hasAnchorConstraint(for view: UIView,
 																 constant constantMatcher: Matcher<Float>?) -> MatchResult {
 	let secondItem = view
 	for constraint in baseView.constraints {
-		if let firstItem = constraint.firstItem as? UILayoutGuide {
+		if let guideItem = constraint.firstItem as? UILayoutGuide {
 			if (constraint.firstAttribute == attribute) {
 				if (constraint.secondAttribute == attribute &&
 					constraint.secondItem === secondItem &&
-					firstItem == guide &&
+					guideItem == guide &&
+					constraint.multiplier == 1.0 &&
+					constraint.isActive) {
+					
+					if let matcher = constantMatcher {
+						if matcher.matches(Float(constraint.constant)).boolValue {
+							return .match
+						}
+					} else {
+						return .match
+					}
+					
+				}
+			}
+		}
+		if let guideItem = constraint.secondItem as? UILayoutGuide {
+			if (constraint.firstAttribute == attribute) {
+				if (constraint.secondAttribute == attribute &&
+					constraint.secondItem === guideItem &&
+					guideItem == guide &&
 					constraint.multiplier == 1.0 &&
 					constraint.isActive) {
 					
@@ -36,6 +55,7 @@ private func hasAnchorConstraint(for view: UIView,
 	}
 	return .mismatch(nil)
 }
+
 
 
 private func hasAnchorConstraint(for view: UIView, baseView: UIView, attribute: NSLayoutConstraint.Attribute, guide: UILayoutGuide, constant: CGFloat = 0) -> MatchResult {

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A78EDA7023C47AB200695664"
-               BuildableName = "HamcrestAutolayoutMatchers.framework"
-               BlueprintName = "HamcrestAutolayoutMatchers"
+               BlueprintIdentifier = "A7AB54B82423D97800FDBAB3"
+               BuildableName = "Demo.app"
+               BlueprintName = "Demo"
                ReferencedContainer = "container:HamcrestAutolayoutMatchers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -38,6 +38,16 @@
                ReferencedContainer = "container:HamcrestAutolayoutMatchers.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A7DE0B9B2423E42800032810"
+               BuildableName = "DemoTests.xctest"
+               BlueprintName = "DemoTests"
+               ReferencedContainer = "container:HamcrestAutolayoutMatchers.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -50,6 +60,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A7AB54B82423D97800FDBAB3"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
+            ReferencedContainer = "container:HamcrestAutolayoutMatchers.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,15 +77,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A78EDA7023C47AB200695664"
-            BuildableName = "HamcrestAutolayoutMatchers.framework"
-            BlueprintName = "HamcrestAutolayoutMatchers"
+            BlueprintIdentifier = "A7AB54B82423D97800FDBAB3"
+            BuildableName = "Demo.app"
+            BlueprintName = "Demo"
             ReferencedContainer = "container:HamcrestAutolayoutMatchers.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

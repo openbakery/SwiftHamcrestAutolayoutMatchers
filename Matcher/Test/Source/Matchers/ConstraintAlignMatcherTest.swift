@@ -107,8 +107,6 @@ class ConstraintAlignMatcherTest : XCTestCase {
 	}
 	
 	
-
-	
 	func test_view_is_aligned_with_superview_to_top() {
 		// given
 		let first = UIView()
