@@ -1,8 +1,8 @@
 //
-//  StoryboardViewControllerTest.swift
-//  Tests
+//  LayoutInCodeViewControllerTest.swift
+//  HamcrestAutolayoutMatchersTest
 //
-//  Created by René Pirringer on 19.03.20.
+//  Created by René Pirringer on 20.03.20.
 //  Copyright © 2020 Rene Pirringer. All rights reserved.
 //
 
@@ -11,19 +11,13 @@ import Hamcrest
 import HamcrestAutolayoutMatchers
 @testable import Demo
 
-class StoryboardViewControllerTest: XCTestCase {
-
-	var viewController: StoryboardViewController!
+class LayoutInCodeViewControllerTest: XCTestCase {
+	
+	var viewController: LayoutInCodeViewController!
 	
 	override func setUp() {
 		super.setUp()
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		if let viewController = storyboard.instantiateViewController(identifier: "StoryboardViewController") as? StoryboardViewController {
-			self.viewController = viewController
-		} else {
-			XCTFail("Cannot create StoryboardViewController")
-			self.viewController = StoryboardViewController()
-		}
+		viewController = LayoutInCodeViewController()
 	}
 	
 	override func tearDown() {
@@ -31,7 +25,24 @@ class StoryboardViewControllerTest: XCTestCase {
 		super.tearDown()
 	}
 	
+	func test_has_proper_background() {
+		// given
+		viewController.loadViewIfNeeded()
+
+		// then
+		assertThat(viewController.view.backgroundColor, presentAnd(equalToColor(.systemBackground)))
+		
+	}
+	
 	// MARK: titleLabel
+	
+	func test_titleLabel_uses_autolayout() {
+		// whento
+		viewController.loadViewIfNeeded()
+		
+		// then
+		assertThat(viewController.titleLabel.translatesAutoresizingMaskIntoConstraints, equalTo(false))
+	}
 	
 	func test_has_titleLabel() {
 		// given
@@ -55,7 +66,14 @@ class StoryboardViewControllerTest: XCTestCase {
 	
 	
 	// MARK: subtitleLabel
+	
+	func test_subtitleLabel_uses_autolayout() {
+		// when
+		viewController.loadViewIfNeeded()
 
+		// then
+		assertThat(viewController.subtitleLabel.translatesAutoresizingMaskIntoConstraints, equalTo(false))
+	}
 	
 	func test_has_subtitleLabel() {
 		// given
@@ -80,6 +98,14 @@ class StoryboardViewControllerTest: XCTestCase {
 	
 	// MARK: buttomButton
 	
+	func test_buttomButton_uses_autolayout() {
+		// when
+		viewController.loadViewIfNeeded()
+
+		// then
+		assertThat(viewController.bottomButton.translatesAutoresizingMaskIntoConstraints, equalTo(false))
+	}
+	
 	func test_has_bottomButton() {
 		// when
 		viewController.loadViewIfNeeded()
@@ -98,22 +124,16 @@ class StoryboardViewControllerTest: XCTestCase {
 		
 	}
 	
-	
-	func test_buttomButton_pressed_shows_LayoutInCodeViewController() {
-		// given
-		let navigationController = TestNavigationController(rootViewController: viewController)
-		navigationController.loadViewIfNeeded()
-		
-		// when
-		viewController.bottomButton?.sendActions(for: .touchUpInside)
-		
-		// then
-		assertThat(navigationController.viewControllers, hasCount(2))
-		assertThat(navigationController.viewControllers.last, presentAnd(instanceOf(LayoutInCodeViewController.self)))
-
-	}
-
 	// MARK: centerButton
+	
+	
+	func test_centerButton_uses_autolayout() {
+		// when
+		viewController.loadViewIfNeeded()
+
+		// then
+		assertThat(viewController.centerButton.translatesAutoresizingMaskIntoConstraints, equalTo(false))
+	}
 	
 	func test_has_centerButton() {
 		// when

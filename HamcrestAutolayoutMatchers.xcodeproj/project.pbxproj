@@ -24,6 +24,12 @@
 		A7AB54E02423DEF900FDBAB3 /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AB54D82423DE6800FDBAB3 /* StoryboardViewController.swift */; };
 		A7AB54E92423E19900FDBAB3 /* Hamcrest.framework in Resources */ = {isa = PBXBuildFile; fileRef = A78EDAA923C47F8F00695664 /* Hamcrest.framework */; platformFilter = ios; };
 		A7DE0BA62423E42E00032810 /* StoryboardViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AB54E72423E07600FDBAB3 /* StoryboardViewControllerTest.swift */; };
+		A7DE0BAC2423E6DA00032810 /* HamcrestAutolayoutMatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */; };
+		A7DE0BAD2423E6DE00032810 /* Hamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDAA923C47F8F00695664 /* Hamcrest.framework */; };
+		A7EA7EC024249FCD00CF6C63 /* LayoutInCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */; };
+		A7EA7EC124249FF500CF6C63 /* LayoutInCodeViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EBD24249F9000CF6C63 /* LayoutInCodeViewControllerTest.swift */; };
+		A7EA7EC42424A0F400CF6C63 /* TestNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC32424A0F400CF6C63 /* TestNavigationController.swift */; };
+		A7EA7EC62424A2AE00CF6C63 /* UIColorMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = A7AB54B82423D97800FDBAB3;
 			remoteInfo = Demo;
+		};
+		A7DE0BAF2423E75C00032810 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A78EDA6823C47AB200695664 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A78EDA7023C47AB200695664;
+			remoteInfo = HamcrestAutolayoutMatchers;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -73,6 +86,10 @@
 		A7AB54E72423E07600FDBAB3 /* StoryboardViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewControllerTest.swift; sourceTree = "<group>"; };
 		A7DE0B9C2423E42800032810 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DE0BA02423E42800032810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7EA7EBD24249F9000CF6C63 /* LayoutInCodeViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutInCodeViewControllerTest.swift; sourceTree = "<group>"; };
+		A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutInCodeViewController.swift; sourceTree = "<group>"; };
+		A7EA7EC32424A0F400CF6C63 /* TestNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationController.swift; sourceTree = "<group>"; };
+		A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorMatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DE0BAC2423E6DA00032810 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
+				A7DE0BAD2423E6DE00032810 /* Hamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +234,7 @@
 			children = (
 				A7AB54BB2423D97800FDBAB3 /* AppDelegate.swift */,
 				A7AB54D82423DE6800FDBAB3 /* StoryboardViewController.swift */,
+				A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -242,6 +262,7 @@
 		A7DE0B9D2423E42800032810 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				A7EA7EC22424A09D00CF6C63 /* Helper */,
 				A7DE0BAB2423E50100032810 /* Resource */,
 				A7DE0BAA2423E4FC00032810 /* Source */,
 			);
@@ -270,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				A7AB54E72423E07600FDBAB3 /* StoryboardViewControllerTest.swift */,
+				A7EA7EBD24249F9000CF6C63 /* LayoutInCodeViewControllerTest.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -280,6 +302,15 @@
 				A7DE0BA02423E42800032810 /* Info.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		A7EA7EC22424A09D00CF6C63 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A7EA7EC32424A0F400CF6C63 /* TestNavigationController.swift */,
+				A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,10 +389,12 @@
 				A7DE0B982423E42800032810 /* Sources */,
 				A7DE0B992423E42800032810 /* Frameworks */,
 				A7DE0B9A2423E42800032810 /* Resources */,
+				A7DE0BAE2423E6E400032810 /* Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A7DE0BB02423E75C00032810 /* PBXTargetDependency */,
 				A7DE0BA22423E42800032810 /* PBXTargetDependency */,
 			);
 			name = DemoTests;
@@ -489,6 +522,25 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
 		};
+		A7DE0BAE2423E6E400032810 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Hamcrest.framework",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -518,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AB54BC2423D97800FDBAB3 /* AppDelegate.swift in Sources */,
+				A7EA7EC024249FCD00CF6C63 /* LayoutInCodeViewController.swift in Sources */,
 				A7AB54E02423DEF900FDBAB3 /* StoryboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +579,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7EA7EC62424A2AE00CF6C63 /* UIColorMatcher.swift in Sources */,
+				A7EA7EC124249FF500CF6C63 /* LayoutInCodeViewControllerTest.swift in Sources */,
 				A7DE0BA62423E42E00032810 /* StoryboardViewControllerTest.swift in Sources */,
+				A7EA7EC42424A0F400CF6C63 /* TestNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +604,11 @@
 			isa = PBXTargetDependency;
 			target = A7AB54B82423D97800FDBAB3 /* Demo */;
 			targetProxy = A7DE0BA12423E42800032810 /* PBXContainerItemProxy */;
+		};
+		A7DE0BB02423E75C00032810 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A78EDA7023C47AB200695664 /* HamcrestAutolayoutMatchers */;
+			targetProxy = A7DE0BAF2423E75C00032810 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -807,6 +868,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ED5DV56QPQ;
 				INFOPLIST_FILE = Demo/Main/Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -825,6 +887,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ED5DV56QPQ;
 				INFOPLIST_FILE = Demo/Main/Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -842,6 +905,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ED5DV56QPQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Demo/Test/Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -863,6 +930,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ED5DV56QPQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Demo/Test/Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

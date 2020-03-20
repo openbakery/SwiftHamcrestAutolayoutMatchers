@@ -8,23 +8,24 @@
 
 import UIKit
 
-open class StoryboardViewController: UIViewController {
+class StoryboardViewController: UIViewController {
 
-    open override func viewDidLoad() {
-        super.viewDidLoad()
+	@IBOutlet var titleLabel: UILabel?
+	@IBOutlet var subtitleLabel: UILabel?
+	@IBOutlet var bottomButton: UIButton?
+	@IBOutlet var centerButton: UIButton?
 
-        // Do any additional setup after loading the view.
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		bottomButton?.addTarget(self, action: #selector(bottomButtonPressed), for: .touchUpInside)
+		
+	}
+	
+	@objc
+	func bottomButtonPressed() {
+		let viewController = LayoutInCodeViewController()
+		self.navigationController?.pushViewController(viewController, animated:true)
+	}
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
