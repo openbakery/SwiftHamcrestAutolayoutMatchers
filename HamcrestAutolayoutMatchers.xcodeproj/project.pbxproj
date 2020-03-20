@@ -30,6 +30,9 @@
 		A7EA7EC124249FF500CF6C63 /* LayoutInCodeViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EBD24249F9000CF6C63 /* LayoutInCodeViewControllerTest.swift */; };
 		A7EA7EC42424A0F400CF6C63 /* TestNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC32424A0F400CF6C63 /* TestNavigationController.swift */; };
 		A7EA7EC62424A2AE00CF6C63 /* UIColorMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */; };
+		A7EA7ECA2424AA3000CF6C63 /* PinLayoutViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */; };
+		A7EA7ECC2424AA6200CF6C63 /* PinLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7ECB2424AA6200CF6C63 /* PinLayoutViewController.swift */; };
+		A7EA7ECD2424AB4C00CF6C63 /* PinLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC82424AA1100CF6C63 /* PinLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,9 @@
 		A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutInCodeViewController.swift; sourceTree = "<group>"; };
 		A7EA7EC32424A0F400CF6C63 /* TestNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationController.swift; sourceTree = "<group>"; };
 		A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorMatcher.swift; sourceTree = "<group>"; };
+		A7EA7EC82424AA1100CF6C63 /* PinLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayout.swift; sourceTree = "<group>"; };
+		A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayoutViewControllerTest.swift; sourceTree = "<group>"; };
+		A7EA7ECB2424AA6200CF6C63 /* PinLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,9 +238,11 @@
 		A7AB54CF2423DA4100FDBAB3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A7EA7EC72424AA0800CF6C63 /* PinLayout */,
 				A7AB54BB2423D97800FDBAB3 /* AppDelegate.swift */,
 				A7AB54D82423DE6800FDBAB3 /* StoryboardViewController.swift */,
 				A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */,
+				A7EA7ECB2424AA6200CF6C63 /* PinLayoutViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -292,6 +300,7 @@
 			children = (
 				A7AB54E72423E07600FDBAB3 /* StoryboardViewControllerTest.swift */,
 				A7EA7EBD24249F9000CF6C63 /* LayoutInCodeViewControllerTest.swift */,
+				A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -311,6 +320,14 @@
 				A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		A7EA7EC72424AA0800CF6C63 /* PinLayout */ = {
+			isa = PBXGroup;
+			children = (
+				A7EA7EC82424AA1100CF6C63 /* PinLayout.swift */,
+			);
+			path = PinLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,8 +586,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7EA7ECC2424AA6200CF6C63 /* PinLayoutViewController.swift in Sources */,
 				A7AB54BC2423D97800FDBAB3 /* AppDelegate.swift in Sources */,
 				A7EA7EC024249FCD00CF6C63 /* LayoutInCodeViewController.swift in Sources */,
+				A7EA7ECD2424AB4C00CF6C63 /* PinLayout.swift in Sources */,
 				A7AB54E02423DEF900FDBAB3 /* StoryboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7EA7EC62424A2AE00CF6C63 /* UIColorMatcher.swift in Sources */,
+				A7EA7ECA2424AA3000CF6C63 /* PinLayoutViewControllerTest.swift in Sources */,
 				A7EA7EC124249FF500CF6C63 /* LayoutInCodeViewControllerTest.swift in Sources */,
 				A7DE0BA62423E42E00032810 /* StoryboardViewControllerTest.swift in Sources */,
 				A7EA7EC42424A0F400CF6C63 /* TestNavigationController.swift in Sources */,

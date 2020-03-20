@@ -19,12 +19,19 @@ class StoryboardViewController: UIViewController {
 		super.viewDidLoad()
 		
 		bottomButton?.addTarget(self, action: #selector(bottomButtonPressed), for: .touchUpInside)
-		
+		centerButton?.addTarget(self, action: #selector(centerButtonPressed), for: .touchUpInside)
+
 	}
 	
 	@objc
 	func bottomButtonPressed() {
 		let viewController = LayoutInCodeViewController()
+		self.navigationController?.pushViewController(viewController, animated:true)
+	}
+	
+	@objc
+	func centerButtonPressed() {
+		let viewController = PinLayoutViewController()
 		self.navigationController?.pushViewController(viewController, animated:true)
 	}
     
