@@ -99,7 +99,7 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap: Float, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
-	return isPinned(attribute, toView: toView, gap: equalTo(gap), priority: priority, relatedBy: relation)
+	return isPinned(attribute, toView: toView, gap: closeTo(gap, 0.001), priority: priority, relatedBy: relation)
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?) -> Matcher<T> {
@@ -120,7 +120,7 @@ return isPinned(attribute, toView: nil, gap: gapMatcher, priority: priority, rel
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: Float, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
-	return isPinned(attribute, gap: equalTo(gap), priority: priority, relatedBy: relation)
+	return isPinned(attribute, gap: closeTo(gap, 0.001), priority: priority, relatedBy: relation)
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, withGuide guide: UILayoutSupport, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
@@ -128,7 +128,7 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, withGu
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, gap: Float, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
-	return isPinned(attribute, to: to, gap: equalTo(gap), priority: priority)
+	return isPinned(attribute, to: to, gap: closeTo(gap, 0.001), priority: priority)
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, gap: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {

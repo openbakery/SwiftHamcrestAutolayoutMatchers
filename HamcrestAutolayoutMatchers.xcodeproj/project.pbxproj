@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */; platformFilter = ios; };
 		A78EDA9B23C47D9900695664 /* ConstraintMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9623C47D9900695664 /* ConstraintMatcher.swift */; };
 		A78EDA9C23C47D9900695664 /* ContraintAlignMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9723C47D9900695664 /* ContraintAlignMatcher.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A741F6F5242B877400BFEB5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HamcrestAutolayoutMatchers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78EDA7523C47AB200695664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A78EDA7A23C47AB300695664 /* HamcrestAutolayoutMatchersTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HamcrestAutolayoutMatchersTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */,
 				A78EDAAA23C47F8F00695664 /* Hamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +224,7 @@
 		A78EDAA623C47E0B00695664 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A741F6F5242B877400BFEB5E /* XCTest.framework */,
 				A78EDAA923C47F8F00695664 /* Hamcrest.framework */,
 			);
 			name = Frameworks;
