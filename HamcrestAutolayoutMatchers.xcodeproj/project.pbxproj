@@ -18,6 +18,8 @@
 		A78EDAA323C47DD900695664 /* ConstraintMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA123C47DD900695664 /* ConstraintMatcherTest.swift */; };
 		A78EDAAA23C47F8F00695664 /* Hamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDAA923C47F8F00695664 /* Hamcrest.framework */; };
 		A78EDAAD23C483B100695664 /* Hamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDAA923C47F8F00695664 /* Hamcrest.framework */; platformFilter = ios; };
+		A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
+		A7AAC5922436199A00D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A7AB54BC2423D97800FDBAB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AB54BB2423D97800FDBAB3 /* AppDelegate.swift */; };
 		A7AB54C32423D97800FDBAB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7AB54C12423D97800FDBAB3 /* Main.storyboard */; };
 		A7AB54C52423D97900FDBAB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7AB54C42423D97900FDBAB3 /* Assets.xcassets */; };
@@ -114,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */,
 				A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
 				A78EDAAD23C483B100695664 /* Hamcrest.framework in Frameworks */,
 			);
@@ -130,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7AAC5922436199A00D6416E /* XCTest.framework in Frameworks */,
 				A7DE0BAC2423E6DA00032810 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
 				A7DE0BAD2423E6DE00032810 /* Hamcrest.framework in Frameworks */,
 			);
