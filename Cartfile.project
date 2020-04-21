@@ -1,0 +1,5 @@
+HamcrestAutolayoutMatchers:
+  project: HamcrestAutolayoutMatchers.xcodeproj
+  sdks:
+  - iphonesimulator
+  - iphoneos
