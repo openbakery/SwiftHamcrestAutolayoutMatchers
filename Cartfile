@@ -1,2 +1,2 @@
-github "nschum/SwiftHamcrest" "xcode12"
+github "nschum/SwiftHamcrest" "xcframework"
 
