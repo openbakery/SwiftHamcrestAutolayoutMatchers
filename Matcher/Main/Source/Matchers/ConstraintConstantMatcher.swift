@@ -33,10 +33,10 @@ public func hasConstantConstraint<T:UIView>(_ attribute: NSLayoutConstraint.Attr
 	}
 }
 
-private func hasConstraint(_ view: UIView, attribute: NSLayoutConstraint.Attribute, matcher: Matcher<Float>) -> MatchResult {
+private func hasConstraint(_ view: UIView, attribute: NSLayoutConstraint.Attribute, matcher: Matcher<CGFloat>) -> MatchResult {
 	for constraint in view.constraints {
 		if (constraint.firstAttribute == attribute) {
-			if (matcher.matches(Float(constraint.constant)).boolValue) {
+			if (matcher.matches(constraint.constant).boolValue) {
 				return .match
 			}
 		}
@@ -56,7 +56,7 @@ private func hasConstraint(_ view: UIView, attribute: NSLayoutConstraint.Attribu
 }
 
 
-public func hasHeight<T:UIView>(_ matcher: Matcher<Float>) -> Matcher<T> {
+public func hasHeight<T:UIView>(_ matcher: Matcher<CGFloat>) -> Matcher<T> {
 	return Matcher("view has constant value of \(matcher.description)") {
 		(value: T) -> MatchResult in
 		return hasConstraint(value, attribute: .height, matcher: matcher)
@@ -71,7 +71,7 @@ public func hasHeight<T:UIView>(_ matcher: Matcher<Double>) -> Matcher<T> {
 }
 
 
-public func hasWidth<T:UIView>(_ matcher: Matcher<Float>) -> Matcher<T> {
+public func hasWidth<T:UIView>(_ matcher: Matcher<CGFloat>) -> Matcher<T> {
 	return Matcher("view has constant value of \(matcher.description)") {
 		(value: T) -> MatchResult in
 		return hasConstraint(value, attribute: .width, matcher: matcher)

@@ -19,11 +19,11 @@ public func isEqualHorizontalCenter<T: UIView>() -> Matcher<T> {
 
 
 
-public func isEqualHorizontalCenter<T: UIView>(offset: Float) -> Matcher<T> {
+public func isEqualHorizontalCenter<T: UIView>(offset: CGFloat) -> Matcher<T> {
 	return hasEqualConstraint(.centerX, withConstant: offset)
 }
 
-public func isEqualHorizontalCenter<T: UIView>(with view: UIView, offset: Float = 0) -> Matcher<T> {
+public func isEqualHorizontalCenter<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
 	return hasEqualConstraint(.centerX, with: view, constant: offset)
 }
 
@@ -34,12 +34,12 @@ public func isEqualVerticalCenter<T: UIView>() -> Matcher<T> {
 }
 
 
-public func isEqualVerticalCenter<T: UIView>(offset: Float) -> Matcher<T> {
+public func isEqualVerticalCenter<T: UIView>(offset: CGFloat) -> Matcher<T> {
 	return hasEqualConstraint(.centerY, withConstant: offset)
 }
 
 
-public func isEqualVerticalCenter<T: UIView>(with view: UIView, offset: Float = 0) -> Matcher<T> {
+public func isEqualVerticalCenter<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
 	return hasEqualConstraint(.centerY, with: view, constant: offset)
 }
 

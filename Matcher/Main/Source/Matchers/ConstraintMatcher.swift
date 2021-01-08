@@ -98,8 +98,8 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView
 	}
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap: Float, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
-	return isPinned(attribute, toView: toView, gap: closeTo(gap, 0.001), priority: priority, relatedBy: relation)
+public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
+	return isPinned(attribute, toView: toView, gap: closeTo(Float(gap), 0.001), priority: priority, relatedBy: relation)
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?) -> Matcher<T> {
@@ -119,16 +119,16 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap ga
 return isPinned(attribute, toView: nil, gap: gapMatcher, priority: priority, relatedBy: relation)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: Float, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
-	return isPinned(attribute, gap: closeTo(gap, 0.001), priority: priority, relatedBy: relation)
+public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
+	return isPinned(attribute, gap: closeTo(Float(gap), 0.001), priority: priority, relatedBy: relation)
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, withGuide guide: UILayoutSupport, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 	return isPinned(attribute, to: guide, priority: priority)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, gap: Float, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
-	return isPinned(attribute, to: to, gap: closeTo(gap, 0.001), priority: priority)
+public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+	return isPinned(attribute, to: to, gap: closeTo(Float(gap), 0.001), priority: priority)
 }
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, gap: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
@@ -144,7 +144,7 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: An
 }
 
 
-public func isPinnedToAllEdges<T:UIView>(gap: Float = 0) -> Matcher<T> {
+public func isPinnedToAllEdges<T:UIView>(gap: CGFloat = 0) -> Matcher<T> {
 	return allOf(
 			isPinned(.leading, gap: gap),
 			isPinned(.trailing, gap: gap),
