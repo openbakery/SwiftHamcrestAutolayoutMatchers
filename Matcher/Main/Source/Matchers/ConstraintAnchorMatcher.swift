@@ -73,7 +73,7 @@ private func hasAnchorConstraint(for view: UIView, baseView: UIView, attribute: 
 	return hasAnchorConstraint(for: view, baseView: baseView, attribute: attribute, guide: guide, constant: Float(constant))
 }
 
-private func hasSafeAreaAnchorConstraint(for view: UIView,
+func hasSafeAreaAnchorConstraint(for view: UIView,
 																				 baseView: UIView?,
 																				 attribute: NSLayoutConstraint.Attribute,
 																				 constant: Float = 0) -> MatchResult {

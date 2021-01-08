@@ -7,9 +7,8 @@
 //
 
 import Foundation
-
-import Foundation
 import UIKit
+import PinLayout
 
 class PinLayoutViewController: UIViewController {
 	

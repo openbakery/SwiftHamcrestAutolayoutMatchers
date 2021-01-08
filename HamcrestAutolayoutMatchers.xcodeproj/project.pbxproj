@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */; };
+		A71E3B3825A8A28E00F02CC6 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */; };
+		A71E3B3C25A8A2B800F02CC6 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */; };
 		A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */; platformFilter = ios; };
 		A78EDA9B23C47D9900695664 /* ConstraintMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9623C47D9900695664 /* ConstraintMatcher.swift */; };
@@ -35,7 +38,6 @@
 		A7EA7EC62424A2AE00CF6C63 /* UIColorMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */; };
 		A7EA7ECA2424AA3000CF6C63 /* PinLayoutViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */; };
 		A7EA7ECC2424AA6200CF6C63 /* PinLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7ECB2424AA6200CF6C63 /* PinLayoutViewController.swift */; };
-		A7EA7ECD2424AB4C00CF6C63 /* PinLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC82424AA1100CF6C63 /* PinLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContraintEqualCenterMatcher.swift; sourceTree = "<group>"; };
+		A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PinLayout.xcframework; path = Carthage/Build/PinLayout.xcframework; sourceTree = "<group>"; };
 		A741F6F5242B877400BFEB5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HamcrestAutolayoutMatchers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78EDA7523C47AB200695664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +115,6 @@
 		A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutInCodeViewController.swift; sourceTree = "<group>"; };
 		A7EA7EC32424A0F400CF6C63 /* TestNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNavigationController.swift; sourceTree = "<group>"; };
 		A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorMatcher.swift; sourceTree = "<group>"; };
-		A7EA7EC82424AA1100CF6C63 /* PinLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayout.swift; sourceTree = "<group>"; };
 		A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayoutViewControllerTest.swift; sourceTree = "<group>"; };
 		A7EA7ECB2424AA6200CF6C63 /* PinLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A71E3B3825A8A28E00F02CC6 /* PinLayout.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AAC5922436199A00D6416E /* XCTest.framework in Frameworks */,
+				A71E3B3C25A8A2B800F02CC6 /* PinLayout.xcframework in Frameworks */,
 				A7DE0BAC2423E6DA00032810 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
 				A7DC174C257AAA5600BDB63F /* Hamcrest.xcframework in Frameworks */,
 			);
@@ -235,6 +240,7 @@
 				A78EDA9923C47D9900695664 /* ConstraintEqualMatcher.swift */,
 				A78EDA9623C47D9900695664 /* ConstraintMatcher.swift */,
 				A78EDA9723C47D9900695664 /* ContraintAlignMatcher.swift */,
+				355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 		A78EDAA623C47E0B00695664 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */,
 				A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */,
 				A741F6F5242B877400BFEB5E /* XCTest.framework */,
 			);
@@ -260,7 +267,6 @@
 		A7AB54CF2423DA4100FDBAB3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A7EA7EC72424AA0800CF6C63 /* PinLayout */,
 				A7AB54BB2423D97800FDBAB3 /* AppDelegate.swift */,
 				A7AB54D82423DE6800FDBAB3 /* StoryboardViewController.swift */,
 				A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */,
@@ -342,14 +348,6 @@
 				A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		A7EA7EC72424AA0800CF6C63 /* PinLayout */ = {
-			isa = PBXGroup;
-			children = (
-				A7EA7EC82424AA1100CF6C63 /* PinLayout.swift */,
-			);
-			path = PinLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,7 +444,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Rene Pirringer";
 				TargetAttributes = {
 					A78EDA7023C47AB200695664 = {
@@ -531,6 +529,7 @@
 				A78EDA9B23C47D9900695664 /* ConstraintMatcher.swift in Sources */,
 				A78EDA9F23C47D9900695664 /* ConstraintConstantMatcher.swift in Sources */,
 				A78EDA9C23C47D9900695664 /* ContraintAlignMatcher.swift in Sources */,
+				355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +549,6 @@
 				A7EA7ECC2424AA6200CF6C63 /* PinLayoutViewController.swift in Sources */,
 				A7AB54BC2423D97800FDBAB3 /* AppDelegate.swift in Sources */,
 				A7EA7EC024249FCD00CF6C63 /* LayoutInCodeViewController.swift in Sources */,
-				A7EA7ECD2424AB4C00CF6C63 /* PinLayout.swift in Sources */,
 				A7AB54E02423DEF900FDBAB3 /* StoryboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

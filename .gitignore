@@ -2,6 +2,8 @@
 Carthage/
 idea
 build/
+.idea
+.DS_Store
 
 HamcrestAutolayoutMatchers.xcodeproj/xcuserdata
 HamcrestAutolayoutMatchers.xcodeproj/project.xcworkspace/

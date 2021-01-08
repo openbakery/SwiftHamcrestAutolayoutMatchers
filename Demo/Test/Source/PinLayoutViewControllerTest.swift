@@ -9,6 +9,7 @@
 import XCTest
 import Hamcrest
 import HamcrestAutolayoutMatchers
+import PinLayout
 @testable import Demo
 
 class PinLayoutViewControllerTest: XCTestCase {
@@ -150,7 +151,141 @@ class PinLayoutViewControllerTest: XCTestCase {
 		// then
 		assertThat(viewController.centerButton, presentAnd(isVerticalCenter(offset: 40)))
 		assertThat(viewController.centerButton, presentAnd(isHorizontalCenter()))
-		
 	}
-	
+
+
+	// MARK: - Center
+
+	func test_centerButton_is_equal_center() {
+		// when
+		viewController.loadViewIfNeeded()
+
+		// then
+		assertThat(viewController.centerButton, presentAnd(isEqualHorizontalCenter()))
+	}
+
+	func test_view_is_equal_center() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.center(view: centerView)
+
+		// then
+		assertThat(centerView, isEqualHorizontalCenter())
+		assertThat(centerView, isEqualVerticalCenter())
+		assertThat(centerView, isEqualCenter())
+	}
+
+
+	func test_view_is_equal_horizontal_center_with_offset() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.horizontalCenter(view: centerView, offset: 20)
+
+		// then
+		assertThat(centerView, isEqualHorizontalCenter(offset: 20))
+	}
+
+
+	func test_view_is_equal_horizontal_center_with_bottomButton() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.horizontalCenter(view: centerView, toView: viewController.bottomButton)
+
+		// then
+		assertThat(centerView, isEqualHorizontalCenter(with: viewController.bottomButton))
+	}
+
+
+	func test_view_is_equal_vertical_center_with_offset() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.verticalCenter(view: centerView, offset: 20)
+
+		// then
+		assertThat(centerView, isEqualVerticalCenter(offset: 20))
+	}
+
+
+	func test_view_is_equal_vertical_center_with_bottomButton() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.verticalCenter(view: centerView, toView: viewController.bottomButton)
+
+		// then
+		assertThat(centerView, isEqualVerticalCenter(with: viewController.bottomButton))
+	}
+
+	// MARK: - Horizontal Save Area
+
+
+	func test_view_is_safeArea_horizontal_center() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.centerX(view: centerView)
+
+		// then
+		assertThat(centerView, isCenterX())
+	}
+
+	func test_view_is_safeArea_vertical_center() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.centerY(view: centerView)
+
+		// then
+		assertThat(centerView, isCenterY())
+	}
+
+
+	func test_view_is_safeArea_center() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.safeAreaCenter(view: centerView)
+
+		// then
+		assertThat(centerView, isCenterY())
+		assertThat(centerView, isCenterX())
+		assertThat(centerView, isCenterSafeArea())
+	}
+
 }

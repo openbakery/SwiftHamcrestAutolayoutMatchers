@@ -1,1 +1,2 @@
 github "nschum/SwiftHamcrest" "2.2.2"
+github "openbakery/Pinlayout" "3d4ade8b2befc537a02df4f64aceff34a1700867"

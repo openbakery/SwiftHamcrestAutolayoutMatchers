@@ -147,6 +147,8 @@ public func isCenter<T: UIView>() -> Matcher<T> {
 	return allOf(isHorizontalCenter(), isVerticalCenter())
 }
 
+
+
 public func hasSameSize<T: UIView>() -> Matcher<T> {
 	return Matcher("view has same size") {
 		(value: T) -> MatchResult in
