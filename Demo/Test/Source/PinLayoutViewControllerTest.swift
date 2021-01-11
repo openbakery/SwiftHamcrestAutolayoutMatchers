@@ -287,5 +287,24 @@ class PinLayoutViewControllerTest: XCTestCase {
 		assertThat(centerView, isCenterX())
 		assertThat(centerView, isCenter())
 	}
+	
+	func test_view_is_safeArea_center_with_other_view() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		let otherView = UIView()
+		viewController.view.addSubview(centerView)
+		viewController.view.addSubview(otherView)
+		let layout = PinLayout()
+
+		// when
+		layout.centerY(view: centerView, with: otherView)
+		layout.centerX(view: centerView, with: otherView)
+
+		// then
+		assertThat(centerView, isCenterY(with:otherView))
+		assertThat(centerView, isCenterX(with:otherView))
+		assertThat(centerView, isCenter(with:otherView))
+	}
 
 }
