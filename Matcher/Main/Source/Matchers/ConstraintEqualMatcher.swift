@@ -80,7 +80,7 @@ private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, fir
 					constraint.firstAttribute == firstAttribute &&
 					constraint.secondAttribute == secondAttribute &&
 					constraint.relation == NSLayoutConstraint.Relation.equal &&
-					constraint.multiplier == multiplier &&
+					equalMultiplier(constraint: constraint, multiplier: multiplier) &&
 					constraint.constant == 0 &&
 					constraint.isActive) {
 				return .match
@@ -91,7 +91,7 @@ private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, fir
 					constraint.firstAttribute == firstAttribute &&
 					constraint.secondAttribute == secondAttribute &&
 					constraint.relation == NSLayoutConstraint.Relation.equal &&
-					constraint.multiplier == multiplier &&
+					equalMultiplier(constraint: constraint, multiplier: multiplier) &&
 					constraint.constant == 0 &&
 					constraint.isActive) {
 				return .match
@@ -104,6 +104,11 @@ private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, fir
 
 }
 
+func equalMultiplier(constraint: NSLayoutConstraint, multiplier: CGFloat) -> Bool {
+	let first = Int(constraint.multiplier*10000)
+	let second = Int(multiplier*10000)
+	return first == second
+}
 
 public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, withConstant constant: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view has equal constraint: \(descriptionOfAttribute(attribute))") {

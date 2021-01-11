@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		355B2398141A943727AA01C4 /* EqualWidth_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2C3D170A758080AF18E5 /* EqualWidth_Test.swift */; };
 		355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */; };
 		A71E3B3825A8A28E00F02CC6 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */; };
 		A71E3B3C25A8A2B800F02CC6 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContraintEqualCenterMatcher.swift; sourceTree = "<group>"; };
+		355B2C3D170A758080AF18E5 /* EqualWidth_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidth_Test.swift; sourceTree = "<group>"; };
 		A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PinLayout.xcframework; path = Carthage/Build/PinLayout.xcframework; sourceTree = "<group>"; };
 		A741F6F5242B877400BFEB5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HamcrestAutolayoutMatchers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +331,7 @@
 				A7AB54E72423E07600FDBAB3 /* StoryboardViewControllerTest.swift */,
 				A7EA7EBD24249F9000CF6C63 /* LayoutInCodeViewControllerTest.swift */,
 				A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */,
+				355B2C3D170A758080AF18E5 /* EqualWidth_Test.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 			files = (
 				A78EDAA223C47DD900695664 /* ConstraintAlignMatcherTest.swift in Sources */,
 				A78EDAA323C47DD900695664 /* ConstraintMatcherTest.swift in Sources */,
+				355B2398141A943727AA01C4 /* EqualWidth_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
