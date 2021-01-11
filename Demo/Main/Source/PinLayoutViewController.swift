@@ -41,7 +41,7 @@ class PinLayoutViewController: UIViewController {
 
 		let pinLayout = PinLayout()
 
-		pinLayout.horizontalCenter(view: titleLabel)
+		pinLayout.equalCenterX(view: titleLabel)
 		pinLayout.pin(view: titleLabel, to: .topSafeArea)
 		
 		pinLayout.pin(view: subtitleLabel, to: .leading, gap: 40)
@@ -50,8 +50,8 @@ class PinLayoutViewController: UIViewController {
 		pinLayout.pin(view: bottomButton, to: .bottomSafeArea, gap: -40)
 		pinLayout.pin(view: bottomButton, to: .trailingSafeArea, gap: -40)
 
-		pinLayout.horizontalCenter(view: centerButton)
-		pinLayout.verticalCenter(view: centerButton, offset: 40)
+		pinLayout.equalCenterX(view: centerButton)
+		pinLayout.equalCenterY(view: centerButton, offset: 40)
 
 		
 	}

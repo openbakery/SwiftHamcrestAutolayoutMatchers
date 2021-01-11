@@ -8,38 +8,38 @@ import UIKit
 import Hamcrest
 
 public func isEqualCenter<T: UIView>() -> Matcher<T> {
-	return allOf(isEqualHorizontalCenter(), isEqualVerticalCenter())
+	return allOf(isEqualCenterX(), isEqualCenterY())
 }
 
-// MARK: - Horizontal
+// MARK: - CenterX
 
-public func isEqualHorizontalCenter<T: UIView>() -> Matcher<T> {
+public func isEqualCenterX<T: UIView>() -> Matcher<T> {
 	return hasEqualConstraint(.centerX)
 }
 
 
 
-public func isEqualHorizontalCenter<T: UIView>(offset: CGFloat) -> Matcher<T> {
+public func isEqualCenterX<T: UIView>(offset: CGFloat) -> Matcher<T> {
 	return hasEqualConstraint(.centerX, withConstant: offset)
 }
 
-public func isEqualHorizontalCenter<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
+public func isEqualCenterX<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
 	return hasEqualConstraint(.centerX, with: view, constant: offset)
 }
 
-// MARK: - Vertical
+// MARK: - Center Y
 
-public func isEqualVerticalCenter<T: UIView>() -> Matcher<T> {
+public func isEqualCenterY<T: UIView>() -> Matcher<T> {
 	return hasEqualConstraint(.centerY)
 }
 
 
-public func isEqualVerticalCenter<T: UIView>(offset: CGFloat) -> Matcher<T> {
+public func isEqualCenterY<T: UIView>(offset: CGFloat) -> Matcher<T> {
 	return hasEqualConstraint(.centerY, withConstant: offset)
 }
 
 
-public func isEqualVerticalCenter<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
+public func isEqualCenterY<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
 	return hasEqualConstraint(.centerY, with: view, constant: offset)
 }
 
@@ -64,7 +64,7 @@ public func isCenterY<T: UIView>() -> Matcher<T> {
 	}
 }
 
-public func isCenterSafeArea<T: UIView>() -> Matcher<T> {
+public func isCenter<T: UIView>() -> Matcher<T> {
 	return allOf(isCenterX(), isCenterY())
 
 }

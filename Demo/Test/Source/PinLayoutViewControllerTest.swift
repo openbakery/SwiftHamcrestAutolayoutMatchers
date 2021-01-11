@@ -61,7 +61,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		
 		// then
-		assertThat(viewController.titleLabel, presentAnd(isHorizontalCenter()))
+		assertThat(viewController.titleLabel, presentAnd(isEqualCenterX()))
 		assertThat(viewController.titleLabel, presentAnd(isPinnedToSafeAreaAnchor(.top)))
 	}
 	
@@ -149,8 +149,8 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		
 		// then
-		assertThat(viewController.centerButton, presentAnd(isVerticalCenter(offset: 40)))
-		assertThat(viewController.centerButton, presentAnd(isHorizontalCenter()))
+		assertThat(viewController.centerButton, presentAnd(isEqualCenterY(offset: 40)))
+		assertThat(viewController.centerButton, presentAnd(isEqualCenterX()))
 	}
 
 
@@ -161,7 +161,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 
 		// then
-		assertThat(viewController.centerButton, presentAnd(isEqualHorizontalCenter()))
+		assertThat(viewController.centerButton, presentAnd(isEqualCenterX()))
 	}
 
 	func test_view_is_equal_center() {
@@ -172,11 +172,11 @@ class PinLayoutViewControllerTest: XCTestCase {
 		let layout = PinLayout()
 
 		// when
-		layout.center(view: centerView)
+		layout.equalCenter(view: centerView)
 
 		// then
-		assertThat(centerView, isEqualHorizontalCenter())
-		assertThat(centerView, isEqualVerticalCenter())
+		assertThat(centerView, isEqualCenterX())
+		assertThat(centerView, isEqualCenterY())
 		assertThat(centerView, isEqualCenter())
 	}
 
@@ -189,10 +189,10 @@ class PinLayoutViewControllerTest: XCTestCase {
 		let layout = PinLayout()
 
 		// when
-		layout.horizontalCenter(view: centerView, offset: 20)
+		layout.equalCenterX(view: centerView, offset: 20)
 
 		// then
-		assertThat(centerView, isEqualHorizontalCenter(offset: 20))
+		assertThat(centerView, isEqualCenterX(offset: 20))
 	}
 
 
@@ -204,10 +204,10 @@ class PinLayoutViewControllerTest: XCTestCase {
 		let layout = PinLayout()
 
 		// when
-		layout.horizontalCenter(view: centerView, toView: viewController.bottomButton)
+		layout.equalCenterX(view: centerView, toView: viewController.bottomButton)
 
 		// then
-		assertThat(centerView, isEqualHorizontalCenter(with: viewController.bottomButton))
+		assertThat(centerView, isEqualCenterX(with: viewController.bottomButton))
 	}
 
 
@@ -219,10 +219,10 @@ class PinLayoutViewControllerTest: XCTestCase {
 		let layout = PinLayout()
 
 		// when
-		layout.verticalCenter(view: centerView, offset: 20)
+		layout.equalCenterY(view: centerView, offset: 20)
 
 		// then
-		assertThat(centerView, isEqualVerticalCenter(offset: 20))
+		assertThat(centerView, isEqualCenterY(offset: 20))
 	}
 
 
@@ -234,10 +234,10 @@ class PinLayoutViewControllerTest: XCTestCase {
 		let layout = PinLayout()
 
 		// when
-		layout.verticalCenter(view: centerView, toView: viewController.bottomButton)
+		layout.equalCenterY(view: centerView, toView: viewController.bottomButton)
 
 		// then
-		assertThat(centerView, isEqualVerticalCenter(with: viewController.bottomButton))
+		assertThat(centerView, isEqualCenterY(with: viewController.bottomButton))
 	}
 
 	// MARK: - Horizontal Save Area
@@ -280,12 +280,12 @@ class PinLayoutViewControllerTest: XCTestCase {
 		let layout = PinLayout()
 
 		// when
-		layout.safeAreaCenter(view: centerView)
+		layout.center(view: centerView)
 
 		// then
 		assertThat(centerView, isCenterY())
 		assertThat(centerView, isCenterX())
-		assertThat(centerView, isCenterSafeArea())
+		assertThat(centerView, isCenter())
 	}
 
 }

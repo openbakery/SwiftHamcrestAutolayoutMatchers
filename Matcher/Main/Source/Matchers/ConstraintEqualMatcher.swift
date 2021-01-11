@@ -119,35 +119,6 @@ public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attrib
 	}
 }
 
-public func isVerticalCenter<T: UIView>() -> Matcher<T> {
-	return hasEqualConstraint(.centerY)
-}
-
-public func isVerticalCenter<T: UIView>(offset: CGFloat) -> Matcher<T> {
-	return hasEqualConstraint(.centerY, withConstant: offset)
-}
-
-public func isVerticalCenter<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
-	return hasEqualConstraint(.centerY, with: view, constant: offset)
-}
-
-public func isHorizontalCenter<T: UIView>() -> Matcher<T> {
-	return hasEqualConstraint(.centerX)
-}
-
-public func isHorizontalCenter<T: UIView>(offset: CGFloat) -> Matcher<T> {
-	return hasEqualConstraint(.centerX, withConstant: offset)
-}
-
-public func isHorizontalCenter<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
-	return hasEqualConstraint(.centerX, with: view, constant: offset)
-}
-
-public func isCenter<T: UIView>() -> Matcher<T> {
-	return allOf(isHorizontalCenter(), isVerticalCenter())
-}
-
-
 
 public func hasSameSize<T: UIView>() -> Matcher<T> {
 	return Matcher("view has same size") {

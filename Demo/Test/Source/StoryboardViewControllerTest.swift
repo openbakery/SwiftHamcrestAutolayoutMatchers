@@ -49,7 +49,7 @@ class StoryboardViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		
 		// then
-		assertThat(viewController.titleLabel, presentAnd(isHorizontalCenter()))
+		assertThat(viewController.titleLabel, presentAnd(isEqualCenterX()))
 		assertThat(viewController.titleLabel, presentAnd(isPinnedToSafeAreaAnchor(.top)))
 	}
 	
@@ -128,9 +128,8 @@ class StoryboardViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		
 		// then
-		assertThat(viewController.centerButton, presentAnd(isVerticalCenter(offset: 40)))
-		assertThat(viewController.centerButton, presentAnd(isHorizontalCenter()))
-		
+		assertThat(viewController.centerButton, presentAnd(isEqualCenterY(offset: 40)))
+		assertThat(viewController.centerButton, presentAnd(isEqualCenterX()))
 	}
 	
 	func test_centerButton_pressed_shows_PinLayoutViewController() {
