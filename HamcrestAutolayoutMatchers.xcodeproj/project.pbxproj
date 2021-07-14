@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7011287269F552300A1A88E /* Hamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7011286269F552300A1A88E /* Hamcrest.framework */; };
+		A7011288269F552300A1A88E /* Hamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7011286269F552300A1A88E /* Hamcrest.framework */; };
+		A7011289269F552300A1A88E /* Hamcrest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7011286269F552300A1A88E /* Hamcrest.framework */; };
 		A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */; platformFilter = ios; };
 		A78EDA9B23C47D9900695664 /* ConstraintMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9623C47D9900695664 /* ConstraintMatcher.swift */; };
@@ -23,10 +26,6 @@
 		A7AB54C52423D97900FDBAB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7AB54C42423D97900FDBAB3 /* Assets.xcassets */; };
 		A7AB54C82423D97900FDBAB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7AB54C62423D97900FDBAB3 /* LaunchScreen.storyboard */; };
 		A7AB54E02423DEF900FDBAB3 /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AB54D82423DE6800FDBAB3 /* StoryboardViewController.swift */; };
-		A7DC173F257AAA1B00BDB63F /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */; };
-		A7DC1740257AAA1B00BDB63F /* Hamcrest.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A7DC1748257AAA5600BDB63F /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */; };
-		A7DC174C257AAA5600BDB63F /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */; };
 		A7DE0BA62423E42E00032810 /* StoryboardViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AB54E72423E07600FDBAB3 /* StoryboardViewControllerTest.swift */; };
 		A7DE0BAC2423E6DA00032810 /* HamcrestAutolayoutMatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */; };
 		A7EA7EC024249FCD00CF6C63 /* LayoutInCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EBF24249FCD00CF6C63 /* LayoutInCodeViewController.swift */; };
@@ -76,7 +75,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A7DC1740257AAA1B00BDB63F /* Hamcrest.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A7011286269F552300A1A88E /* Hamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hamcrest.framework; path = Carthage/Build/iOS/Hamcrest.framework; sourceTree = "<group>"; };
 		A741F6F5242B877400BFEB5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HamcrestAutolayoutMatchers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78EDA7523C47AB200695664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,7 +103,6 @@
 		A7AB54C92423D97900FDBAB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7AB54D82423DE6800FDBAB3 /* StoryboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewController.swift; sourceTree = "<group>"; };
 		A7AB54E72423E07600FDBAB3 /* StoryboardViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardViewControllerTest.swift; sourceTree = "<group>"; };
-		A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Hamcrest.xcframework; path = Carthage/Build/Hamcrest.xcframework; sourceTree = "<group>"; };
 		A7DE0B9C2423E42800032810 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DE0BA02423E42800032810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7EA7EBD24249F9000CF6C63 /* LayoutInCodeViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutInCodeViewControllerTest.swift; sourceTree = "<group>"; };
@@ -121,8 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7DC173F257AAA1B00BDB63F /* Hamcrest.xcframework in Frameworks */,
 				A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */,
+				A7011287269F552300A1A88E /* Hamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +129,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */,
+				A7011288269F552300A1A88E /* Hamcrest.framework in Frameworks */,
 				A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
-				A7DC1748257AAA5600BDB63F /* Hamcrest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,8 +146,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AAC5922436199A00D6416E /* XCTest.framework in Frameworks */,
+				A7011289269F552300A1A88E /* Hamcrest.framework in Frameworks */,
 				A7DE0BAC2423E6DA00032810 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
-				A7DC174C257AAA5600BDB63F /* Hamcrest.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +240,7 @@
 		A78EDAA623C47E0B00695664 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */,
+				A7011286269F552300A1A88E /* Hamcrest.framework */,
 				A741F6F5242B877400BFEB5E /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -374,6 +372,7 @@
 				A78EDA6E23C47AB200695664 /* Frameworks */,
 				A78EDA6F23C47AB200695664 /* Resources */,
 				A7DC1741257AAA1B00BDB63F /* Embed Frameworks */,
+				A7011295269F558900A1A88E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -391,6 +390,7 @@
 				A78EDA7623C47AB300695664 /* Sources */,
 				A78EDA7723C47AB300695664 /* Frameworks */,
 				A78EDA7823C47AB300695664 /* Resources */,
+				A70112A0269F57BC00A1A88E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -520,6 +520,46 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A7011295269F558900A1A88E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Hamcrest.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf ${TMPDIR}/TemporaryItems/*carthage*\n/usr/local/bin/carthage copy-frameworks\n";
+			showEnvVarsInLog = 0;
+		};
+		A70112A0269F57BC00A1A88E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Hamcrest.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf ${TMPDIR}/TemporaryItems/*carthage*\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A78EDA6D23C47AB200695664 /* Sources */ = {
@@ -756,6 +796,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.openbakery.HamcrestAutolayoutMatchers;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -787,6 +828,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.openbakery.HamcrestAutolayoutMatchers;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
