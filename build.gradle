@@ -1,0 +1,70 @@
+buildscript {
+	repositories {
+		maven {
+			url = 'http://repo.openbakery.org/'
+			allowInsecureProtocol = true
+				//url('file:///Users/rene/workspace/openbakery/xcodePlugin/repository')
+		}
+		mavenCentral()
+	}
+
+	dependencies {
+			classpath "org.openbakery:xcode-plugin:0.21.0.develop.+"
+			//classpath "org.openbakery:xcode-plugin:0.19.2+"
+	}
+}
+
+apply plugin: "org.openbakery.xcode-plugin"
+
+apply from: 'https://hq.ciqua.com/gradle/BuildSettings.gradle'
+
+if (project.hasProperty('buildSettings.version')) {
+  project.ext.buildSettingsVersion = project['buildSettings.version']
+} else {
+  project.ext.buildSettingsVersion = "19.1.0"
+}
+
+buildSettings {
+  version = project.ext.buildSettingsVersion
+  displayName = "HamcrestAutolayoutMatchers"
+  baseBundleIdentifier = "org.openbakery.HamcrestAutolayoutMatchers"
+  scheme = "HamcrestAutolayoutMatchers"
+  beta = false
+}
+
+apply from: 'https://hq.ciqua.com/gradle/Framework.gradle'
+
+frameworkSettings {
+	name = "HamcrestAutolayoutMatchers"
+  shortname = "HamcrestAutolayoutMatchers"
+	baseURL = "https://frameworks.ciqua.com"
+	bundleIdentifier = buildSettings.bundleIdentifier
+	version = buildSettings.version.versionString
+}
+
+apply from: 'https://hq.ciqua.com/gradle/Publish.gradle'
+
+
+xcodebuild {
+  version = "12.2"
+  scheme = 'HamcrestAutolayoutMatchers'
+  target = 'Demo'
+  configuration = 'Debug'
+  type = 'iOS'
+  bitcode = true
+
+  destination = ['iPhone 8', 'iPad Air 2' ]
+}
+
+coverage {
+  outputFormat = 'html'
+  exclude = '.*Test.*swift$'
+}
+
+
+task buildForRelease(type:org.openbakery.XcodeBuildTask) {
+	scheme = 'HamcrestAutolayoutMatchers'
+	target = 'HamcrestAutolayoutMatchers'
+	configuration = 'Release'
+	simulator = false
+}
