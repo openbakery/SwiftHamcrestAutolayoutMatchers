@@ -35,6 +35,7 @@
 		A7EA7EC62424A2AE00CF6C63 /* UIColorMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */; };
 		A7EA7ECA2424AA3000CF6C63 /* PinLayoutViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */; };
 		A7EA7ECC2424AA6200CF6C63 /* PinLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EA7ECB2424AA6200CF6C63 /* PinLayoutViewController.swift */; };
+		A7F37FBB2729615500760645 /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F37FBA2729614D00760645 /* Hamcrest.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		A7EA7EC52424A2AE00CF6C63 /* UIColorMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorMatcher.swift; sourceTree = "<group>"; };
 		A7EA7EC92424AA3000CF6C63 /* PinLayoutViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayoutViewControllerTest.swift; sourceTree = "<group>"; };
 		A7EA7ECB2424AA6200CF6C63 /* PinLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinLayoutViewController.swift; sourceTree = "<group>"; };
+		A7F37FBA2729614D00760645 /* Hamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Hamcrest.xcframework; path = Carthage/Build/Hamcrest.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F37FBB2729615500760645 /* Hamcrest.xcframework in Frameworks */,
 				A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */,
-				A7011287269F552300A1A88E /* Hamcrest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */,
-				A7011288269F552300A1A88E /* Hamcrest.framework in Frameworks */,
 				A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,8 +244,8 @@
 		A78EDAA623C47E0B00695664 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A7F37FBA2729614D00760645 /* Hamcrest.xcframework */,
 				A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */,
-				A7DC173E257AAA1B00BDB63F /* Hamcrest.xcframework */,
 				A741F6F5242B877400BFEB5E /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -368,7 +369,6 @@
 				A78EDA6E23C47AB200695664 /* Frameworks */,
 				A78EDA6F23C47AB200695664 /* Resources */,
 				A7DC1741257AAA1B00BDB63F /* Embed Frameworks */,
-				A7011295269F558900A1A88E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -386,7 +386,6 @@
 				A78EDA7623C47AB300695664 /* Sources */,
 				A78EDA7723C47AB300695664 /* Frameworks */,
 				A78EDA7823C47AB300695664 /* Resources */,
-				A70112A0269F57BC00A1A88E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -516,46 +515,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A7011295269F558900A1A88E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Hamcrest.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf ${TMPDIR}/TemporaryItems/*carthage*\n/usr/local/bin/carthage copy-frameworks\n";
-			showEnvVarsInLog = 0;
-		};
-		A70112A0269F57BC00A1A88E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Hamcrest.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nrm -rf ${TMPDIR}/TemporaryItems/*carthage*\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A78EDA6D23C47AB200695664 /* Sources */ = {
