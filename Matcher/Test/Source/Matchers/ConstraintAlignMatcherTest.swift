@@ -8,6 +8,7 @@ import Foundation
 import XCTest
 import Hamcrest
 import HamcrestAutolayoutMatchers
+import PinLayout
 
 class ConstraintAlignMatcherTest : XCTestCase {
 
@@ -133,5 +134,54 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		// then
 		assertThat(first, isAligned(to:.top))
 	}
-	
+
+	func test_view_is_center() {
+		// given
+		let first = UIView()
+		let superview = UIView()
+		superview.addSubview(first)
+
+		// when
+		let pinLayout = PinLayout()
+		pinLayout.center(view: first)
+
+		// then
+		assertThat(first, isCenter())
+	}
+
+	func test_view_is_center_with_other_view() {
+		// given
+		let first = UIView()
+		let second = UIView()
+		let superview = UIView()
+		superview.addSubview(first)
+		superview.addSubview(second)
+
+		// when
+		let pinLayout = PinLayout()
+		pinLayout.center(view: first, with: second)
+
+		// then
+		assertThat(first, isCenter(with: second))
+	}
+
+	func test_view_is_center_with_other_view_with_offset() {
+		// given
+		let first = UIView()
+		let second = UIView()
+		let superview = UIView()
+		superview.addSubview(first)
+		superview.addSubview(second)
+
+		// when
+		let pinLayout = PinLayout()
+		pinLayout.centerX(view: first, with: second, offset: 20)
+		pinLayout.centerY(view: first, with: second, offset: 120)
+
+		// then
+		assertThat(first, isCenterX(with: second, offset: 20))
+		assertThat(first, isCenterY(with: second, offset: 120))
+	}
+
+
 }
