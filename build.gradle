@@ -46,7 +46,6 @@ apply from: 'https://hq.ciqua.com/gradle/Publish.gradle'
 
 
 xcodebuild {
-  version = "12.2"
   scheme = 'HamcrestAutolayoutMatchers'
   target = 'Demo'
   configuration = 'Debug'

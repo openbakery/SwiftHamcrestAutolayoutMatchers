@@ -21,9 +21,10 @@ func hasAttribute(constraint: NSLayoutConstraint, attribute: NSLayoutConstraint.
 	
 }
 
-private func matchesConstant(constraint: NSLayoutConstraint, constant: CGFloat) -> MatchResult {
-	
-	if constraint.constant == constant {
+private func matchesConstant(constraint: NSLayoutConstraint, constant: CGFloat, priority: UILayoutPriority) -> MatchResult {
+
+	if constraint.constant == constant &&
+			constraint.priority == priority {
 		return .match
 	}
 	return .mismatch("Constraint constant does not match. Expected constant of \(constant) but was \(constraint.constant)")
@@ -33,7 +34,8 @@ private func matchesConstant(constraint: NSLayoutConstraint, constant: CGFloat) 
 private func hasAnchorConstraint(for view: UIView,
 																 attribute: NSLayoutConstraint.Attribute,
 																 guide: UILayoutGuide,
-																 constant: CGFloat) -> MatchResult {
+																 constant: CGFloat,
+																 priority: UILayoutPriority = .required) -> MatchResult {
 
 	guard let superview = view.superview else {
 		return .mismatch(nil)
@@ -45,7 +47,7 @@ private func hasAnchorConstraint(for view: UIView,
 			if hasAttribute(constraint: constraint, attribute: attribute) &&
 			constraint.secondItem === view &&
 			guideItem == guide {
-				return matchesConstant(constraint: constraint, constant: constant)
+				return matchesConstant(constraint: constraint, constant: constant, priority: priority)
 			}
 		}
 
@@ -54,7 +56,7 @@ private func hasAnchorConstraint(for view: UIView,
 			if hasAttribute(constraint: constraint, attribute: attribute) &&
 			constraint.secondItem === guideItem &&
 			guideItem == guide {
-				return matchesConstant(constraint: constraint, constant: -constant)
+				return matchesConstant(constraint: constraint, constant: -constant, priority: priority)
 			}
 		}
 	}
@@ -65,8 +67,9 @@ private func hasAnchorConstraint(for view: UIView,
 
 func hasSafeAreaAnchorConstraint(for view: UIView,
 																 with other: UIView? = nil,
-																				 attribute: NSLayoutConstraint.Attribute,
-																				 constant: CGFloat = 0) -> MatchResult {
+																 attribute: NSLayoutConstraint.Attribute,
+																 constant: CGFloat = 0,
+																 priority: UILayoutPriority = .required) -> MatchResult {
 	if #available(iOS 11, *) {
 		if let superview = view.superview {
 			let guide: UILayoutGuide
@@ -76,7 +79,7 @@ func hasSafeAreaAnchorConstraint(for view: UIView,
 				guide = superview.safeAreaLayoutGuide
 			}
 
-			return hasAnchorConstraint(for: view, attribute: attribute, guide: guide, constant: constant)
+			return hasAnchorConstraint(for: view, attribute: attribute, guide: guide, constant: constant, priority: priority)
 		}
 	}
 	return .mismatch(nil)

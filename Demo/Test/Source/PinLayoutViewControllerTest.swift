@@ -257,6 +257,20 @@ class PinLayoutViewControllerTest: XCTestCase {
 		assertThat(centerView, isCenterX())
 	}
 
+	func test_view_is_safeArea_horizontal_center_with_low_priority() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.centerX(view: centerView)?.priority = .defaultLow
+
+		// then
+		assertThat(centerView, isCenterX(priority: .defaultLow))
+	}
+
 	func test_view_is_safeArea_vertical_center() {
 		// given
 		viewController.loadViewIfNeeded()
@@ -271,6 +285,19 @@ class PinLayoutViewControllerTest: XCTestCase {
 		assertThat(centerView, isCenterY())
 	}
 
+	func test_view_is_safeArea_vertical_center_with_low_priority() {
+		// given
+		viewController.loadViewIfNeeded()
+		let centerView = UIView()
+		viewController.view.addSubview(centerView)
+		let layout = PinLayout()
+
+		// when
+		layout.centerY(view: centerView)?.priority = .defaultLow
+
+		// then
+		assertThat(centerView, isCenterY(priority: .defaultLow))
+	}
 
 	func test_view_is_safeArea_center() {
 		// given
