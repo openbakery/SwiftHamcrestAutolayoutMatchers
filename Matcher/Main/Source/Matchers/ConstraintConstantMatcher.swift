@@ -100,3 +100,15 @@ public func hasMinHeight<T:UIView>(of height: CGFloat) -> Matcher<T> {
 public func hasMinWidth<T:UIView>(of width: CGFloat) -> Matcher<T> {
 	return hasConstantConstraint(.width, constant: width, relation: .greaterThanOrEqual)
 }
+
+public func hasConstraint<T:UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
+	return Matcher("view has constraint with attribute \(attribute)") { (view: T) -> MatchResult in
+		for constraint in view.constraints {
+			if (constraint.firstAttribute == attribute &&
+				constraint.isActive) {
+				return .match
+			}
+		}
+		return .mismatch(nil)
+	}
+}

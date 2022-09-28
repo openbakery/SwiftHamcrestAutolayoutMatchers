@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		355B22D339BE5139C7FBFA84 /* ContraintMatcherConstant_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */; };
 		355B2A1B5A8D6A08BCF9F8E7 /* EqualWidth_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2C3D170A758080AF18E5 /* EqualWidth_Test.swift */; };
 		355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */; };
 		A71E3B3825A8A28E00F02CC6 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */; };
@@ -18,8 +19,8 @@
 		A78EDA9D23C47D9900695664 /* ConstraintAnchorMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9823C47D9900695664 /* ConstraintAnchorMatcher.swift */; };
 		A78EDA9E23C47D9900695664 /* ConstraintEqualMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9923C47D9900695664 /* ConstraintEqualMatcher.swift */; };
 		A78EDA9F23C47D9900695664 /* ConstraintConstantMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9A23C47D9900695664 /* ConstraintConstantMatcher.swift */; };
-		A78EDAA223C47DD900695664 /* ConstraintAlignMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA023C47DD900695664 /* ConstraintAlignMatcherTest.swift */; };
-		A78EDAA323C47DD900695664 /* ConstraintMatcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA123C47DD900695664 /* ConstraintMatcherTest.swift */; };
+		A78EDAA223C47DD900695664 /* ConstraintAlignMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA023C47DD900695664 /* ConstraintAlignMatcher_Test.swift */; };
+		A78EDAA323C47DD900695664 /* ConstraintMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */; };
 		A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A7AAC5922436199A00D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A7AB54BC2423D97800FDBAB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AB54BB2423D97800FDBAB3 /* AppDelegate.swift */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContraintEqualCenterMatcher.swift; sourceTree = "<group>"; };
+		355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContraintMatcherConstant_Test.swift; sourceTree = "<group>"; };
 		355B2C3D170A758080AF18E5 /* EqualWidth_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidth_Test.swift; sourceTree = "<group>"; };
 		A71E3B3725A8A28E00F02CC6 /* PinLayout.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PinLayout.xcframework; path = Carthage/Build/PinLayout.xcframework; sourceTree = "<group>"; };
 		A741F6F5242B877400BFEB5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -96,8 +98,8 @@
 		A78EDA9823C47D9900695664 /* ConstraintAnchorMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAnchorMatcher.swift; sourceTree = "<group>"; };
 		A78EDA9923C47D9900695664 /* ConstraintEqualMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintEqualMatcher.swift; sourceTree = "<group>"; };
 		A78EDA9A23C47D9900695664 /* ConstraintConstantMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantMatcher.swift; sourceTree = "<group>"; };
-		A78EDAA023C47DD900695664 /* ConstraintAlignMatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAlignMatcherTest.swift; sourceTree = "<group>"; };
-		A78EDAA123C47DD900695664 /* ConstraintMatcherTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMatcherTest.swift; sourceTree = "<group>"; };
+		A78EDAA023C47DD900695664 /* ConstraintAlignMatcher_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAlignMatcher_Test.swift; sourceTree = "<group>"; };
+		A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMatcher_Test.swift; sourceTree = "<group>"; };
 		A7AB54B92423D97800FDBAB3 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7AB54BB2423D97800FDBAB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7AB54C22423D97800FDBAB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -285,8 +287,9 @@
 		A7AB54D12423DAD500FDBAB3 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
-				A78EDAA023C47DD900695664 /* ConstraintAlignMatcherTest.swift */,
-				A78EDAA123C47DD900695664 /* ConstraintMatcherTest.swift */,
+				A78EDAA023C47DD900695664 /* ConstraintAlignMatcher_Test.swift */,
+				A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */,
+				355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -534,8 +537,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A78EDAA223C47DD900695664 /* ConstraintAlignMatcherTest.swift in Sources */,
-				A78EDAA323C47DD900695664 /* ConstraintMatcherTest.swift in Sources */,
+				A78EDAA223C47DD900695664 /* ConstraintAlignMatcher_Test.swift in Sources */,
+				A78EDAA323C47DD900695664 /* ConstraintMatcher_Test.swift in Sources */,
+				355B22D339BE5139C7FBFA84 /* ContraintMatcherConstant_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,7 +665,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -719,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
