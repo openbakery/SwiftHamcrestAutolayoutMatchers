@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		355B21F38A326D7FABCF5421 /* Contraint_Anchor_Matcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B21209B3C6B8E999E777B /* Contraint_Anchor_Matcher_Test.swift */; };
 		355B22D339BE5139C7FBFA84 /* ContraintMatcherConstant_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */; };
 		355B2A1B5A8D6A08BCF9F8E7 /* EqualWidth_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2C3D170A758080AF18E5 /* EqualWidth_Test.swift */; };
 		355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		355B21209B3C6B8E999E777B /* Contraint_Anchor_Matcher_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contraint_Anchor_Matcher_Test.swift; sourceTree = "<group>"; };
 		355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContraintEqualCenterMatcher.swift; sourceTree = "<group>"; };
 		355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContraintMatcherConstant_Test.swift; sourceTree = "<group>"; };
 		355B2C3D170A758080AF18E5 /* EqualWidth_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidth_Test.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				A78EDAA023C47DD900695664 /* ConstraintAlignMatcher_Test.swift */,
 				A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */,
 				355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */,
+				355B21209B3C6B8E999E777B /* Contraint_Anchor_Matcher_Test.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				A78EDAA223C47DD900695664 /* ConstraintAlignMatcher_Test.swift in Sources */,
 				A78EDAA323C47DD900695664 /* ConstraintMatcher_Test.swift in Sources */,
 				355B22D339BE5139C7FBFA84 /* ContraintMatcherConstant_Test.swift in Sources */,
+				355B21F38A326D7FABCF5421 /* Contraint_Anchor_Matcher_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
