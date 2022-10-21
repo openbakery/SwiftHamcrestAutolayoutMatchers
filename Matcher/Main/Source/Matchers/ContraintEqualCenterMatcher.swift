@@ -50,14 +50,14 @@ public func isEqualCenterY<T: UIView>(with view: UIView, offset: CGFloat = 0) ->
 public func isCenterX<T: UIView>(priority: UILayoutPriority = .required) -> Matcher<T> {
 	return Matcher("view is safe area center x") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaAnchorConstraint(for: value, attribute: .centerX, priority: priority)
+		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerX, priority: priority)
 	}
 }
 
 public func isCenterX<T: UIView>(with other: UIView, offset: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view is safe area center x") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaAnchorConstraint(for: value, with: other, attribute: .centerX, constant: -offset)
+		return hasSafeAreaGuideToGuideConstraint(for: value, with: other, attribute: .centerX, constant: offset)
 	}
 }
 
@@ -66,14 +66,14 @@ public func isCenterX<T: UIView>(with other: UIView, offset: CGFloat = 0) -> Mat
 public func isCenterY<T: UIView>(priority: UILayoutPriority = .required) -> Matcher<T> {
 	return Matcher("view is safe area center y") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaAnchorConstraint(for: value, attribute: .centerY, priority: priority)
+		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerY, priority: priority)
 	}
 }
 
 public func isCenterY<T: UIView>(with other: UIView, offset: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view is safe area center y") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaAnchorConstraint(for: value, with: other, attribute: .centerY, constant: -offset)
+		return hasSafeAreaGuideToGuideConstraint(for: value, with: other, attribute: .centerY, constant: offset)
 	}
 }
 

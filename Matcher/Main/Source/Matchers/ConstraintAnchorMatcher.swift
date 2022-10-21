@@ -65,7 +65,7 @@ private func hasAnchorConstraint(for view: UIView,
 		// see if the the first attribute and second attribute is swapped
 		if let guideItem = constraint.secondItem as? UILayoutGuide {
 			if hasAttribute(constraint: constraint, attribute: attribute) &&
-			constraint.secondItem === guideItem &&
+			constraint.firstItem === view &&
 			guideItem == guide {
 				return matchesConstant(constraint: constraint, constant: -constant, priority: priority)
 			}
@@ -79,13 +79,37 @@ private func hasAnchorConstraint(for view: UIView,
 	return .mismatch(nil)
 }
 
-
-
-func hasSafeAreaAnchorConstraint(for view: UIView,
-																 with other: UIView? = nil,
+private func hasAnchorConstraint(superview: UIView,
+																 firstGuide: UILayoutGuide,
+																 secondGuide: UILayoutGuide,
 																 attribute: NSLayoutConstraint.Attribute,
-																 constant: CGFloat = 0,
+																 constant: CGFloat,
 																 priority: UILayoutPriority = .required) -> MatchResult {
+
+	for constraint in superview.constraints {
+		if constraint.firstItem === firstGuide &&
+				 constraint.secondItem === secondGuide &&
+				 hasAttribute(constraint: constraint, attribute: attribute) {
+			return matchesConstant(constraint: constraint, constant: constant, priority: priority)
+		}
+
+		// see if the the first attribute and second attribute is swapped
+		if constraint.firstItem === secondGuide &&
+				 constraint.secondItem === firstGuide &&
+				 hasAttribute(constraint: constraint, attribute: attribute) {
+			return matchesConstant(constraint: constraint, constant: constant, priority: priority)
+		}
+
+	}
+
+	return .mismatch(nil)
+}
+
+func hasSafeAreaGuideToViewConstraint(for view: UIView,
+																			with other: UIView? = nil,
+																			attribute: NSLayoutConstraint.Attribute,
+																			constant: CGFloat = 0,
+																			priority: UILayoutPriority = .required) -> MatchResult {
 	if #available(iOS 11, *) {
 		if let superview = view.superview {
 			let guide: UILayoutGuide
@@ -96,6 +120,26 @@ func hasSafeAreaAnchorConstraint(for view: UIView,
 			}
 
 			return hasAnchorConstraint(for: view, attribute: attribute, guide: guide, constant: constant, priority: priority)
+		}
+	}
+	return .mismatch(nil)
+}
+
+func hasSafeAreaGuideToGuideConstraint(for view: UIView,
+																			 with other: UIView? = nil,
+																			 attribute: NSLayoutConstraint.Attribute,
+																			 constant: CGFloat = 0,
+																			 priority: UILayoutPriority = .required) -> MatchResult {
+	if #available(iOS 11, *) {
+		if let superview = view.superview {
+			let secondGuide: UILayoutGuide
+			if let otherGuide = other?.safeAreaLayoutGuide {
+				secondGuide = otherGuide
+			} else {
+				secondGuide = superview.safeAreaLayoutGuide
+			}
+
+			return hasAnchorConstraint(superview: superview, firstGuide: view.safeAreaLayoutGuide, secondGuide: secondGuide, attribute: attribute, constant: constant, priority: priority)
 		}
 	}
 	return .mismatch(nil)
@@ -124,14 +168,14 @@ private func hasAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint
 public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaAnchorConstraint(for: value, attribute: attribute)
+		return hasSafeAreaGuideToViewConstraint(for: value, attribute: attribute)
 	}
 }
 
 public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaAnchorConstraint(for: value, attribute: attribute, constant: gap)
+		return hasSafeAreaGuideToViewConstraint(for: value, attribute: attribute, constant: gap)
 	}
 }
 
