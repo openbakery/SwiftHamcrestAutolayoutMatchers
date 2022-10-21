@@ -27,5 +27,21 @@ class Contraint_Anchor_Matcher_Test: XCTestCase {
 		assertThat(contentView, hasAnchor(.leading, cell.separatorLayoutGuide))
 	}
 
+	func test_cell_label_separatorGuide() {
+		let configuration = UIListContentConfiguration.subtitleCell()
+		let cell = UICollectionViewListCell()
+		cell.contentConfiguration = configuration
+		let label = UILabel()
+
+		let contentView = cell.contentView
+		assertThat(cell.contentView, present())
+		contentView.addSubview(label)
+
+
+		cell.separatorLayoutGuide.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
+
+		// then
+		assertThat(label, hasAnchor(.leading, cell.separatorLayoutGuide))
+	}
 
 }

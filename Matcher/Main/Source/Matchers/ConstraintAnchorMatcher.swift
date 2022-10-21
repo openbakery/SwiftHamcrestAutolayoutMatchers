@@ -37,10 +37,21 @@ private func hasAnchorConstraint(for view: UIView,
 																 constant: CGFloat,
 																 priority: UILayoutPriority = .required) -> MatchResult {
 
+
 	guard let superview = view.superview else {
 		return .mismatch(nil)
 	}
 
+	return hasAnchorConstraint(for: view, superview: superview, attribute:attribute, guide: guide, constant: constant, priority: priority)
+
+}
+
+private func hasAnchorConstraint(for view: UIView,
+																 superview: UIView,
+																 attribute: NSLayoutConstraint.Attribute,
+																 guide: UILayoutGuide,
+																 constant: CGFloat,
+																 priority: UILayoutPriority = .required) -> MatchResult {
 
 	for constraint in superview.constraints {
 		if let guideItem = constraint.firstItem as? UILayoutGuide {
@@ -51,7 +62,7 @@ private func hasAnchorConstraint(for view: UIView,
 			}
 		}
 
-		// see if the the first attribue and second attribute is swapped
+		// see if the the first attribute and second attribute is swapped
 		if let guideItem = constraint.secondItem as? UILayoutGuide {
 			if hasAttribute(constraint: constraint, attribute: attribute) &&
 			constraint.secondItem === guideItem &&
@@ -59,6 +70,11 @@ private func hasAnchorConstraint(for view: UIView,
 				return matchesConstant(constraint: constraint, constant: -constant, priority: priority)
 			}
 		}
+	}
+
+	// the constraint can also be set at the superview of the superview, so lets check
+	if let superview = superview.superview {
+		return hasAnchorConstraint(for: view, superview: superview, attribute: attribute, guide: guide, constant: constant, priority: priority)
 	}
 	return .mismatch(nil)
 }
