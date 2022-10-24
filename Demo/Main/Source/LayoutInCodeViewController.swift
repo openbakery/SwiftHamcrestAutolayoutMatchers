@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 class LayoutInCodeViewController: UIViewController {
-	
+
 	let titleLabel = UILabel()
 	let subtitleLabel = UILabel()
 	let bottomButton = UIButton()
 	let centerButton = UIButton()
 
-	
+
 	override func loadView() {
 		super.loadView()
 		if #available(iOS 13, *) {
@@ -24,7 +24,7 @@ class LayoutInCodeViewController: UIViewController {
 		} else {
 			self.view.backgroundColor = .white
 		}
-		
+
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
 		bottomButton.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class LayoutInCodeViewController: UIViewController {
 
 		bottomButton.backgroundColor = .red
 		centerButton.backgroundColor = .green
-		
+
 		self.view.addSubview(titleLabel)
 		self.view.addSubview(subtitleLabel)
 		self.view.addSubview(bottomButton)

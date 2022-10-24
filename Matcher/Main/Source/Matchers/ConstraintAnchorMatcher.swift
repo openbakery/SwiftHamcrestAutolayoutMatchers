@@ -42,15 +42,7 @@ private func hasAnchorConstraint(for view: UIView,
 		return .mismatch(nil)
 	}
 
-	let constantValue: CGFloat
-	switch attribute {
-	case .trailing:
-		constantValue = -constant
-	default:
-		constantValue = constant
-	}
-
-	return hasAnchorConstraint(for: view, superview: superview, attribute:attribute, guide: guide, constant: constantValue, priority: priority)
+	return hasAnchorConstraint(for: view, superview: superview, attribute:attribute, guide: guide, constant: constant, priority: priority)
 
 }
 
@@ -157,7 +149,14 @@ func hasSafeAreaGuideToGuideConstraint(for view: UIView,
 private func hasReadableAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
 	if #available(iOS 9, *) {
 		if let baseView = view.superview {
-			return hasAnchorConstraint(for: view, attribute: attribute, guide: baseView.readableContentGuide, constant: constant)
+			let constantValue: CGFloat
+			switch attribute {
+			case .trailing:
+				constantValue = -constant
+			default:
+				constantValue = constant
+			}
+			return hasAnchorConstraint(for: view, attribute: attribute, guide: baseView.readableContentGuide, constant: constantValue)
 		}
 	}
 	return .mismatch(nil)
