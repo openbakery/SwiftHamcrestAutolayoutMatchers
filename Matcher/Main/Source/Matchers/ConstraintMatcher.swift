@@ -57,10 +57,6 @@ private func hasMatchingConstraint(_ view: UIView, to: AnyObject?, attribute: NS
 				swap(&firstItem, &secondItem)
 			}
 
-			//if (attribute == .Bottom || attribute == .Right || attribute == .Trailing) {
-				//swap(&firstAttribute, &secondAttribute)
-			//}
-
 			for constraint in commonSuperView.constraints {
 
 				if (constraint.firstAttribute == firstAttribute &&
@@ -71,11 +67,11 @@ private func hasMatchingConstraint(_ view: UIView, to: AnyObject?, attribute: NS
 						constraint.priority == priority &&
 						constraint.isActive
 					 ) {
-					
+
 					if gapMatcher.matches(Float(constraint.constant)).boolValue {
 						return .match
 					}
-					
+
 				}
 			}
 		}

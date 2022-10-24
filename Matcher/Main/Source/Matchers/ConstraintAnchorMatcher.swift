@@ -42,7 +42,15 @@ private func hasAnchorConstraint(for view: UIView,
 		return .mismatch(nil)
 	}
 
-	return hasAnchorConstraint(for: view, superview: superview, attribute:attribute, guide: guide, constant: constant, priority: priority)
+	let constantValue: CGFloat
+	switch attribute {
+	case .trailing:
+		constantValue = -constant
+	default:
+		constantValue = constant
+	}
+
+	return hasAnchorConstraint(for: view, superview: superview, attribute:attribute, guide: guide, constant: constantValue, priority: priority)
 
 }
 

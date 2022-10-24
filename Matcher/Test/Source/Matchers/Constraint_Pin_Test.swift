@@ -59,4 +59,17 @@ class Constraint_Pin_Test: XCTestCase {
 		assertThat(view, not(isPinned(.leading, gap: 10)))
 	}
 
+	func test_pin_trailing_with_readableGuide_with_gap() {
+		toView.addSubview(view)
+		pinLayout.pin(view:view, to:.trailingReadable, gap: 10)
+		assertThat(view, isPinnedToReadableAnchor(.trailing, gap: 10))
+		assertThat(view, not(isPinned(.trailing, gap: 10)))
+	}
+
+	func test_pin_bottom_with_safeGuide_with_gap() {
+		toView.addSubview(view)
+		pinLayout.pin(view:view, to:.bottomSafeArea, gap: 10)
+		assertThat(view, isPinnedToSafeAreaAnchor(.bottom, gap: 10))
+		assertThat(view, not(isPinned(.bottom, gap: 10)))
+	}
 }

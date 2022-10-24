@@ -11,7 +11,7 @@ import UIKit
 import PinLayout
 
 class PinLayoutViewController: UIViewController {
-	
+
 	let titleLabel = UILabel()
 	let subtitleLabel = UILabel()
 	let bottomButton = UIButton()
@@ -29,11 +29,11 @@ class PinLayoutViewController: UIViewController {
 		subtitleLabel.text = "SubTitle"
 		bottomButton.setTitle("Bottom Button", for: .normal)
 		centerButton.setTitle("Center Button", for: .normal)
-		
+
 		bottomButton.backgroundColor = .red
 		centerButton.backgroundColor = .green
 
-		
+
 		self.view.addSubview(titleLabel)
 		self.view.addSubview(subtitleLabel)
 		self.view.addSubview(bottomButton)
@@ -43,16 +43,16 @@ class PinLayoutViewController: UIViewController {
 
 		pinLayout.equalCenterX(view: titleLabel)
 		pinLayout.pin(view: titleLabel, to: .topSafeArea)
-		
+
 		pinLayout.pin(view: subtitleLabel, to: .leading, gap: 40)
 		pinLayout.pin(view: subtitleLabel, to: .top, of: titleLabel, gap: 20)
-		
-		pinLayout.pin(view: bottomButton, to: .bottomSafeArea, gap: -40)
-		pinLayout.pin(view: bottomButton, to: .trailingSafeArea, gap: -40)
+
+		pinLayout.pin(view: bottomButton, to: .bottomSafeArea, gap:40)
+		pinLayout.pin(view: bottomButton, to: .trailingSafeArea, gap: 40)
 
 		pinLayout.equalCenterX(view: centerButton)
 		pinLayout.equalCenterY(view: centerButton, offset: 40)
 
-		
+
 	}
 }
