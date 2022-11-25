@@ -164,9 +164,7 @@ private func hasReadableAnchorConstraint(for view: UIView, attribute: NSLayoutCo
 
 private func hasAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint.Attribute, guide: UILayoutGuide) -> MatchResult {
 	if #available(iOS 9, *) {
-		if let baseView = view.superview {
-			return hasAnchorConstraint(for: view, attribute: attribute, guide: guide, constant: 0)
-		}
+		return hasAnchorConstraint(for: view, attribute: attribute, guide: guide, constant: 0)
 	}
 	return .mismatch(nil)
 }

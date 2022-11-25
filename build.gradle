@@ -56,7 +56,7 @@ xcodebuild {
   type = 'iOS'
   bitcode = true
 
-  destination = ['iPhone 8', 'iPad Air 2' ]
+  destination = ['iPad' ]
 }
 
 coverage {

@@ -46,24 +46,21 @@ private func secondAttribute(first: AnyObject, second: AnyObject, superview: UIV
 	return firstAttribute
 }
 
-private func hasMatchingConstraint(_ view: UIView,
-																	 to: AnyObject,
+private func hasMatchingConstraint(_ firstItem: UIView,
+																	 to secondItem: AnyObject,
 																	 attribute: NSLayoutConstraint.Attribute,
 																	 gap gapMatcher: Matcher<Float>,
 																	 priority: UILayoutPriority,
 																	 relatedBy relation: NSLayoutConstraint.Relation = .equal) -> MatchResult {
 
-	guard let commonSuperView = findSuperView(view, view.superview) else {
+	guard let commonSuperView = findSuperView(firstItem, firstItem.superview) else {
 		return .mismatch("no common super view found")
 	}
-
-	var firstItem: UIView = view
-	var secondItem: AnyObject = to
 
 	var firstAttribute = attribute
 	var secondAttribute = secondAttribute(first: firstItem, second: secondItem, superview: commonSuperView, firstAttribute: attribute)
 
-	if (to is UILayoutSupport) {
+	if (secondItem is UILayoutSupport) {
 		secondAttribute = inverseAttribute(attribute)
 	}
 

@@ -11,14 +11,14 @@ import PinLayout
 
 class EqualWidth_Test : XCTestCase {
 
-	var pinLayout: PinLayout!
+	var pinLayout: Layout!
 	var superview : UIView!
 	var first : UIView!
 	var second : UIView!
 
 	override func setUp() {
 		super.setUp()
-		pinLayout = PinLayout()
+		pinLayout = Layout()
 		superview = UIView()
 		first = UIView()
 		second = UIView()

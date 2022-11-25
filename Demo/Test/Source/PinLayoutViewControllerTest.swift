@@ -1,5 +1,5 @@
 //
-//  PinLayoutViewControllerTest.swift
+//  LayoutViewControllerTest.swift
 //  HamcrestAutolayoutMatchersTest
 //
 //  Created by René Pirringer on 20.03.20.
@@ -12,7 +12,7 @@ import HamcrestAutolayoutMatchers
 import PinLayout
 @testable import Demo
 
-class PinLayoutViewControllerTest: XCTestCase {
+class LayoutViewControllerTest: XCTestCase {
 
 	var viewController: PinLayoutViewController!
 
@@ -186,7 +186,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.equalCenterX(view: centerView, offset: 20)
@@ -201,7 +201,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.equalCenterX(view: centerView, toView: viewController.bottomButton)
@@ -216,7 +216,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.equalCenterY(view: centerView, offset: 20)
@@ -231,7 +231,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.equalCenterY(view: centerView, toView: viewController.bottomButton)
@@ -248,7 +248,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.centerX(view: centerView)
@@ -262,7 +262,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.centerX(view: centerView)?.priority = .defaultLow
@@ -276,7 +276,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.centerY(view: centerView)
@@ -290,7 +290,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.centerY(view: centerView)?.priority = .defaultLow
@@ -304,7 +304,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.center(view: centerView)
@@ -322,7 +322,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		let otherView = UIView()
 		viewController.view.addSubview(centerView)
 		viewController.view.addSubview(otherView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.centerY(view: centerView, with: otherView)
