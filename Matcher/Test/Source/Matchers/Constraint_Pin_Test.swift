@@ -90,4 +90,77 @@ class Constraint_Pin_Test: XCTestCase {
 		pinLayout.pin(view:view, to:.lastBaseline, gap: 11.111)
 		assertThat(view, isPinned(.lastBaseline, gap: closeTo(11, 0.12)))
 	}
+
+
+	func test_pin_first_on_bottom_to_second() {
+		let superview = UIView()
+		let first = UIView()
+		let second = UIView()
+		superview.addSubview(first)
+		superview.addSubview(second)
+
+		first.layout.pin(.top, to: second)
+
+		// then
+		assertThat(first, isPinned(.top, to: second))
+		assertThat(first, isPinned(first: .top, second: .bottom, to: second))
+	}
+
+	func test_pin_first_on_bottom_to_third() {
+		let superview = UIView()
+		let first = UIView()
+		let second = UIView()
+		let third = UIView()
+		superview.addSubview(first)
+		superview.addSubview(second)
+		superview.addSubview(third)
+
+		third.layout.pin(.top, to: first)
+
+		// then
+		assertThat(third, isPinned(.top, to: first))
+		assertThat(third, isPinned(first: .top, second: .bottom, to: first))
+	}
+
+	func test_pin_to_top_guide() {
+		let first = UIView()
+		let viewController = UIViewController()
+		viewController.loadView()
+		viewController.view.addSubview(first)
+
+		// when
+		let layout = Layout()
+		layout.pin(view: first, to:.top, withGuide: viewController.topLayoutGuide)
+
+		// then
+		assertThat(first, isPinned(.top, withGuide: viewController.topLayoutGuide))
+	}
+
+	func test_pin_to_bottom_guide() {
+		let first = UIView()
+		let second = UIView()
+		let viewController = UIViewController()
+		viewController.loadView()
+		viewController.view.addSubview(first)
+		first.addSubview(second)
+
+		// when
+		let layout = Layout()
+		layout.pin(view: second, to:.bottom, withGuide: viewController.topLayoutGuide)
+
+		// then
+		assertThat(second, isPinned(.bottom, withGuide: viewController.topLayoutGuide))
+	}
+
+
+	func test_matcher_with_first_and_last() {
+		toView.addSubview(view)
+
+		// when
+		pinLayout.pin(view:view, to:.lastBaseline, gap: 0)
+
+		// then
+		assertThat(view, isPinned(first: .bottom, second: .lastBaseline))
+	}
+
 }

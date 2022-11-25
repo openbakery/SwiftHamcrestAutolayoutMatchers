@@ -29,75 +29,126 @@ public func findSuperView(_ first:UIView?, _ second:UIView?) -> UIView? {
 	return nil
 }
 
-private func hasMatchingConstraint(_ view: UIView, to: AnyObject?, attribute: NSLayoutConstraint.Attribute, gap gapMatcher: Matcher<Float>, priority: UILayoutPriority, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> MatchResult {
 
-	if let commonSuperView = findSuperView(view, view.superview) {
-
-		if let toItem = to {
-
-			var firstAttribute = attribute
-			var secondAttribute = attribute
-			var firstItem: AnyObject = view
-			var secondItem: AnyObject = toItem
-
-			if (commonSuperView != view && commonSuperView != view.superview ) {
-				secondAttribute = inverseAttribute(attribute)
-			}
-
-			if (commonSuperView !== secondItem) {
-				secondAttribute = inverseAttribute(attribute)
-			}
-
-			if (toItem is UILayoutSupport) {
-				secondAttribute = inverseAttribute(attribute)
-			}
-
-			if (firstAttribute == .firstBaseline) {
-				secondAttribute = .top
-			}
-			if (secondAttribute == .lastBaseline) {
-				firstAttribute = .bottom
-				swap(&firstItem, &secondItem)
-			}
-
-			if (attribute == secondAttribute && (attribute == .bottom || attribute == .right || attribute == .trailing )) {
-				swap(&firstItem, &secondItem)
-			}
-
-
-			for constraint in commonSuperView.constraints {
-
-				if (constraint.firstAttribute == firstAttribute &&
-						constraint.secondAttribute == secondAttribute &&
-						constraint.firstItem === firstItem &&
-						constraint.secondItem === secondItem &&
-						constraint.relation == relation &&
-						constraint.priority == priority &&
-						constraint.isActive
-					 ) {
-
-					if gapMatcher.matches(Float(constraint.constant)).boolValue {
-						return .match
-					}
-
-				}
-			}
+// determines the second attribute based on the first and the views involved
+private func secondAttribute(first: AnyObject, second: AnyObject, superview: UIView, firstAttribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint.Attribute {
+	if let firstView = first as? UIView {
+		if (superview != firstView && superview != firstView.superview) {
+			return inverseAttribute(firstAttribute)
 		}
 	}
-	return .mismatch(nil)
+	if (superview !== second) {
+		return inverseAttribute(firstAttribute)
+	}
+	if (firstAttribute == .firstBaseline) {
+		return .top
+	}
+	return firstAttribute
+}
+
+private func hasMatchingConstraint(_ view: UIView,
+																	 to: AnyObject,
+																	 attribute: NSLayoutConstraint.Attribute,
+																	 gap gapMatcher: Matcher<Float>,
+																	 priority: UILayoutPriority,
+																	 relatedBy relation: NSLayoutConstraint.Relation = .equal) -> MatchResult {
+
+	guard let commonSuperView = findSuperView(view, view.superview) else {
+		return .mismatch("no common super view found")
+	}
+
+	var firstItem: UIView = view
+	var secondItem: AnyObject = to
+
+	var firstAttribute = attribute
+	var secondAttribute = secondAttribute(first: firstItem, second: secondItem, superview: commonSuperView, firstAttribute: attribute)
+
+	if (to is UILayoutSupport) {
+		secondAttribute = inverseAttribute(attribute)
+	}
+
+	if (secondAttribute == .lastBaseline) {
+		firstAttribute = .bottom
+	}
+	return hasMatchingConstraint(firstItem,
+		to: secondItem,
+		firstAttribute: firstAttribute,
+		secondAttribute: secondAttribute,
+		gap: gapMatcher,
+		priority: priority)
+}
+
+private func hasMatchingConstraint(_ view: UIView,
+																	 to: AnyObject,
+																	 firstAttribute: NSLayoutConstraint.Attribute,
+																	 secondAttribute: NSLayoutConstraint.Attribute,
+																	 gap gapMatcher: Matcher<Float>,
+																	 priority: UILayoutPriority,
+																	 relatedBy relation: NSLayoutConstraint.Relation = .equal) -> MatchResult {
+
+	guard let commonSuperView = findSuperView(view, view.superview) else {
+		return .mismatch("no common super view found")
+	}
+
+	var firstItem: AnyObject = view
+	var secondItem: AnyObject = to
+
+	if (secondAttribute == .lastBaseline) {
+		swap(&firstItem, &secondItem)
+	}
+
+	if (firstAttribute == secondAttribute && (firstAttribute == .bottom || firstAttribute == .right || firstAttribute == .trailing )) {
+		swap(&firstItem, &secondItem)
+	}
+
+	for constraint in commonSuperView.constraints {
+
+		if (constraint.firstAttribute == firstAttribute &&
+			constraint.secondAttribute == secondAttribute &&
+			constraint.firstItem === firstItem &&
+			constraint.secondItem === secondItem &&
+			constraint.relation == relation &&
+			constraint.priority == priority &&
+			constraint.isActive
+			 ) {
+
+			if gapMatcher.matches(Float(constraint.constant)).boolValue {
+				return .match
+			}
+
+		}
+	}
+	return .mismatch("no matching constraint found")
 }
 
 
-
-
+public func isPinned<T:UIView>(first: NSLayoutConstraint.Attribute,
+															 second: NSLayoutConstraint.Attribute,
+															 to toView: UIView? = nil,
+															 gap gapMatcher: Matcher<Float> = equalTo(0),
+															 priority: UILayoutPriority = UILayoutPriority.required,
+															 relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
+	return Matcher("view is pinned to first \(descriptionOfAttribute(first)) and second \(descriptionOfAttribute(second)) to its superview with gap:\(gapMatcher)") {
+		(value: T) -> MatchResult in
+		if let toViewUnwrapped = toView {
+			return hasMatchingConstraint(value, to: toViewUnwrapped, firstAttribute: first, secondAttribute: second, gap: gapMatcher, priority: priority, relatedBy: relation)
+		} else if let superview = value.superview {
+			return hasMatchingConstraint(value, to: superview, firstAttribute: first, secondAttribute: second, gap: gapMatcher, priority: priority, relatedBy: relation)
+		} else {
+			return .mismatch("view was not add as subview")
+		}
+	}
+}
 
 public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap gapMatcher: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
 	return Matcher("view is pinned \(descriptionOfAttribute(attribute)) to its superview with gap:\(gapMatcher)") {
 		(value: T) -> MatchResult in
 		if let toViewUnwrapped = toView {
 			return hasMatchingConstraint(value, to: toViewUnwrapped, attribute: attribute, gap: gapMatcher, priority: priority, relatedBy: relation)
+		} else if let superview = value.superview {
+			return hasMatchingConstraint(value, to: superview, attribute: attribute, gap: gapMatcher, priority: priority, relatedBy: relation)
 		} else {
-			return hasMatchingConstraint(value, to: value.superview, attribute: attribute, gap: gapMatcher, priority: priority, relatedBy: relation)
+			return .mismatch("view was not add as subview")
 		}
 	}
 }
@@ -131,11 +182,11 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, withGu
 	return isPinned(attribute, to: guide, priority: priority)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 	return isPinned(attribute, to: to, gap: closeTo(Float(gap), 0.001), priority: priority)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, gap: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, gap: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 
 	return Matcher("view is pinned \(descriptionOfAttribute(attribute)) to its superview") {
 		(value: T) -> MatchResult in
@@ -143,7 +194,7 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: An
 	}
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject?, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 	return isPinned(attribute, to: to, gap: 0, priority: priority)
 }
 
