@@ -168,7 +168,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		superview.addSubview(first)
 
 		// when
-		let pinLayout = PinLayout()
+		let pinLayout = Layout()
 		pinLayout.center(view: first)
 
 		// then
@@ -184,7 +184,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		superview.addSubview(second)
 
 		// when
-		let pinLayout = PinLayout()
+		let pinLayout = Layout()
 		pinLayout.center(view: first, with: second)
 
 		// then
@@ -200,7 +200,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		superview.addSubview(second)
 
 		// when
-		let pinLayout = PinLayout()
+		let pinLayout = Layout()
 		pinLayout.centerX(view: first, with: second, offset: 20)
 		pinLayout.centerY(view: first, with: second, offset: 120)
 

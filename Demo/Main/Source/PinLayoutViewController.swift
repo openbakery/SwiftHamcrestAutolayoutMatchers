@@ -39,7 +39,7 @@ class PinLayoutViewController: UIViewController {
 		self.view.addSubview(bottomButton)
 		self.view.addSubview(centerButton)
 
-		let pinLayout = PinLayout()
+		let pinLayout = Layout()
 
 		pinLayout.equalCenterX(view: titleLabel)
 		pinLayout.pin(view: titleLabel, to: .topSafeArea)

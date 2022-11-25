@@ -11,11 +11,11 @@ import HamcrestAutolayoutMatchers
 
 class ContraintMatcherConstant_Test: XCTestCase {
 
-	var layout: PinLayout!
+	var layout: Layout!
 
 	override func setUp() {
 		super.setUp()
-		layout = PinLayout()
+		layout = Layout()
 	}
 
 	override func tearDown() {

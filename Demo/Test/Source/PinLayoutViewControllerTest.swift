@@ -169,7 +169,7 @@ class PinLayoutViewControllerTest: XCTestCase {
 		viewController.loadViewIfNeeded()
 		let centerView = UIView()
 		viewController.view.addSubview(centerView)
-		let layout = PinLayout()
+		let layout = Layout()
 
 		// when
 		layout.equalCenter(view: centerView)

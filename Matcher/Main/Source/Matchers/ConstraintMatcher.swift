@@ -35,7 +35,7 @@ private func hasMatchingConstraint(_ view: UIView, to: AnyObject?, attribute: NS
 
 		if let toItem = to {
 
-			let firstAttribute = attribute
+			var firstAttribute = attribute
 			var secondAttribute = attribute
 			var firstItem: AnyObject = view
 			var secondItem: AnyObject = toItem
@@ -52,10 +52,18 @@ private func hasMatchingConstraint(_ view: UIView, to: AnyObject?, attribute: NS
 				secondAttribute = inverseAttribute(attribute)
 			}
 
+			if (firstAttribute == .firstBaseline) {
+				secondAttribute = .top
+			}
+			if (secondAttribute == .lastBaseline) {
+				firstAttribute = .bottom
+				swap(&firstItem, &secondItem)
+			}
 
 			if (attribute == secondAttribute && (attribute == .bottom || attribute == .right || attribute == .trailing )) {
 				swap(&firstItem, &secondItem)
 			}
+
 
 			for constraint in commonSuperView.constraints {
 

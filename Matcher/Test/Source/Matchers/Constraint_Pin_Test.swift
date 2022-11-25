@@ -72,4 +72,22 @@ class Constraint_Pin_Test: XCTestCase {
 		assertThat(view, isPinnedToSafeAreaAnchor(.bottom, gap: 10))
 		assertThat(view, not(isPinned(.bottom, gap: 10)))
 	}
+
+	func test_pin_to_first_baseline_top() {
+		toView.addSubview(view)
+		pinLayout.pin(view:view, to:.firstBaseline, gap: 10)
+		assertThat(view, isPinned(.firstBaseline, gap: 10))
+	}
+
+	func test_pin_to_last_baseline_bottom() {
+		toView.addSubview(view)
+		pinLayout.pin(view:view, to:.lastBaseline, gap: 10)
+		assertThat(view, isPinned(.lastBaseline, gap: 10))
+	}
+
+	func test_pin_to_last_baseline_bottom_with_gap_close_to() {
+		toView.addSubview(view)
+		pinLayout.pin(view:view, to:.lastBaseline, gap: 11.111)
+		assertThat(view, isPinned(.lastBaseline, gap: closeTo(11, 0.12)))
+	}
 }
