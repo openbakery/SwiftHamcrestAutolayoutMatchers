@@ -72,7 +72,8 @@ private func hasMatchingConstraint(_ firstItem: UIView,
 		firstAttribute: firstAttribute,
 		secondAttribute: secondAttribute,
 		gap: gapMatcher,
-		priority: priority)
+		priority: priority,
+		relatedBy: relation)
 }
 
 private func hasMatchingConstraint(_ view: UIView,

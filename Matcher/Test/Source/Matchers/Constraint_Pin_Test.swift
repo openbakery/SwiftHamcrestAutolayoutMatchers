@@ -163,4 +163,14 @@ class Constraint_Pin_Test: XCTestCase {
 		assertThat(view, isPinned(first: .bottom, second: .lastBaseline))
 	}
 
+	func test_pin_with_priority_and_relation() {
+		toView.addSubview(view)
+
+		// when
+		view.layout.pin(.bottom, gap: 5, priority: .defaultLow, relatedBy: .greaterThanOrEqual)
+
+		// then
+		assertThat(view, isPinned(.bottom, gap: 5, priority: .defaultLow, relatedBy: .greaterThanOrEqual))
+	}
+
 }
