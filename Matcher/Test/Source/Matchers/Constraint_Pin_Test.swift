@@ -73,6 +73,21 @@ class Constraint_Pin_Test: XCTestCase {
 		assertThat(view, not(isPinned(.bottom, gap: 10)))
 	}
 
+	func test_pin_bottom_with_safeGuide_with_insets() {
+		toView.addSubview(view)
+		let insets = NSDirectionalEdgeInsets(top: 1, leading: 2, bottom: 3, trailing: 4)
+
+		// when
+		view.layout.pin(.leadingSafeArea, .trailingSafeArea, .bottomSafeArea, .topSafeArea, insets: insets)
+
+		// then
+		assertThat(view, isPinnedToSafeAreaAnchor(.top, gap: 1))
+		assertThat(view, isPinnedToSafeAreaAnchor(.bottom, gap: 3))
+		assertThat(view, isPinnedToSafeAreaAnchor(.leading, gap: 2))
+		assertThat(view, isPinnedToSafeAreaAnchor(.trailing, gap: 4))
+	}
+
+
 	func test_pin_to_first_baseline_top() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.firstBaseline, gap: 10)
