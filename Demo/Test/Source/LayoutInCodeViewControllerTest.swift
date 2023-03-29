@@ -150,7 +150,6 @@ class LayoutInCodeViewControllerTest: XCTestCase {
 		// then
 		assertThat(viewController.centerButton, presentAnd(isEqualCenterY(offset: 40)))
 		assertThat(viewController.centerButton, presentAnd(isEqualCenterX()))
-
 	}
 
 }

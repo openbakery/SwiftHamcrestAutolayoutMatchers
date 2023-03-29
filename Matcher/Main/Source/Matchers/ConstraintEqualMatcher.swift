@@ -14,9 +14,9 @@ private func hasMatchingEqualConstraint(_ view: UIView, attribute: NSLayoutConst
 	return hasMatchingEqualConstraint(view, to: view.superview, attribute: attribute, constant: constant)
 }
 
-
 private func hasMatchingEqualConstraint(_ view: UIView, to toView: UIView?, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
 
+	var message: String?
 	if let superView = findSuperView(view, toView) {
 		var secondItem = toView
 		if secondItem == nil {
@@ -30,9 +30,14 @@ private func hasMatchingEqualConstraint(_ view: UIView, to toView: UIView?, attr
 					constraint.firstAttribute == attribute &&
 					constraint.secondAttribute == attribute &&
 					constraint.relation == NSLayoutConstraint.Relation.equal &&
-					constraint.constant == constant &&
 					constraint.isActive) {
+
+				if (constraint.constant != constant) {
+					message = "Found constraint has constant of \(constraint.constant) but expected is \(constant)"
+					continue
+				}
 				return .match
+
 			}
 
 			if (constraint.firstItem === secondItem &&
@@ -40,15 +45,18 @@ private func hasMatchingEqualConstraint(_ view: UIView, to toView: UIView?, attr
 					constraint.firstAttribute == attribute &&
 					constraint.secondAttribute == attribute &&
 					constraint.relation == NSLayoutConstraint.Relation.equal &&
-					constraint.constant == constant &&
 					constraint.isActive) {
+				if (constraint.constant != constant) {
+					message = "Found constraint has constant of \(constraint.constant) but expected is \(constant)"
+					continue
+				}
 				return .match
 			}
 
 		}
 	}
 
-	return .mismatch(nil)
+	return .mismatch(message)
 }
 
 
