@@ -55,10 +55,10 @@ project {
 	}
 
 	val build = Build()
-	val publish = Publish(version, build)
+//	val publish = Publish(version, build)
 
 	buildType(build)
-	buildType(publish)
+//	buildType(publish)
 
 }
 
