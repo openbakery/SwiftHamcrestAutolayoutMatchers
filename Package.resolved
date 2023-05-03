@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "PinLayout",
+        "repositoryURL": "https://github.com/openbakery/PinLayout",
+        "state": {
+          "branch": "main",
+          "revision": "622d1a8b2b7f079118772d3e7c21fea37c3adf40",
+          "version": null
+        }
+      },
+      {
+        "package": "Hamcrest",
+        "repositoryURL": "https://github.com/renep/SwiftHamcrest",
+        "state": {
+          "branch": "master",
+          "revision": "038ff3e93382f3308048721702c3be4718c8b8fe",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

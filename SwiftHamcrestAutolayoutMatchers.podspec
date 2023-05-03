@@ -17,6 +17,6 @@ Pod::Spec.new do |spec|
 	spec.dependency 'SwiftHamcrest'
 	spec.ios.frameworks   = "Foundation", "Hamcrest"
 
-	spec.source_files = "Matcher/Main/Source/Matchers/*.swift"
+	spec.source_files = "Matchers/Main/Source/Matchers/*.swift"
 
 end
