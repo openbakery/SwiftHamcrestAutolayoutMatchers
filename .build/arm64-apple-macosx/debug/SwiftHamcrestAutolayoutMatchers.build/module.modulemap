@@ -1,4 +1,0 @@
-module SwiftHamcrestAutolayoutMatchers {
-    header "/Users/rene/workspace/openbakery/frameworks/SwiftHamcrestAutolayoutMatchers/.build/arm64-apple-macosx/debug/SwiftHamcrestAutolayoutMatchers.build/SwiftHamcrestAutolayoutMatchers-Swift.h"
-    requires objc
-}

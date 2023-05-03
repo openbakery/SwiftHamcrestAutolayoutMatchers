@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-	name: "SwiftHamcrestAutolayoutMatchers",
+	name: "HamcrestAutolayoutMatchers",
 	platforms: [
 		.iOS(.v14),
 	],
 	products: [
-		.library(name: "SwiftHamcrestAutolayoutMatchers", targets: ["HamcrestAutolayoutMatchers"]),
+		.library(name: "HamcrestAutolayoutMatchers", targets: ["HamcrestAutolayoutMatchers"]),
 	],
 	dependencies: [
 		.package(url: "https://github.com/renep/SwiftHamcrest", .branch("master")),
