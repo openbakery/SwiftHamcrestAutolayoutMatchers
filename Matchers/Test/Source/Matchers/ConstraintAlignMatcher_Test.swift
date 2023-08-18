@@ -209,5 +209,21 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		assertThat(first, isCenterY(with: second, offset: 120))
 	}
 
+	
+	func test_view_is_center_with_offset() {
+		// given
+		let first = UIView()
+		let superview = UIView()
+		superview.addSubview(first)
+
+		// when
+		first.layout
+			.centerX(offset: 10)
+			.centerY(offset: 20)
+
+		// then
+		assertThat(first, isCenterX(offset: 10))
+		assertThat(first, isCenterY(offset: 20))
+	}
 
 }

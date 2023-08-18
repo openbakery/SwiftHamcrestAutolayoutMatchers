@@ -47,10 +47,10 @@ public func isEqualCenterY<T: UIView>(with view: UIView, offset: CGFloat = 0) ->
 // MARK: - Horizontal Save Area
 
 
-public func isCenterX<T: UIView>(priority: UILayoutPriority = .required) -> Matcher<T> {
+public func isCenterX<T: UIView>(priority: UILayoutPriority = .required, offset: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view is safe area center x") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerX, priority: priority)
+		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerX, constant: offset, priority: priority)
 	}
 }
 
@@ -63,10 +63,10 @@ public func isCenterX<T: UIView>(with other: UIView, offset: CGFloat = 0) -> Mat
 
 // MARK: - Vertical Save Area
 
-public func isCenterY<T: UIView>(priority: UILayoutPriority = .required) -> Matcher<T> {
+public func isCenterY<T: UIView>(priority: UILayoutPriority = .required, offset: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view is safe area center y") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerY, priority: priority)
+		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerY, constant: offset, priority: priority)
 	}
 }
 
