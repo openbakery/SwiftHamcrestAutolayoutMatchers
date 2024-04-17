@@ -7,10 +7,10 @@
 import Foundation
 import XCTest
 import Hamcrest
-import HamcrestAutolayoutMatchers
 import PinLayout
+@testable import HamcrestAutolayoutMatchers
 
-class ConstraintAlignMatcherTest : XCTestCase {
+class ConstraintAlignMatcherTest: XCTestCase {
 
 	func test_isPinned_matcher() {
 		// given
@@ -39,7 +39,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		first.bottomAnchor.constraint(equalTo: second.bottomAnchor).isActive = true
 
 		// then
-		assertThat(first, isAligned(with:second, to:.bottom))
+		assertThat(first, isAligned(with: second, to: .bottom))
 	}
 
 
@@ -57,7 +57,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		first.bottomAnchor.constraint(equalTo: second.bottomAnchor).isActive = true
 
 		// then
-		assertThat(second, isAligned(with:first, to:.bottom))
+		assertThat(second, isAligned(with:first, to: .bottom))
 	}
 
 
@@ -74,7 +74,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		second.bottomAnchor.constraint(equalTo: first.bottomAnchor).isActive = true
 
 		// then
-		assertThat(second, isAligned(with:first, to:.bottom))
+		assertThat(second, isAligned(with:first, to: .bottom))
 	}
 
 
@@ -90,7 +90,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		first.bottomAnchor.constraint(equalTo: second.bottomAnchor, constant: 10.0).isActive = true
 
 		// then
-		assertThat(first, isAligned(with:second, to:.bottom, gap: 10))
+		assertThat(first, isAligned(with: second, to: .bottom, gap: 10))
 	}
 
 
@@ -104,7 +104,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		superview.bottomAnchor.constraint(equalTo: first.bottomAnchor).isActive = true
 
 		// then
-		assertThat(superview, not(isAligned(with:first, to:.bottom)))
+		assertThat(superview, not(isAligned(with: first, to: .bottom)))
 	}
 
 
@@ -118,7 +118,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		superview.topAnchor.constraint(equalTo: first.topAnchor).isActive = true
 
 		// then
-		assertThat(first, isAligned(with:superview, to:.top))
+		assertThat(first, isAligned(with:superview, to: .top))
 	}
 
 
@@ -132,7 +132,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		superview.topAnchor.constraint(equalTo: first.topAnchor).isActive = true
 
 		// then
-		assertThat(first, isAligned(to:.top))
+		assertThat(first, isAligned(to: .top))
 	}
 
 	func test_view_is_centerX() {
@@ -209,7 +209,7 @@ class ConstraintAlignMatcherTest : XCTestCase {
 		assertThat(first, isCenterY(with: second, offset: 120))
 	}
 
-	
+
 	func test_view_is_center_with_offset() {
 		// given
 		let first = UIView()

@@ -12,7 +12,7 @@
       },
       {
         "package": "Hamcrest",
-        "repositoryURL": "https://github.com/renep/SwiftHamcrest",
+        "repositoryURL": "https://github.com/nschum/SwiftHamcrest",
         "state": {
           "branch": "master",
           "revision": "038ff3e93382f3308048721702c3be4718c8b8fe",
