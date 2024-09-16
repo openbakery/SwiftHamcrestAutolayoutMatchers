@@ -12,7 +12,7 @@ let package = Package(
 		.library(name: "HamcrestAutolayoutMatchers", targets: ["HamcrestAutolayoutMatchers"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/nschum/SwiftHamcrest", .branch("swift-testing")),
+		.package(url: "https://github.com/nschum/SwiftHamcrest", .branch("master")),
 		.package(url: "https://github.com/openbakery/PinLayout", .branch("main"))
 	],
 	targets: [
@@ -30,7 +30,8 @@ let package = Package(
 			name: "HamcrestAutolayoutMatchersTest",
 			dependencies: [
 				"HamcrestAutolayoutMatchers",
-				"PinLayout"
+				"PinLayout",
+				.product(name: "HamcrestSwiftTesting", package: "SwiftHamcrest")
 			],
 			path: "Matchers",
 			sources: [

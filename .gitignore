@@ -5,6 +5,7 @@ build/
 .idea
 .DS_Store
 .build
+.swiftpm
 
 HamcrestAutolayoutMatchers.xcodeproj/xcuserdata
 HamcrestAutolayoutMatchers.xcodeproj/project.xcworkspace/

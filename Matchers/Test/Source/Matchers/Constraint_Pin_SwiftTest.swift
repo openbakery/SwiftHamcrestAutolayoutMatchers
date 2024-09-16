@@ -9,6 +9,7 @@ import UIKit
 import PinLayout
 import Testing
 import Hamcrest
+import HamcrestSwiftTesting
 import HamcrestAutolayoutMatchers
 
 @MainActor
