@@ -7,7 +7,7 @@ import Hamcrest
 import UIKit
 
 
-func hasAttribute(constraint: NSLayoutConstraint, attribute: NSLayoutConstraint.Attribute) -> Bool {
+@MainActor func hasAttribute(constraint: NSLayoutConstraint, attribute: NSLayoutConstraint.Attribute) -> Bool {
 	if (constraint.firstAttribute != attribute) {
 		return false
 	}
@@ -21,7 +21,7 @@ func hasAttribute(constraint: NSLayoutConstraint, attribute: NSLayoutConstraint.
 
 }
 
-private func matchesConstant(constraint: NSLayoutConstraint, constant: CGFloat, priority: UILayoutPriority) -> MatchResult {
+@MainActor private func matchesConstant(constraint: NSLayoutConstraint, constant: CGFloat, priority: UILayoutPriority) -> MatchResult {
 
 	if constraint.constant == constant &&
 			constraint.priority == priority {
@@ -31,7 +31,7 @@ private func matchesConstant(constraint: NSLayoutConstraint, constant: CGFloat, 
 
 }
 
-private func hasAnchorConstraint(for view: UIView,
+@MainActor private func hasAnchorConstraint(for view: UIView,
 																 attribute: NSLayoutConstraint.Attribute,
 																 guide: UILayoutGuide,
 																 constant: CGFloat,
@@ -46,7 +46,7 @@ private func hasAnchorConstraint(for view: UIView,
 
 }
 
-private func hasAnchorConstraint(for view: UIView,
+@MainActor private func hasAnchorConstraint(for view: UIView,
 																 superview: UIView,
 																 attribute: NSLayoutConstraint.Attribute,
 																 guide: UILayoutGuide,
@@ -79,7 +79,7 @@ private func hasAnchorConstraint(for view: UIView,
 	return .mismatch(nil)
 }
 
-private func hasAnchorConstraint(superview: UIView,
+@MainActor private func hasAnchorConstraint(superview: UIView,
 																 firstGuide: UILayoutGuide,
 																 secondGuide: UILayoutGuide,
 																 attribute: NSLayoutConstraint.Attribute,
@@ -105,7 +105,7 @@ private func hasAnchorConstraint(superview: UIView,
 	return .mismatch(nil)
 }
 
-func hasSafeAreaGuideToViewConstraint(for view: UIView,
+@MainActor func hasSafeAreaGuideToViewConstraint(for view: UIView,
 																			with other: UIView? = nil,
 																			attribute: NSLayoutConstraint.Attribute,
 																			constant: CGFloat = 0,
@@ -125,7 +125,7 @@ func hasSafeAreaGuideToViewConstraint(for view: UIView,
 	return .mismatch(nil)
 }
 
-func hasSafeAreaGuideToGuideConstraint(for view: UIView,
+@MainActor func hasSafeAreaGuideToGuideConstraint(for view: UIView,
 																			 with other: UIView? = nil,
 																			 attribute: NSLayoutConstraint.Attribute,
 																			 constant: CGFloat = 0,
@@ -146,7 +146,7 @@ func hasSafeAreaGuideToGuideConstraint(for view: UIView,
 }
 
 
-private func hasReadableAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
+@MainActor private func hasReadableAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
 	if #available(iOS 9, *) {
 		if let baseView = view.superview {
 			let constantValue: CGFloat
@@ -162,7 +162,7 @@ private func hasReadableAnchorConstraint(for view: UIView, attribute: NSLayoutCo
 	return .mismatch(nil)
 }
 
-private func hasAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint.Attribute, guide: UILayoutGuide) -> MatchResult {
+@MainActor private func hasAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint.Attribute, guide: UILayoutGuide) -> MatchResult {
 	if #available(iOS 9, *) {
 		return hasAnchorConstraint(for: view, attribute: attribute, guide: guide, constant: 0)
 	}
@@ -170,14 +170,14 @@ private func hasAnchorConstraint(for view: UIView, attribute: NSLayoutConstraint
 }
 
 
-public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
+@MainActor public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
 		return hasSafeAreaGuideToViewConstraint(for: value, attribute: attribute)
 	}
 }
 
-public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat) -> Matcher<T> {
+@MainActor public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
 		let gapValue:  CGFloat
@@ -191,7 +191,7 @@ public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.
 }
 
 
-public func isPinnedToReadableAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
+@MainActor public func isPinnedToReadableAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
 		return hasReadableAnchorConstraint(for: value, attribute: attribute, constant: 0)
@@ -199,7 +199,7 @@ public func isPinnedToReadableAnchor<T: UIView>(_ attribute: NSLayoutConstraint.
 }
 
 
-public func isPinnedToReadableAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat) -> Matcher<T> {
+@MainActor public func isPinnedToReadableAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
 		return hasReadableAnchorConstraint(for: value, attribute: attribute, constant: -gap)
@@ -207,7 +207,7 @@ public func isPinnedToReadableAnchor<T: UIView>(_ attribute: NSLayoutConstraint.
 }
 
 
-public func hasAnchor<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, _ guide : UILayoutGuide) -> Matcher<T> {
+@MainActor public func hasAnchor<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, _ guide : UILayoutGuide) -> Matcher<T> {
 	return Matcher("view is has anchor \(attribute))") {
 		(value: T) -> MatchResult in
 

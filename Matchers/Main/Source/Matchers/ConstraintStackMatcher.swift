@@ -11,7 +11,7 @@ import UIKit
 import Hamcrest
 
 
-private func hasMatchingStackConstraint(
+@MainActor private func hasMatchingStackConstraint(
 		for view: UIView,
 		with otherView: UIView,
 		firstAttribute: NSLayoutConstraint.Attribute,
@@ -44,7 +44,7 @@ private func hasMatchingStackConstraint(
 }
 
 
-public func isStacked<T: UIView>(onTopOf view: UIView, gap: CGFloat = 0) -> Matcher<T> {
+@MainActor public func isStacked<T: UIView>(onTopOf view: UIView, gap: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view is stack onTop of \(view)") { (value: T) -> MatchResult in
 		return hasMatchingStackConstraint(for: value, with: view, firstAttribute: .bottom, secondAttribute: .top, gap: -gap)
 

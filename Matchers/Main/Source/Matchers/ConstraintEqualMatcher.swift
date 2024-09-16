@@ -10,11 +10,11 @@ import Hamcrest
 import UIKit
 
 
-private func hasMatchingEqualConstraint(_ view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
+@MainActor private func hasMatchingEqualConstraint(_ view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
 	return hasMatchingEqualConstraint(view, to: view.superview, attribute: attribute, constant: constant)
 }
 
-private func hasMatchingEqualConstraint(_ view: UIView, to toView: UIView?, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
+@MainActor private func hasMatchingEqualConstraint(_ view: UIView, to toView: UIView?, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
 
 	var message: String?
 	if let superView = findSuperView(view, toView) {
@@ -60,11 +60,11 @@ private func hasMatchingEqualConstraint(_ view: UIView, to toView: UIView?, attr
 }
 
 
-private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, firstAttribute: NSLayoutConstraint.Attribute, secondAttribute: NSLayoutConstraint.Attribute) -> MatchResult {
+@MainActor private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, firstAttribute: NSLayoutConstraint.Attribute, secondAttribute: NSLayoutConstraint.Attribute) -> MatchResult {
 	return hasMatchingEqualConstraint(view, secondView: secondView, firstAttribute: firstAttribute, secondAttribute: secondAttribute, multiplier: 1.0)
 }
 
-private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, firstAttribute: NSLayoutConstraint.Attribute, secondAttribute: NSLayoutConstraint.Attribute, multiplier: CGFloat) -> MatchResult {
+@MainActor private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, firstAttribute: NSLayoutConstraint.Attribute, secondAttribute: NSLayoutConstraint.Attribute, multiplier: CGFloat) -> MatchResult {
 
 
 	if let superView = view.superview {
@@ -112,20 +112,20 @@ private func hasMatchingEqualConstraint(_ view: UIView, secondView: UIView?, fir
 
 }
 
-func equalMultiplier(constraint: NSLayoutConstraint, multiplier: CGFloat) -> Bool {
+@MainActor func equalMultiplier(constraint: NSLayoutConstraint, multiplier: CGFloat) -> Bool {
 	let first = Int(constraint.multiplier*10000)
 	let second = Int(multiplier*10000)
 	return first == second
 }
 
-public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, withConstant constant: CGFloat = 0) -> Matcher<T> {
+@MainActor public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, withConstant constant: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view has equal constraint: \(descriptionOfAttribute(attribute))") {
 		(value: T) -> MatchResult in
 		return hasMatchingEqualConstraint(value, attribute: attribute, constant: constant)
 	}
 }
 
-public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, with view: UIView, constant: CGFloat = 0) -> Matcher<T> {
+@MainActor public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, with view: UIView, constant: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view has equal constraint: \(descriptionOfAttribute(attribute))") {
 		(value: T) -> MatchResult in
 		return hasMatchingEqualConstraint(value, to: view, attribute: attribute, constant: constant)
@@ -133,32 +133,32 @@ public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attrib
 }
 
 
-public func hasSameSize<T: UIView>() -> Matcher<T> {
+@MainActor public func hasSameSize<T: UIView>() -> Matcher<T> {
 	return Matcher("view has same size") {
 		(value: T) -> MatchResult in
 		return hasMatchingEqualConstraint(value, secondView: nil, firstAttribute: .width, secondAttribute: .height)
 	}
 }
 
-public func hasSameWidthAndHeight<T: UIView>() -> Matcher<T> {
+@MainActor public func hasSameWidthAndHeight<T: UIView>() -> Matcher<T> {
 	return Matcher("view has same width and height") {
 		(value: T) -> MatchResult in
 		return hasMatchingEqualConstraint(value, secondView: nil, firstAttribute: .width, secondAttribute: .height)
 	}
 }
 
-public func hasSameWidthAs<T: UIView>(_ view: UIView) -> Matcher<T> {
+@MainActor public func hasSameWidthAs<T: UIView>(_ view: UIView) -> Matcher<T> {
 	return hasSameWidthAs(view, multiplier: 1.0)
 }
 
-public func hasSameWidthAs<T: UIView>(_ view: UIView, multiplier: CGFloat) -> Matcher<T> {
+@MainActor public func hasSameWidthAs<T: UIView>(_ view: UIView, multiplier: CGFloat) -> Matcher<T> {
 	return Matcher("view has same size") {
 		(value: T) -> MatchResult in
 		return hasMatchingEqualConstraint(value, secondView: view, firstAttribute: .width, secondAttribute: .width, multiplier: multiplier)
 	}
 }
 
-public func hasSameHeightAs<T: UIView>(_ view: UIView) -> Matcher<T> {
+@MainActor public func hasSameHeightAs<T: UIView>(_ view: UIView) -> Matcher<T> {
 	return Matcher("view has same size") {
 		(value: T) -> MatchResult in
 		return hasMatchingEqualConstraint(value, secondView: view, firstAttribute: .height, secondAttribute: .height)
@@ -166,7 +166,7 @@ public func hasSameHeightAs<T: UIView>(_ view: UIView) -> Matcher<T> {
 }
 
 
-public func hasSameHeightAs<T: UIView>(_ view: UIView, multiplier: CGFloat) -> Matcher<T> {
+@MainActor public func hasSameHeightAs<T: UIView>(_ view: UIView, multiplier: CGFloat) -> Matcher<T> {
 	return Matcher("view has same size") {
 		(value: T) -> MatchResult in
 		return hasMatchingEqualConstraint(value, secondView: view, firstAttribute: .height, secondAttribute: .height, multiplier: multiplier)

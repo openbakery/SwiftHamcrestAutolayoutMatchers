@@ -12,6 +12,7 @@ import Hamcrest
 import PinLayout
 @testable import HamcrestAutolayoutMatchers
 
+@MainActor 
 class ConstraintStackMatcherTest: XCTestCase {
 
 

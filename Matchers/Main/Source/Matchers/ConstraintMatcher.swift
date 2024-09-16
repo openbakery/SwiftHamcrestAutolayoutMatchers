@@ -8,7 +8,7 @@ import Hamcrest
 import UIKit
 
 
-private func findSuperView(_ first:UIView, _ second:UIView) -> UIView? {
+@MainActor private func findSuperView(_ first:UIView, _ second:UIView) -> UIView? {
 
 	var view = first
 	while let superview = view.superview {
@@ -20,7 +20,7 @@ private func findSuperView(_ first:UIView, _ second:UIView) -> UIView? {
 	return findSuperView(first, second.superview)
 }
 
-public func findSuperView(_ first:UIView?, _ second:UIView?) -> UIView? {
+@MainActor public func findSuperView(_ first:UIView?, _ second:UIView?) -> UIView? {
 	if let f = first {
 		if let s = second {
 			return findSuperView(f, s)
@@ -31,7 +31,7 @@ public func findSuperView(_ first:UIView?, _ second:UIView?) -> UIView? {
 
 
 // determines the second attribute based on the first and the views involved
-private func secondAttribute(first: AnyObject, second: AnyObject, superview: UIView, firstAttribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint.Attribute {
+@MainActor private func secondAttribute(first: AnyObject, second: AnyObject, superview: UIView, firstAttribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint.Attribute {
 	if let firstView = first as? UIView {
 		if (superview != firstView && superview != firstView.superview) {
 			return inverseAttribute(firstAttribute)
@@ -46,7 +46,7 @@ private func secondAttribute(first: AnyObject, second: AnyObject, superview: UIV
 	return firstAttribute
 }
 
-private func hasMatchingConstraint(_ firstItem: UIView,
+@MainActor private func hasMatchingConstraint(_ firstItem: UIView,
 																	 to secondItem: AnyObject,
 																	 attribute: NSLayoutConstraint.Attribute,
 																	 gap gapMatcher: Matcher<Float>,
@@ -76,7 +76,7 @@ private func hasMatchingConstraint(_ firstItem: UIView,
 		relatedBy: relation)
 }
 
-private func hasMatchingConstraint(_ view: UIView,
+@MainActor private func hasMatchingConstraint(_ view: UIView,
 																	 to: AnyObject,
 																	 firstAttribute: NSLayoutConstraint.Attribute,
 																	 secondAttribute: NSLayoutConstraint.Attribute,
@@ -120,7 +120,7 @@ private func hasMatchingConstraint(_ view: UIView,
 }
 
 
-public func isPinned<T:UIView>(first: NSLayoutConstraint.Attribute,
+@MainActor public func isPinned<T:UIView>(first: NSLayoutConstraint.Attribute,
 															 second: NSLayoutConstraint.Attribute,
 															 to toView: UIView? = nil,
 															 gap gapMatcher: Matcher<Float> = equalTo(0),
@@ -138,7 +138,7 @@ public func isPinned<T:UIView>(first: NSLayoutConstraint.Attribute,
 	}
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap gapMatcher: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap gapMatcher: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
 	return Matcher("view is pinned \(descriptionOfAttribute(attribute)) to its superview with gap:\(gapMatcher)") {
 		(value: T) -> MatchResult in
 		if let toViewUnwrapped = toView {
@@ -151,40 +151,40 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView
 	}
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
 	return isPinned(attribute, toView: toView, gap: closeTo(Float(gap), 0.001), priority: priority, relatedBy: relation)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, toView: UIView?) -> Matcher<T> {
 	return isPinned(attribute, toView: toView, gap: equalTo(0))
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute) -> Matcher<T> {
 	return isPinned(attribute, toView: nil, gap: equalTo(0))
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, relatedBy relation: NSLayoutConstraint.Relation) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, relatedBy relation: NSLayoutConstraint.Relation) -> Matcher<T> {
 	return isPinned(attribute, toView: nil, gap: equalTo(0), relatedBy: relation)
 }
 
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap gapMatcher: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap gapMatcher: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
 return isPinned(attribute, toView: nil, gap: gapMatcher, priority: priority, relatedBy: relation)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> Matcher<T> {
 	return isPinned(attribute, gap: closeTo(Float(gap), 0.001), priority: priority, relatedBy: relation)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, withGuide guide: UILayoutSupport, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, withGuide guide: UILayoutSupport, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 	return isPinned(attribute, to: guide, priority: priority)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, gap: CGFloat, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 	return isPinned(attribute, to: to, gap: closeTo(Float(gap), 0.001), priority: priority)
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, gap: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, gap: Matcher<Float>, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 
 	return Matcher("view is pinned \(descriptionOfAttribute(attribute)) to its superview") {
 		(value: T) -> MatchResult in
@@ -192,12 +192,12 @@ public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: An
 	}
 }
 
-public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
+@MainActor public func isPinned<T:UIView>(_ attribute: NSLayoutConstraint.Attribute, to: AnyObject, priority: UILayoutPriority = UILayoutPriority.required) -> Matcher<T> {
 	return isPinned(attribute, to: to, gap: 0, priority: priority)
 }
 
 
-public func isPinnedToAllEdges<T:UIView>(gap: CGFloat = 0) -> Matcher<T> {
+@MainActor public func isPinnedToAllEdges<T:UIView>(gap: CGFloat = 0) -> Matcher<T> {
 	return allOf(
 			isPinned(.leading, gap: gap),
 			isPinned(.trailing, gap: gap),
@@ -206,7 +206,7 @@ public func isPinnedToAllEdges<T:UIView>(gap: CGFloat = 0) -> Matcher<T> {
 	)
 }
 
-public func descriptionOfAttribute(_ attribute:NSLayoutConstraint.Attribute) -> String {
+@MainActor public func descriptionOfAttribute(_ attribute:NSLayoutConstraint.Attribute) -> String {
 	switch attribute {
 	case .left:
 		return "Left"
@@ -255,7 +255,7 @@ public func descriptionOfAttribute(_ attribute:NSLayoutConstraint.Attribute) -> 
 	}
 }
 
-func inverseAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint.Attribute {
+@MainActor func inverseAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint.Attribute {
 	switch (attribute) {
 	case .top:
 		return .bottom;
@@ -274,7 +274,7 @@ func inverseAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutCons
 	}
 }
 
-func swap(_ first: inout Any, _ second: inout Any) {
+@MainActor func swap(_ first: inout Any, _ second: inout Any) {
 	let tmp = first
 	second = first
 	first = tmp

@@ -7,7 +7,7 @@ import Foundation
 import Hamcrest
 import UIKit
 
-
+@MainActor
 private func hasMatchingAlignConstraint(for view: UIView, with otherView: UIView, to attribute: NSLayoutConstraint.Attribute, gap: CGFloat, relatedBy relation: NSLayoutConstraint.Relation = .equal) -> MatchResult {
 
 	if let commonSuperView = findSuperView(view, otherView) {
@@ -34,7 +34,7 @@ private func hasMatchingAlignConstraint(for view: UIView, with otherView: UIView
 	return .mismatch(nil)
 }
 
-
+@MainActor
 public func isAligned<T: UIView>(with view: UIView, to attribute: NSLayoutConstraint.Attribute, gap: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view is pinned \(descriptionOfAttribute(attribute)) to its superview") { (value: T) -> MatchResult in
 		return hasMatchingAlignConstraint(for: value, with: view, to: attribute, gap: gap)
@@ -42,7 +42,7 @@ public func isAligned<T: UIView>(with view: UIView, to attribute: NSLayoutConstr
 	}
 }
 
-
+@MainActor
 public func isAligned<T: UIView>(to attribute: NSLayoutConstraint.Attribute, gap: CGFloat = 0) -> Matcher<T> {
 	return Matcher("view is pinned \(descriptionOfAttribute(attribute)) to its superview") { (value: T) -> MatchResult in
 

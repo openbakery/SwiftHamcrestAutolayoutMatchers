@@ -9,21 +9,12 @@ import PinLayout
 import Hamcrest
 import HamcrestAutolayoutMatchers
 
+@MainActor
 class ContraintMatcherConstant_Test: XCTestCase {
 
-	var layout: Layout!
-
-	override func setUp() {
-		super.setUp()
-		layout = Layout()
-	}
-
-	override func tearDown() {
-		layout = nil
-		super.tearDown()
-	}
 
 	func test_has_height() {
+		let layout = Layout()
 		let view = UIView()
 
 		// when
@@ -34,6 +25,7 @@ class ContraintMatcherConstant_Test: XCTestCase {
 	}
 
 	func test_has_height_constraint() {
+		let layout = Layout()
 		let view = UIView()
 
 		// when
@@ -44,6 +36,7 @@ class ContraintMatcherConstant_Test: XCTestCase {
 	}
 
 	func test_has_not_height_constraint() {
+		let layout = Layout()
 		let view = UIView()
 
 		// when
