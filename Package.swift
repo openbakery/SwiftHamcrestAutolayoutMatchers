@@ -6,20 +6,20 @@ import PackageDescription
 let package = Package(
 	name: "HamcrestAutolayoutMatchers",
 	platforms: [
-		.iOS(.v14),
+		.iOS(.v14)
 	],
 	products: [
-		.library(name: "HamcrestAutolayoutMatchers", targets: ["HamcrestAutolayoutMatchers"]),
+		.library(name: "HamcrestAutolayoutMatchers", targets: ["HamcrestAutolayoutMatchers"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/nschum/SwiftHamcrest", .branch("master")),
-		.package(url: "https://github.com/openbakery/PinLayout", .branch("main")),
+		.package(url: "https://github.com/renep/SwiftHamcrest", .branch("swift-testing")),
+		.package(url: "https://github.com/openbakery/PinLayout", .branch("main"))
 	],
 	targets: [
 		.target(
 			name: "HamcrestAutolayoutMatchers",
 			dependencies: [
-				.product(name: "Hamcrest", package: "SwiftHamcrest"),
+				.product(name: "Hamcrest", package: "SwiftHamcrest")
 			],
 			path: "Matchers",
 			sources: [
@@ -36,6 +36,6 @@ let package = Package(
 			sources: [
 				"Test/Source"
 			]
-		),
+		)
 	]
 )
