@@ -12,7 +12,7 @@ let package = Package(
 		.library(name: "HamcrestAutolayoutMatchers", targets: ["HamcrestAutolayoutMatchers"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/renep/SwiftHamcrest", .branch("swift-testing")),
+		.package(url: "https://github.com/nschum/SwiftHamcrest", .branch("swift-testing")),
 		.package(url: "https://github.com/openbakery/PinLayout", .branch("main"))
 	],
 	targets: [

@@ -636,7 +636,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nschum/SwiftHamcrest";
 			requirement = {
-				branch = master;
+				branch = "swift-testing";
 				kind = branch;
 			};
 		};
