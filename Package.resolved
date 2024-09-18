@@ -14,9 +14,9 @@
         "package": "Hamcrest",
         "repositoryURL": "https://github.com/nschum/SwiftHamcrest",
         "state": {
-          "branch": "master",
-          "revision": "038ff3e93382f3308048721702c3be4718c8b8fe",
-          "version": null
+          "branch": null,
+          "revision": "8c679c859fd5e12b83aea68a51045b0a11dfddef",
+          "version": "2.2.4"
         }
       }
     ]

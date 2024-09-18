@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 import XCTest
-import Hamcrest
+import SwiftHamcrest
 import HamcrestAutolayoutMatchers
 
 @available(iOS 14, *)

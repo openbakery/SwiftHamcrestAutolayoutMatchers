@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-import Hamcrest
+import SwiftHamcrest
 
 public func isEqualCenter<T: UIView>() -> Matcher<T> {
 	return allOf(isEqualCenterX(), isEqualCenterY())

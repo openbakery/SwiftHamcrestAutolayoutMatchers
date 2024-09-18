@@ -6,7 +6,7 @@
 import Foundation
 import XCTest
 import PinLayout
-import Hamcrest
+import SwiftHamcrest
 import HamcrestAutolayoutMatchers
 
 class ContraintMatcherConstant_Test: XCTestCase {
