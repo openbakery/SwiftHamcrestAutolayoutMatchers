@@ -6,7 +6,7 @@
 
 import Foundation
 import XCTest
-import SwiftHamcrest
+import Hamcrest
 import PinLayout
 @testable import HamcrestAutolayoutMatchers
 

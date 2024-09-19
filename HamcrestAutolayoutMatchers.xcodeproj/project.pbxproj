@@ -23,8 +23,10 @@
 		A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A7B6466A2BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B646692BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift */; };
 		A7B6466D2BCF9DBC00339AA4 /* ConstraintStackMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6466B2BCF9B0A00339AA4 /* ConstraintStackMatcher.swift */; };
-		A7C077182C9B15CC004A4D02 /* SwiftHamcrest in Frameworks */ = {isa = PBXBuildFile; productRef = A7C077172C9B15CC004A4D02 /* SwiftHamcrest */; };
-		A7E8415B2A8F68E600820154 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A7E8415A2A8F68E600820154 /* PinLayout */; };
+		BF0740142C9C37CB00BF70F3 /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740132C9C37CB00BF70F3 /* Hamcrest.xcframework */; };
+		BF0740172C9C380500BF70F3 /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740132C9C37CB00BF70F3 /* Hamcrest.xcframework */; };
+		BF0740192C9C382C00BF70F3 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740182C9C382C00BF70F3 /* PinLayout.xcframework */; };
+		BF07401A2C9C383200BF70F3 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740182C9C382C00BF70F3 /* PinLayout.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMatcher_Test.swift; sourceTree = "<group>"; };
 		A7B646692BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintStackMatcher_Test.swift; sourceTree = "<group>"; };
 		A7B6466B2BCF9B0A00339AA4 /* ConstraintStackMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintStackMatcher.swift; sourceTree = "<group>"; };
+		BF0740132C9C37CB00BF70F3 /* Hamcrest.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Hamcrest.xcframework; path = Carthage/Build/Hamcrest.xcframework; sourceTree = "<group>"; };
+		BF0740182C9C382C00BF70F3 /* PinLayout.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PinLayout.xcframework; path = Carthage/Build/PinLayout.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C077182C9B15CC004A4D02 /* SwiftHamcrest in Frameworks */,
-				A7E8415B2A8F68E600820154 /* PinLayout in Frameworks */,
+				BF0740142C9C37CB00BF70F3 /* Hamcrest.xcframework in Frameworks */,
+				BF0740192C9C382C00BF70F3 /* PinLayout.xcframework in Frameworks */,
 				A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +90,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF07401A2C9C383200BF70F3 /* PinLayout.xcframework in Frameworks */,
+				BF0740172C9C380500BF70F3 /* Hamcrest.xcframework in Frameworks */,
 				A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */,
 				A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
 			);
@@ -179,6 +185,8 @@
 		A78EDAA623C47E0B00695664 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF0740182C9C382C00BF70F3 /* PinLayout.xcframework */,
+				BF0740132C9C37CB00BF70F3 /* Hamcrest.xcframework */,
 				A741F6F5242B877400BFEB5E /* XCTest.framework */,
 			);
 			name = Frameworks;
@@ -235,8 +243,6 @@
 			);
 			name = HamcrestAutolayoutMatchers;
 			packageProductDependencies = (
-				A7E8415A2A8F68E600820154 /* PinLayout */,
-				A7C077172C9B15CC004A4D02 /* SwiftHamcrest */,
 			);
 			productName = HamcrestAutolayoutMatchers;
 			productReference = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */;
@@ -290,8 +296,6 @@
 			);
 			mainGroup = A78EDA6723C47AB200695664;
 			packageReferences = (
-				A7E841592A8F68E600820154 /* XCRemoteSwiftPackageReference "PinLayout" */,
-				A7C077162C9B15CC004A4D02 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */,
 			);
 			productRefGroup = A78EDA7223C47AB200695664 /* Products */;
 			projectDirPath = "";
@@ -622,38 +626,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A7C077162C9B15CC004A4D02 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nschum/SwiftHamcrest";
-			requirement = {
-				kind = exactVersion;
-				version = 2.2.4;
-			};
-		};
-		A7E841592A8F68E600820154 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/openbakery/PinLayout/";
-			requirement = {
-				branch = "swift-5";
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A7C077172C9B15CC004A4D02 /* SwiftHamcrest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A7C077162C9B15CC004A4D02 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */;
-			productName = SwiftHamcrest;
-		};
-		A7E8415A2A8F68E600820154 /* PinLayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A7E841592A8F68E600820154 /* XCRemoteSwiftPackageReference "PinLayout" */;
-			productName = PinLayout;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A78EDA6823C47AB200695664 /* Project object */;
 }

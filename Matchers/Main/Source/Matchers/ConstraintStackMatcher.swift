@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import SwiftHamcrest
+import Hamcrest
 
 
 private func hasMatchingStackConstraint(

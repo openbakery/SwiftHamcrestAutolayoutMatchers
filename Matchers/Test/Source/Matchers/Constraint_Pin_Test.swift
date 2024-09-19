@@ -7,7 +7,7 @@ import Foundation
 import XCTest
 import PinLayout
 import UIKit
-import SwiftHamcrest
+import Hamcrest
 @testable import HamcrestAutolayoutMatchers
 
 @available(iOS 11, *)

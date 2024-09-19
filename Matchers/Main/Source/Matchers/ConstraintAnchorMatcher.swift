@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import SwiftHamcrest
+import Hamcrest
 import UIKit
 
 
