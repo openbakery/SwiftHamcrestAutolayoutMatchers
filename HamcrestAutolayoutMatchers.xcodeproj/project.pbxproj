@@ -23,10 +23,9 @@
 		A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A7B6466A2BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B646692BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift */; };
 		A7B6466D2BCF9DBC00339AA4 /* ConstraintStackMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6466B2BCF9B0A00339AA4 /* ConstraintStackMatcher.swift */; };
-		BF0740142C9C37CB00BF70F3 /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740132C9C37CB00BF70F3 /* Hamcrest.xcframework */; };
 		BF0740172C9C380500BF70F3 /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740132C9C37CB00BF70F3 /* Hamcrest.xcframework */; };
-		BF0740192C9C382C00BF70F3 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740182C9C382C00BF70F3 /* PinLayout.xcframework */; };
 		BF07401A2C9C383200BF70F3 /* PinLayout.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740182C9C382C00BF70F3 /* PinLayout.xcframework */; };
+		BF07401D2C9C4A8400BF70F3 /* Hamcrest.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF0740132C9C37CB00BF70F3 /* Hamcrest.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF0740142C9C37CB00BF70F3 /* Hamcrest.xcframework in Frameworks */,
-				BF0740192C9C382C00BF70F3 /* PinLayout.xcframework in Frameworks */,
+				BF07401D2C9C4A8400BF70F3 /* Hamcrest.xcframework in Frameworks */,
 				A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
