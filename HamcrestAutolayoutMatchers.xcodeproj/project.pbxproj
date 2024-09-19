@@ -636,7 +636,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/openbakery/PinLayout/";
 			requirement = {
-				branch = main;
+				branch = "swift-5";
 				kind = branch;
 			};
 		};
