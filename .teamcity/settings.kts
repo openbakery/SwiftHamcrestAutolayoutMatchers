@@ -7,15 +7,15 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
 version = "2025.03"
 
-class Version(val major: Int, val minor: Int, val maintenance: Int) {
+class Version(val major: Int, val minor: Int) {
 
 	override fun toString(): String {
-		return "%d.%d.%d".format(major, minor, maintenance)
+		return "%d.%d".format(major, minor)
 	}
 
 	val identifier: String
 		get() {
-			return "${major}_${minor}_${maintenance}"
+			return "${major}_${minor}"
 		}
 
 	val description: String
@@ -26,7 +26,7 @@ class Version(val major: Int, val minor: Int, val maintenance: Int) {
 
 project {
 
-	val version = Version(2025, 0, %build.counter%)
+	val version = Version(2025, 0)
 
 	val build = Build()
 	val publish = Publish(version, build)
@@ -71,7 +71,7 @@ class Publish(val version: Version, private val parentBuildType: Build) : BuildT
 
 	steps {
 		exec {
-			path = "./create-xcframework.sh ${version}"
+			path = "./create-xcframework.sh ${version}.%build.counter%"
 		}
 	}
 
