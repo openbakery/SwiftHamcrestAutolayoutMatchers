@@ -26,7 +26,7 @@ class Version(val major: Int, val minor: Int, val maintenance: Int) {
 
 project {
 
-	val version = Version(2025, 0, "%build.counter%")
+	val version = Version(2025, 0, %build.counter%)
 
 	val build = Build()
 	val publish = Publish(version, build)
