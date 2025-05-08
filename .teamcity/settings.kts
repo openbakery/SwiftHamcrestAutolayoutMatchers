@@ -73,8 +73,8 @@ class Publish(val version: Version, private val parentBuildType: Build) : BuildT
 			scriptContent = "chmod +x create-xcframework.sh"
 		}
 
-		exec {
-			path = "./create-xcframework.sh ${version}.%build.counter%"
+		script {
+			scriptContent = "./create-xcframework.sh ${version}.%build.counter%"
 		}
 	}
 
