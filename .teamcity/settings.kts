@@ -62,8 +62,8 @@ class Build : BuildType({
 
 
 class Publish(val version: Version, private val parentBuildType: Build) : BuildType({
-	id("Publish_${version.identifier}".toId())
-	name = "Publish ${version.description} "
+	id("Publish".toId())
+	name = "Publish"
 
 	vcs {
 		root(DslContext.settingsRoot)
