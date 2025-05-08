@@ -82,7 +82,7 @@ class Publish(val version: Version, private val parentBuildType: Build) : BuildT
 		}
 
 		script {
-			scriptContent = "ghr ${version}.%build.counter% build/xcframework"
+			scriptContent = "ghr -t %GITHUB_DEPLOY_TOKEN% ${version}.%build.counter% build/xcframework"
 		}
 	}
 
