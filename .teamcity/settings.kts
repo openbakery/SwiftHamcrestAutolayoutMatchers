@@ -47,18 +47,13 @@ class Version(val major: Int, val minor: Int, val maintenance: Int) {
 
 project {
 
-	val version = Version(20, 2, 0)
-	params {
-		password("PUBLISH_PASSWORD", "credentialsJSON:1179c17d-ddfd-4f16-98be-65b5cce54a6f")
-		param("PUBLISH_USERNAME", "groundskeeper")
-		param("PUBLISH_URL", "sftp://192.168.99.6:22/home/groundskeeper/www/frameworks/")
-	}
+	val version = Version(2025, 0, 0)
 
 	val build = Build()
-//	val publish = Publish(version, build)
+	val publish = Publish(version, build)
 
 	buildType(build)
-//	buildType(publish)
+	buildType(publish)
 
 }
 
@@ -99,14 +94,8 @@ class Publish(val version: Version, private val parentBuildType: Build) : BuildT
 
 	steps {
 		exec {
-			path = "./gradlew"
-			arguments = "clean carthageBootstrap binaryArchive -PbuildSettings.version=${version}.%build.counter%"
+			path = "./create-xcframework.sh"
 		}
-
-		script {
-			scriptContent = "./gradlew publish -PpublishUser=%PUBLISH_USERNAME% -PpublishPassword=%PUBLISH_PASSWORD% -PpublishURL=%PUBLISH_URL% -PbuildSettings.version=${version}.%build.counter%"
-		}
-
 	}
 
 	features {
