@@ -2,6 +2,14 @@
 
 ARCHIVE_DIRECTORY=build/archive
 
+if [ $# -ne 1 ]
+then
+	echo "Version is missing"
+	exit
+fi
+
+VERSION=$1
+
 xcodebuild archive \
     -project HamcrestAutolayoutMatchers.xcodeproj \
     -scheme HamcrestAutolayoutMatchers \
@@ -27,4 +35,4 @@ xcodebuild -create-xcframework \
 cp LICENSE build/archive
 cd build/archive
 
-zip -r HamcrestAutolayoutMatchers.zip HamcrestAutolayoutMatchers.xcframework LICENSE
+zip -r HamcrestAutolayoutMatchers-$VERSION.zip HamcrestAutolayoutMatchers.xcframework LICENSE

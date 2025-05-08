@@ -5,28 +5,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
-/*
-The settings script is an entry point for defining a TeamCity
-project hierarchy. The script should contain a single call to the
-project() function with a Project instance or an init function as
-an argument.
-
-VcsRoots, BuildTypes, Templates, and subprojects can be
-registered inside the project using the vcsRoot(), buildType(),
-template(), and subProject() methods respectively.
-
-To debug settings scripts in command-line, run the
-
-    mvnDebug org.jetbrains.teamcity:teamcity-configs-maven-plugin:generate
-
-command and attach your debugger to the port 8000.
-
-To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
--> Tool Windows -> Maven Projects), find the generate task node
-(Plugins -> teamcity-configs -> teamcity-configs:generate), the
-'Debug' option is available in the context menu for the task.
-*/
-version = "2019.1"
+version = "2025.03"
 
 class Version(val major: Int, val minor: Int, val maintenance: Int) {
 
@@ -47,7 +26,7 @@ class Version(val major: Int, val minor: Int, val maintenance: Int) {
 
 project {
 
-	val version = Version(2025, 0, 0)
+	val version = Version(2025, 0, "%build.counter%")
 
 	val build = Build()
 	val publish = Publish(version, build)
@@ -86,15 +65,13 @@ class Publish(val version: Version, private val parentBuildType: Build) : BuildT
 	id("Publish_${version.identifier}".toId())
 	name = "Publish ${version.description} "
 
-
 	vcs {
 		root(DslContext.settingsRoot)
 	}
 
-
 	steps {
 		exec {
-			path = "./create-xcframework.sh"
+			path = "./create-xcframework.sh ${version}"
 		}
 	}
 
