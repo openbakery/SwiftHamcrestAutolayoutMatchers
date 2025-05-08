@@ -1,0 +1,33 @@
+{
+  "originHash" : "b253c6407cdc21c5549afa65ccbc7e545494f4d971a10f7d54689e74970ab743",
+  "pins" : [
+    {
+      "identity" : "pinlayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/openbakery/PinLayout",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4cea1b240f3d4ba5797bc813c2c22ab19c9f8e22"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-syntax.git",
+      "state" : {
+        "revision" : "cb53fa1bd3219b0b23ded7dfdd3b2baff266fd25",
+        "version" : "600.0.0"
+      }
+    },
+    {
+      "identity" : "swifthamcrest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nschum/SwiftHamcrest/",
+      "state" : {
+        "revision" : "1cf78fd26ee8607553d20bd2a82074ac12c50a7b",
+        "version" : "2.3.0"
+      }
+    }
+  ],
+  "version" : 3
+}

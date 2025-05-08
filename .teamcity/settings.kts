@@ -45,8 +45,7 @@ class Build : BuildType({
 
 	steps {
 		exec {
-			path = "./gradlew"
-			arguments = "clean test"
+			path = "./test"
 		}
 	}
 

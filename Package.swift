@@ -1,6 +1,5 @@
 // swift-tools-version: 6.0
 
-
 import PackageDescription
 
 let package = Package(
@@ -13,7 +12,7 @@ let package = Package(
 	],
 	dependencies: [
 		.package(url: "https://github.com/nschum/SwiftHamcrest/", .upToNextMajor(from: "2.3.0")),
-		.package(url: "https://github.com/openbakery/PinLayout", .branch("main"))
+		.package(url: "https://github.com/openbakery/PinLayout", .branch("main")),
 	],
 	targets: [
 		.target(
@@ -31,12 +30,12 @@ let package = Package(
 			dependencies: [
 				"HamcrestAutolayoutMatchers",
 				"PinLayout",
-				.product(name: "HamcrestSwiftTesting", package: "SwiftHamcrest")
+				.product(name: "HamcrestSwiftTesting", package: "SwiftHamcrest"),
 			],
 			path: "Matchers",
 			sources: [
 				"Test/Source"
 			]
-		)
+		),
 	]
 )
