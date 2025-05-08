@@ -32,7 +32,9 @@ xcodebuild -create-xcframework \
     -archive $ARCHIVE_DIRECTORY/HamcrestAutolayoutMatchers-iOS_Simulator.xcarchive -framework HamcrestAutolayoutMatchers.framework \
     -output build/archive/HamcrestAutolayoutMatchers.xcframework
 
+mkdir build/xcframework
+
 cp LICENSE build/archive
 cd build/archive
 
-zip -r HamcrestAutolayoutMatchers-$VERSION.zip HamcrestAutolayoutMatchers.xcframework LICENSE
+zip -r ../xcframework/HamcrestAutolayoutMatchers-$VERSION.zip HamcrestAutolayoutMatchers.xcframework LICENSE

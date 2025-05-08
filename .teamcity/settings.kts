@@ -26,6 +26,10 @@ class Version(val major: Int, val minor: Int) {
 
 project {
 
+	params {
+		password("GITHUB_DEPLOY_TOKEN", "credentialsJSON:7654e98e-8ad4-49a7-b253-89b8efe774e5")
+	}
+
 	val version = Version(2025, 0)
 
 	val build = Build()
@@ -75,6 +79,10 @@ class Publish(val version: Version, private val parentBuildType: Build) : BuildT
 
 		script {
 			scriptContent = "./create-xcframework.sh ${version}.%build.counter%"
+		}
+
+		script {
+			scriptContent = "ghr ${version}.%build.counter% build/xcframework"
 		}
 	}
 
