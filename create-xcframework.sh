@@ -37,4 +37,4 @@ mkdir build/xcframework
 cp LICENSE build/archive
 cd build/archive
 
-zip -r ../xcframework/HamcrestAutolayoutMatchers-$VERSION.zip HamcrestAutolayoutMatchers.xcframework LICENSE
+zip -r ../xcframework/HamcrestAutolayoutMatchers-$VERSION.xcframework.zip HamcrestAutolayoutMatchers.xcframework LICENSE
