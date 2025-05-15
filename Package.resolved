@@ -1,15 +1,6 @@
 {
-  "originHash" : "b253c6407cdc21c5549afa65ccbc7e545494f4d971a10f7d54689e74970ab743",
+  "originHash" : "0d537d315eb8f50abd0bc2ed54307536f6cc3f575e6ee4a78d56a285e4a99963",
   "pins" : [
-    {
-      "identity" : "pinlayout",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/openbakery/PinLayout",
-      "state" : {
-        "branch" : "main",
-        "revision" : "4cea1b240f3d4ba5797bc813c2c22ab19c9f8e22"
-      }
-    },
     {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
