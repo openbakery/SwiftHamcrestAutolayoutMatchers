@@ -7,16 +7,22 @@
 //
 
 import Foundation
-import XCTest
+import UIKit
+import Testing
 import Hamcrest
+import HamcrestSwiftTesting
 import PinLayout
 @testable import HamcrestAutolayoutMatchers
 
 @MainActor 
-class ConstraintStackMatcherTest: XCTestCase {
+class ConstraintStackMatcherTest {
+
+	init() async throws {
+		HamcrestSwiftTesting.enable()
+	}
 
 
-	func test_matches_isStack_onTopOf_whtn_first_is_stacked_onTopOf_second() {
+	@Test func matches_isStack_onTopOf_whtn_first_is_stacked_onTopOf_second() {
 		// given
 		let first = UIView()
 		let second = UIView()
@@ -33,7 +39,7 @@ class ConstraintStackMatcherTest: XCTestCase {
 	}
 
 
-	func test_matches_isStack_onTopOf_whtn_first_is_stacked_onTopOf_second_with_gap() {
+	@Test func matches_isStack_onTopOf_whtn_first_is_stacked_onTopOf_second_with_gap() {
 		// given
 		let first = UIView()
 		let second = UIView()

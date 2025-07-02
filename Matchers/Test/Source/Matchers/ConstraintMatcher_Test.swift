@@ -20,6 +20,7 @@ struct ConstraintMatcherTest {
 	let superview : UIView
 
 	init() {
+		HamcrestSwiftTesting.enable()
 		first = UIView()
 		superview = UIView()
 		superview.addSubview(first)
@@ -31,7 +32,7 @@ struct ConstraintMatcherTest {
 		first.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
 		
 		// expect
-		#assertThat(first, hasHeight(of: 44))
+		assertThat(first, hasHeight(of: 44))
 	}
 
 	@Test func width_matcher() {
@@ -39,7 +40,7 @@ struct ConstraintMatcherTest {
 		first.widthAnchor.constraint(equalToConstant: 55.0).isActive = true
 		
 		// expect
-		#assertThat(first, hasWidth(of: 55))
+		assertThat(first, hasWidth(of: 55))
 	}
 
 	@Test func height_matcher_with_default_priority() {
@@ -47,7 +48,7 @@ struct ConstraintMatcherTest {
 		first.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
 		
 		// expect
-		#assertThat(first, hasHeight(of: 44, withPriority: .required))
+		assertThat(first, hasHeight(of: 44, withPriority: .required))
 	}
 	
 
@@ -56,7 +57,7 @@ struct ConstraintMatcherTest {
 		first.widthAnchor.constraint(equalToConstant: 55.0).isActive = true
 		
 		// expect
-		#assertThat(first, hasWidth(of: 55, withPriority: .required))
+		assertThat(first, hasWidth(of: 55, withPriority: .required))
 	}
 
 
@@ -67,7 +68,7 @@ struct ConstraintMatcherTest {
 		constraint.isActive = true
 		
 		// expect
-		#assertThat(first, hasHeight(of: 44, withPriority: .defaultLow))
+		assertThat(first, hasHeight(of: 44, withPriority: .defaultLow))
 	}
 
 }

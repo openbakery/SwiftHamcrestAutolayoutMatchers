@@ -4,16 +4,22 @@
 //
 
 import Foundation
-import XCTest
+import UIKit
+import Testing
 import PinLayout
 import Hamcrest
+import HamcrestSwiftTesting
 import HamcrestAutolayoutMatchers
 
 @MainActor
-class ContraintMatcherConstant_Test: XCTestCase {
+class ContraintMatcherConstant_Test {
+
+	init() async throws {
+		HamcrestSwiftTesting.enable()
+	}
 
 
-	func test_has_height() {
+	@Test func has_height() {
 		let layout = Layout()
 		let view = UIView()
 
@@ -24,7 +30,7 @@ class ContraintMatcherConstant_Test: XCTestCase {
 		assertThat(view, hasHeight(of: 100))
 	}
 
-	func test_has_height_constraint() {
+	@Test func has_height_constraint() {
 		let layout = Layout()
 		let view = UIView()
 
@@ -35,7 +41,7 @@ class ContraintMatcherConstant_Test: XCTestCase {
 		assertThat(view, hasConstraint(.height))
 	}
 
-	func test_has_not_height_constraint() {
+	@Test func has_not_height_constraint() {
 		let layout = Layout()
 		let view = UIView()
 

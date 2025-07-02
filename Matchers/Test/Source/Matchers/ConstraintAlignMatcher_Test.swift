@@ -15,6 +15,11 @@ import Testing
 @MainActor
 struct ConstraintAlignMatcherTest {
 
+	init() async throws {
+		HamcrestSwiftTesting.enable()
+	}
+
+
 	@Test func isPinned_matcher() {
 		// given
 		let view = UIView()
@@ -25,7 +30,7 @@ struct ConstraintAlignMatcherTest {
 		superview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
 		// then
-		#assertThat(view, isPinned(.bottom))
+		assertThat(view, isPinned(.bottom))
 	}
 
 
@@ -42,7 +47,7 @@ struct ConstraintAlignMatcherTest {
 		first.bottomAnchor.constraint(equalTo: second.bottomAnchor).isActive = true
 
 		// then
-		#assertThat(first, isAligned(with: second, to: .bottom))
+		assertThat(first, isAligned(with: second, to: .bottom))
 	}
 
 
@@ -60,7 +65,7 @@ struct ConstraintAlignMatcherTest {
 		first.bottomAnchor.constraint(equalTo: second.bottomAnchor).isActive = true
 
 		// then
-		#assertThat(second, isAligned(with:first, to: .bottom))
+		assertThat(second, isAligned(with:first, to: .bottom))
 	}
 
 
@@ -77,7 +82,7 @@ struct ConstraintAlignMatcherTest {
 		second.bottomAnchor.constraint(equalTo: first.bottomAnchor).isActive = true
 
 		// then
-		#assertThat(second, isAligned(with:first, to: .bottom))
+		assertThat(second, isAligned(with:first, to: .bottom))
 	}
 
 
@@ -93,7 +98,7 @@ struct ConstraintAlignMatcherTest {
 		first.bottomAnchor.constraint(equalTo: second.bottomAnchor, constant: 10.0).isActive = true
 
 		// then
-		#assertThat(first, isAligned(with: second, to: .bottom, gap: 10))
+		assertThat(first, isAligned(with: second, to: .bottom, gap: 10))
 	}
 
 
@@ -107,7 +112,7 @@ struct ConstraintAlignMatcherTest {
 		superview.bottomAnchor.constraint(equalTo: first.bottomAnchor).isActive = true
 
 		// then
-		#assertThat(superview, not(isAligned(with: first, to: .bottom)))
+		assertThat(superview, not(isAligned(with: first, to: .bottom)))
 	}
 
 
@@ -121,7 +126,7 @@ struct ConstraintAlignMatcherTest {
 		superview.topAnchor.constraint(equalTo: first.topAnchor).isActive = true
 
 		// then
-		#assertThat(first, isAligned(with:superview, to: .top))
+		assertThat(first, isAligned(with:superview, to: .top))
 	}
 
 
@@ -135,7 +140,7 @@ struct ConstraintAlignMatcherTest {
 		superview.topAnchor.constraint(equalTo: first.topAnchor).isActive = true
 
 		// then
-		#assertThat(first, isAligned(to: .top))
+		assertThat(first, isAligned(to: .top))
 	}
 
 	@Test func view_is_centerX() {
@@ -148,7 +153,7 @@ struct ConstraintAlignMatcherTest {
 		first.layout.centerX()
 
 		// then
-		#assertThat(first, isCenterX())
+		assertThat(first, isCenterX())
 	}
 
 	@Test func view_is_centerY() {
@@ -161,7 +166,7 @@ struct ConstraintAlignMatcherTest {
 		first.layout.centerY()
 
 		// then
-		#assertThat(first, isCenterY())
+		assertThat(first, isCenterY())
 	}
 
 	@Test func view_is_center() {
@@ -175,7 +180,7 @@ struct ConstraintAlignMatcherTest {
 		pinLayout.center(view: first)
 
 		// then
-		#assertThat(first, isCenter())
+		assertThat(first, isCenter())
 	}
 
 	@Test func view_is_center_with_other_view() {
@@ -191,7 +196,7 @@ struct ConstraintAlignMatcherTest {
 		pinLayout.center(view: first, with: second)
 
 		// then
-		#assertThat(first, isCenter(with: second))
+		assertThat(first, isCenter(with: second))
 	}
 
 	@Test func view_is_center_with_other_view_with_offset() {
@@ -208,8 +213,8 @@ struct ConstraintAlignMatcherTest {
 		pinLayout.centerY(view: first, with: second, offset: 120)
 
 		// then
-		#assertThat(first, isCenterX(with: second, offset: 20))
-		#assertThat(first, isCenterY(with: second, offset: 120))
+		assertThat(first, isCenterX(with: second, offset: 20))
+		assertThat(first, isCenterY(with: second, offset: 120))
 	}
 
 
@@ -225,8 +230,8 @@ struct ConstraintAlignMatcherTest {
 			.centerY(offset: 20)
 
 		// then
-		#assertThat(first, isCenterX(offset: 10))
-		#assertThat(first, isCenterY(offset: 20))
+		assertThat(first, isCenterX(offset: 10))
+		assertThat(first, isCenterY(offset: 20))
 	}
 
 }
