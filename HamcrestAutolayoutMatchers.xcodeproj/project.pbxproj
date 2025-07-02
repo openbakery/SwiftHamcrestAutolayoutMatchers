@@ -13,6 +13,7 @@
 		355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */; };
 		A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A74CC8F42DD5D53400B02581 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A74CC8F32DD5D53400B02581 /* PinLayout */; };
+		A74D88EC2E1569F50075AF6A /* EqualSizeMatchers_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D88EB2E1569F50075AF6A /* EqualSizeMatchers_Test.swift */; };
 		A769E03B2DCD081600A8A09E /* HamcrestSwiftTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A769E03A2DCD081600A8A09E /* HamcrestSwiftTesting */; };
 		A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */; platformFilter = ios; };
 		A78EDA9B23C47D9900695664 /* ConstraintMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9623C47D9900695664 /* ConstraintMatcher.swift */; };
@@ -22,6 +23,7 @@
 		A78EDA9F23C47D9900695664 /* ConstraintConstantMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9A23C47D9900695664 /* ConstraintConstantMatcher.swift */; };
 		A78EDAA223C47DD900695664 /* ConstraintAlignMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA023C47DD900695664 /* ConstraintAlignMatcher_Test.swift */; };
 		A78EDAA323C47DD900695664 /* ConstraintMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */; };
+		A7A8446F2E157490002317A3 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A7A8446E2E157490002317A3 /* PinLayout */; };
 		A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A7B6466A2BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B646692BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift */; };
 		A7B6466D2BCF9DBC00339AA4 /* ConstraintStackMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6466B2BCF9B0A00339AA4 /* ConstraintStackMatcher.swift */; };
@@ -57,6 +59,7 @@
 		355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContraintMatcherConstant_Test.swift; sourceTree = "<group>"; };
 		355B2A89DDEF25136EC6411C /* Constraint_Pin_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint_Pin_Test.swift; sourceTree = "<group>"; };
 		A741F6F5242B877400BFEB5E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A74D88EB2E1569F50075AF6A /* EqualSizeMatchers_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualSizeMatchers_Test.swift; sourceTree = "<group>"; };
 		A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HamcrestAutolayoutMatchers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78EDA7523C47AB200695664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A78EDA7A23C47AB300695664 /* HamcrestAutolayoutMatchersTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HamcrestAutolayoutMatchersTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */,
+				A7A8446F2E157490002317A3 /* PinLayout in Frameworks */,
 				A769E03B2DCD081600A8A09E /* HamcrestSwiftTesting in Frameworks */,
 				A74CC8F42DD5D53400B02581 /* PinLayout in Frameworks */,
 				A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
@@ -195,6 +199,7 @@
 				355B21209B3C6B8E999E777B /* Contraint_Anchor_Matcher_Test.swift */,
 				355B2A89DDEF25136EC6411C /* Constraint_Pin_Test.swift */,
 				A7B646692BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift */,
+				A74D88EB2E1569F50075AF6A /* EqualSizeMatchers_Test.swift */,
 			);
 			path = Matchers;
 			sourceTree = "<group>";
@@ -292,7 +297,7 @@
 			mainGroup = A78EDA6723C47AB200695664;
 			packageReferences = (
 				A7E8415F2A8F698400820154 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */,
-				A7DC44982DD5CE97005C1E14 /* XCRemoteSwiftPackageReference "PinLayout" */,
+				A7A8446D2E157490002317A3 /* XCRemoteSwiftPackageReference "PinLayout" */,
 			);
 			productRefGroup = A78EDA7223C47AB200695664 /* Products */;
 			projectDirPath = "";
@@ -340,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A74D88EC2E1569F50075AF6A /* EqualSizeMatchers_Test.swift in Sources */,
 				A7B6466A2BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift in Sources */,
 				A78EDAA223C47DD900695664 /* ConstraintAlignMatcher_Test.swift in Sources */,
 				A78EDAA323C47DD900695664 /* ConstraintMatcher_Test.swift in Sources */,
@@ -625,12 +631,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A7A8446D2E157490002317A3 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openbakery/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2025.0.8;
+			};
+		};
 		A7DC44982DD5CE97005C1E14 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/openbakery/PinLayout";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2025.0.0;
+				minimumVersion = 2025.0.8;
 			};
 		};
 		A7E8415F2A8F698400820154 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */ = {
@@ -653,6 +667,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A7E8415F2A8F698400820154 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */;
 			productName = HamcrestSwiftTesting;
+		};
+		A7A8446E2E157490002317A3 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7A8446D2E157490002317A3 /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
 		};
 		A7E841602A8F698400820154 /* Hamcrest */ = {
 			isa = XCSwiftPackageProductDependency;
