@@ -46,6 +46,15 @@ class EqualSizeMatchers_Test {
 	}
 
 	@Test
+	func same_width_with_constant() {
+		// when
+		child.layout.equalWidth(with: superview, constant: 4)
+
+		// then
+		assertThat(child, hasSameWidth(superview, constant: 4))
+	}
+
+	@Test
 	func same_height() {
 		// when
 		child.layout.equalHeight(with: superview)
@@ -61,6 +70,15 @@ class EqualSizeMatchers_Test {
 
 		// then
 		assertThat(child, hasSameHeight(superview, priority: .defaultHigh))
+	}
+
+	@Test
+	func same_height_with_constant() {
+		// when
+		child.layout.equalHeight(with: superview, constant: 123)
+
+		// then
+		assertThat(child, hasSameHeight(superview, constant: 123))
 	}
 
 	@Test
