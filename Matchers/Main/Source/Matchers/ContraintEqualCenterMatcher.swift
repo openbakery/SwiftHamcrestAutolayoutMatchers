@@ -20,7 +20,7 @@ import Hamcrest
 
 
 @MainActor public func isEqualCenterX<T: UIView>(offset: CGFloat) -> Matcher<T> {
-	return hasEqualConstraint(.centerX, withConstant: offset)
+	return hasEqualConstraint(.centerX, constant: offset)
 }
 
 @MainActor public func isEqualCenterX<T: UIView>(with view: UIView, offset: CGFloat = 0) -> Matcher<T> {
@@ -35,7 +35,7 @@ import Hamcrest
 
 
 @MainActor public func isEqualCenterY<T: UIView>(offset: CGFloat) -> Matcher<T> {
-	return hasEqualConstraint(.centerY, withConstant: offset)
+	return hasEqualConstraint(.centerY, constant: offset)
 }
 
 
@@ -48,33 +48,21 @@ import Hamcrest
 
 
 @MainActor public func isCenterX<T: UIView>(priority: UILayoutPriority = .required, offset: CGFloat = 0) -> Matcher<T> {
-	return Matcher("view is safe area center x") {
-		(value: T) -> MatchResult in
-		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerX, constant: offset, priority: priority)
-	}
+	return hasEqualConstraint(.centerX, constant: offset, priority: priority)
 }
 
 @MainActor public func isCenterX<T: UIView>(with other: UIView, offset: CGFloat = 0) -> Matcher<T> {
-	return Matcher("view is safe area center x") {
-		(value: T) -> MatchResult in
-		return hasSafeAreaGuideToGuideConstraint(for: value, with: other, attribute: .centerX, constant: offset)
-	}
+	return hasEqualConstraint(.centerX, with: other, constant: offset)
 }
 
 // MARK: - Vertical Save Area
 
 @MainActor public func isCenterY<T: UIView>(priority: UILayoutPriority = .required, offset: CGFloat = 0) -> Matcher<T> {
-	return Matcher("view is safe area center y") {
-		(value: T) -> MatchResult in
-		return hasSafeAreaGuideToGuideConstraint(for: value, attribute: .centerY, constant: offset, priority: priority)
-	}
+	return hasEqualConstraint(.centerY, constant: offset, priority: priority)
 }
 
 @MainActor public func isCenterY<T: UIView>(with other: UIView, offset: CGFloat = 0) -> Matcher<T> {
-	return Matcher("view is safe area center y") {
-		(value: T) -> MatchResult in
-		return hasSafeAreaGuideToGuideConstraint(for: value, with: other, attribute: .centerY, constant: offset)
-	}
+	return hasEqualConstraint(.centerY, with: other, constant: offset)
 }
 
 

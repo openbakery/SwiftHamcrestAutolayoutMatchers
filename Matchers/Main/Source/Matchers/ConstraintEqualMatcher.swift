@@ -10,8 +10,8 @@ import Hamcrest
 import UIKit
 
 
-@MainActor private func hasMatchingEqualConstraint(_ view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0) -> MatchResult {
-	return hasMatchingEqualConstraint(view, to: view.superview, attribute: attribute, constant: constant)
+@MainActor private func hasMatchingEqualConstraint(_ view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0, priority: UILayoutPriority = .required) -> MatchResult {
+	return hasMatchingEqualConstraint(view, to: view.superview, attribute: attribute, constant: constant, priority: priority)
 }
 
 @MainActor private func hasMatchingEqualConstraint(_ view: UIView,
@@ -128,17 +128,17 @@ import UIKit
 	return first == second
 }
 
-@MainActor public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, withConstant constant: CGFloat = 0) -> Matcher<T> {
+@MainActor public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0, priority: UILayoutPriority = .required) -> Matcher<T> {
 	return Matcher("view has equal constraint: \(descriptionOfAttribute(attribute))") {
 		(value: T) -> MatchResult in
-		return hasMatchingEqualConstraint(value, attribute: attribute, constant: constant)
+		return hasMatchingEqualConstraint(value, attribute: attribute, constant: constant, priority: priority)
 	}
 }
 
-@MainActor public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, with view: UIView, constant: CGFloat = 0) -> Matcher<T> {
+@MainActor public func hasEqualConstraint<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, with view: UIView, constant: CGFloat = 0, priority: UILayoutPriority = .required) -> Matcher<T> {
 	return Matcher("view has equal constraint: \(descriptionOfAttribute(attribute))") {
 		(value: T) -> MatchResult in
-		return hasMatchingEqualConstraint(value, to: view, attribute: attribute, constant: constant)
+		return hasMatchingEqualConstraint(value, to: view, attribute: attribute, constant: constant, priority: priority)
 	}
 }
 
