@@ -13,7 +13,7 @@ import Testing
 
 @MainActor
 struct Constraint_Pin_Test {
-
+	
 	let view : UIView
 	let toView : UIView
 	let pinLayout: Layout
@@ -22,13 +22,15 @@ struct Constraint_Pin_Test {
 		view = UIView()
 		toView = UIView()
 		pinLayout = Layout()
+		HamcrestSwiftTesting.enable()
 	}
 
 	@Test func pin_leading_with_readableGuide() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.leadingReadable)
-		#assertThat(view, isPinnedToReadableAnchor(.leading))
-		#assertThat(view, not(isPinned(.leading)))
+		assertThat(view, isPinnedToReadableAnchor(.leading))
+		assertThat(view, isPinned(.leadingReadable))
+		assertThat(view, not(isPinned(.leading)))
 	}
 
 	@Test func pin_trailing_with_readableGuide() {
@@ -40,30 +42,31 @@ struct Constraint_Pin_Test {
 		view1.addSubview(view2)
 		NSLog("contraintsCount \(view1.constraints.count)")
 		pinLayout.pin(view:view2, to:.trailingReadable)
-		#assertThat(view2, isPinnedToReadableAnchor(.trailing))
-		#assertThat(view, not(isPinned(.trailing)))
+		assertThat(view2, isPinnedToReadableAnchor(.trailing))
+		assertThat(view2, isPinned(.trailingReadable))
+		assertThat(view, not(isPinned(.trailing)))
 	}
 
 
 	@Test func pin_leading_with_readableGuide_with_gap() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.leadingReadable, gap: 10)
-		#assertThat(view, isPinnedToReadableAnchor(.leading, gap: 10))
-		#assertThat(view, not(isPinned(.leading, gap: 10)))
+		assertThat(view, isPinnedToReadableAnchor(.leading, gap: 10))
+		assertThat(view, not(isPinned(.leading, gap: 10)))
 	}
 
 	@Test func pin_trailing_with_readableGuide_with_gap() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.trailingReadable, gap: 10)
-		#assertThat(view, isPinnedToReadableAnchor(.trailing, gap: 10))
-		#assertThat(view, not(isPinned(.trailing, gap: 10)))
+		assertThat(view, isPinnedToReadableAnchor(.trailing, gap: 10))
+		assertThat(view, not(isPinned(.trailing, gap: 10)))
 	}
 
 	@Test func pin_bottom_with_safeGuide_with_gap() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.bottomSafeArea, gap: 10)
-		#assertThat(view, isPinnedToSafeAreaAnchor(.bottom, gap: 10))
-		#assertThat(view, not(isPinned(.bottom, gap: 10)))
+		assertThat(view, isPinnedToSafeAreaAnchor(.bottom, gap: 10))
+		assertThat(view, not(isPinned(.bottom, gap: 10)))
 	}
 
 	@Test func pin_bottom_with_safeGuide_with_insets() {
@@ -74,29 +77,35 @@ struct Constraint_Pin_Test {
 		view.layout.pin(.leadingSafeArea, .trailingSafeArea, .bottomSafeArea, .topSafeArea, insets: insets)
 
 		// then
-		#assertThat(view, isPinnedToSafeAreaAnchor(.top, gap: 1))
-		#assertThat(view, isPinnedToSafeAreaAnchor(.bottom, gap: 3))
-		#assertThat(view, isPinnedToSafeAreaAnchor(.leading, gap: 2))
-		#assertThat(view, isPinnedToSafeAreaAnchor(.trailing, gap: 4))
+		assertThat(view, isPinnedToSafeAreaAnchor(.top, gap: 1))
+		assertThat(view, isPinnedToSafeAreaAnchor(.bottom, gap: 3))
+		assertThat(view, isPinnedToSafeAreaAnchor(.leading, gap: 2))
+		assertThat(view, isPinnedToSafeAreaAnchor(.trailing, gap: 4))
+		
+		assertThat(view, isPinned(.topSafeArea, gap: 1))
+		assertThat(view, isPinned(.bottomSafeArea, gap: 3))
+		assertThat(view, isPinned(.leadingSafeArea, gap: 2))
+		assertThat(view, isPinned(.trailingSafeArea, gap: 4))
+
 	}
 
 
 	@Test func pin_to_first_baseline_top() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.firstBaseline, gap: 10)
-		#assertThat(view, isPinned(.firstBaseline, gap: 10))
+		assertThat(view, isPinned(.firstBaseline, gap: 10))
 	}
 
 	@Test func pin_to_last_baseline_bottom() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.lastBaseline, gap: 10)
-		#assertThat(view, isPinned(.lastBaseline, gap: 10))
+		assertThat(view, isPinned(.lastBaseline, gap: 10))
 	}
 
 	@Test func pin_to_last_baseline_bottom_with_gap_close_to() {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.lastBaseline, gap: 11.111)
-		#assertThat(view, isPinned(.lastBaseline, gap: closeTo(11, 0.12)))
+		assertThat(view, isPinned(.lastBaseline, gap: closeTo(11, 0.12)))
 	}
 
 
@@ -110,8 +119,8 @@ struct Constraint_Pin_Test {
 		first.layout.pin(.top, to: second)
 
 		// then
-		#assertThat(first, isPinned(.top, to: second))
-		#assertThat(first, isPinned(first: .top, second: .bottom, to: second))
+		assertThat(first, isPinned(.top, to: second))
+		assertThat(first, isPinned(first: .top, second: .bottom, to: second))
 	}
 
 	@Test func pin_first_on_bottom_to_third() {
@@ -126,8 +135,8 @@ struct Constraint_Pin_Test {
 		third.layout.pin(.top, to: first)
 
 		// then
-		#assertThat(third, isPinned(.top, to: first))
-		#assertThat(third, isPinned(first: .top, second: .bottom, to: first))
+		assertThat(third, isPinned(.top, to: first))
+		assertThat(third, isPinned(first: .top, second: .bottom, to: first))
 	}
 
 	@Test func pin_to_top_guide() {
@@ -141,7 +150,7 @@ struct Constraint_Pin_Test {
 		layout.pin(view: first, to:.top, withGuide: viewController.topLayoutGuide)
 
 		// then
-		#assertThat(first, isPinned(.top, withGuide: viewController.topLayoutGuide))
+		assertThat(first, isPinned(.top, withGuide: viewController.topLayoutGuide))
 	}
 
 	@Test func pin_to_bottom_guide() {
@@ -157,7 +166,7 @@ struct Constraint_Pin_Test {
 		layout.pin(view: second, to:.bottom, withGuide: viewController.topLayoutGuide)
 
 		// then
-		#assertThat(second, isPinned(.bottom, withGuide: viewController.topLayoutGuide))
+		assertThat(second, isPinned(.bottom, withGuide: viewController.topLayoutGuide))
 	}
 
 
@@ -168,7 +177,7 @@ struct Constraint_Pin_Test {
 		pinLayout.pin(view:view, to:.lastBaseline, gap: 0)
 
 		// then
-		#assertThat(view, isPinned(first: .bottom, second: .lastBaseline))
+		assertThat(view, isPinned(first: .bottom, second: .lastBaseline))
 	}
 
 	@Test func pin_with_priority_and_relation() {
@@ -178,7 +187,7 @@ struct Constraint_Pin_Test {
 		view.layout.pin(.bottom, gap: 5, priority: .defaultLow, relatedBy: .greaterThanOrEqual)
 
 		// then
-		#assertThat(view, isPinned(.bottom, gap: 5, priority: .defaultLow, relatedBy: .greaterThanOrEqual))
+		assertThat(view, isPinned(.bottom, gap: 5, priority: .defaultLow, relatedBy: .greaterThanOrEqual))
 	}
 
 }

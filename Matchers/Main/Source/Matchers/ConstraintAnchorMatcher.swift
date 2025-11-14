@@ -7,6 +7,11 @@ import Hamcrest
 import UIKit
 
 
+
+public enum ExtraAttribute {
+	case topSafeArea, bottomSafeArea, leadingSafeArea, trailingSafeArea, leadingReadable, trailingReadable
+}
+
 @MainActor func hasAttribute(constraint: NSLayoutConstraint, attribute: NSLayoutConstraint.Attribute) -> Bool {
 	if (constraint.firstAttribute != attribute) {
 		return false
@@ -175,6 +180,25 @@ import UIKit
 		(value: T) -> MatchResult in
 		return hasSafeAreaGuideToViewConstraint(for: value, attribute: attribute)
 	}
+}
+
+
+@MainActor public func isPinned<T: UIView>(_ attribute: ExtraAttribute, gap: CGFloat = 0) -> Matcher<T> {
+	switch attribute {
+	case .topSafeArea:
+		return isPinnedToSafeAreaAnchor(.top, gap: gap)
+	case .bottomSafeArea:
+		return isPinnedToSafeAreaAnchor(.bottom, gap: gap)
+	case .leadingSafeArea:
+		return isPinnedToSafeAreaAnchor(.leading, gap: gap)
+	case .trailingSafeArea:
+		return isPinnedToSafeAreaAnchor(.trailing, gap: gap)
+	case .leadingReadable:
+		return isPinnedToReadableAnchor(.leading, gap: gap)
+	case .trailingReadable:
+		return isPinnedToReadableAnchor(.trailing, gap: gap)
+	}
+	
 }
 
 @MainActor public func isPinnedToSafeAreaAnchor<T: UIView>(_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat) -> Matcher<T> {
