@@ -7,7 +7,7 @@ SCHEME=HamcrestAutolayoutMatchers
 
 OPTIONS="-showBuildTimingSummary -derivedDataPath ./build -disable-concurrent-destination-testing" #-quiet"
 
-SIMULATOR_ID=E3D997E5-7AF5-4D3C-9A1E-31B96E8380E6
+SIMULATOR_ID=D9FAF00E-8624-4459-80CA-9A6A846B82F1
 SIMULATOR_NAME="iPhone 16 Pro"
 
 
