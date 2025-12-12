@@ -12,6 +12,10 @@ import Testing
 
 @MainActor
 struct Contraint_Anchor_Matcher_Test {
+	
+	init() async throws {
+		HamcrestSwiftTesting.enable()
+	}
 
 
 	@Test func cell_separatorGuide() {
@@ -20,12 +24,12 @@ struct Contraint_Anchor_Matcher_Test {
 		cell.contentConfiguration = configuration
 
 		let contentView = cell.contentView
-		#assertThat(cell.contentView, present())
+		assertThat(cell.contentView, present())
 
 		cell.separatorLayoutGuide.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
 
 		// then
-		#assertThat(contentView, hasAnchor(.leading, cell.separatorLayoutGuide))
+		assertThat(contentView, hasAnchor(.leading, cell.separatorLayoutGuide))
 	}
 
 	@Test func cell_label_separatorGuide() {
@@ -35,14 +39,14 @@ struct Contraint_Anchor_Matcher_Test {
 		let label = UILabel()
 
 		let contentView = cell.contentView
-		#assertThat(cell.contentView, present())
+		assertThat(cell.contentView, present())
 		contentView.addSubview(label)
 
 
 		cell.separatorLayoutGuide.leadingAnchor.constraint(equalTo: label.leadingAnchor).isActive = true
 
 		// then
-		#assertThat(label, hasAnchor(.leading, cell.separatorLayoutGuide))
+		assertThat(label, hasAnchor(.leading, cell.separatorLayoutGuide))
 	}
 
 }
