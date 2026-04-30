@@ -197,4 +197,16 @@ struct Constraint_Pin_Test {
 		assertThat(view, isPinned(.bottom, gap: 5, priority: .defaultLow, relatedBy: .greaterThanOrEqual))
 	}
 
+	@Test func pin_safeGuide() {
+		toView.addSubview(view)
+
+		// when
+		view.layout.pin(.leadingSafeArea, .trailingSafeArea, .bottomSafeArea, .topSafeArea)
+
+		// then
+		assertThat(view, isPinned(.top, guide: .safeArea))
+		assertThat(view, isPinned(.bottom, guide: .safeArea))
+		assertThat(view, isPinned(.leading, guide: .safeArea))
+		assertThat(view, isPinned(.trailing, guide: .safeArea))
+	}
 }

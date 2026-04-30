@@ -278,7 +278,7 @@ private func hasAnchorConstraint(
 @MainActor public func isPinned<T: UIView>(
 	_ attribute: NSLayoutConstraint.Attribute,
 	guide: Guide,
-	gap: CGFloat
+	gap: CGFloat = 0
 ) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
