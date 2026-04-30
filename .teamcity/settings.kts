@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
-version = "2025.03"
+version = "2025.11"
 
 class Version(val major: Int, val minor: Int) {
 
@@ -30,7 +30,7 @@ project {
 		password("GITHUB_DEPLOY_TOKEN", "credentialsJSON:7654e98e-8ad4-49a7-b253-89b8efe774e5")
 	}
 
-	val version = Version(2025, 0)
+	val version = Version(2026, 0)
 
 	val build = Build()
 	val publish = Publish(version, build)
