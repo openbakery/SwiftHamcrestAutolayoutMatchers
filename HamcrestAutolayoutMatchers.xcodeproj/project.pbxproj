@@ -24,6 +24,7 @@
 		A78EDA9F23C47D9900695664 /* ConstraintConstantMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9A23C47D9900695664 /* ConstraintConstantMatcher.swift */; };
 		A78EDAA223C47DD900695664 /* ConstraintAlignMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA023C47DD900695664 /* ConstraintAlignMatcher_Test.swift */; };
 		A78EDAA323C47DD900695664 /* ConstraintMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */; };
+		A7A46B602FA38AC500718E4E /* UIView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A46B5F2FA38ABF00718E4E /* UIView_Extension.swift */; };
 		A7A8446F2E157490002317A3 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A7A8446E2E157490002317A3 /* PinLayout */; };
 		A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A7B20A6A2E85620B007D90E0 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A7B20A692E85620B007D90E0 /* PinLayout */; };
@@ -73,6 +74,7 @@
 		A78EDA9A23C47D9900695664 /* ConstraintConstantMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantMatcher.swift; sourceTree = "<group>"; };
 		A78EDAA023C47DD900695664 /* ConstraintAlignMatcher_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAlignMatcher_Test.swift; sourceTree = "<group>"; };
 		A78EDAA123C47DD900695664 /* ConstraintMatcher_Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMatcher_Test.swift; sourceTree = "<group>"; };
+		A7A46B5F2FA38ABF00718E4E /* UIView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Extension.swift; sourceTree = "<group>"; };
 		A7B646692BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintStackMatcher_Test.swift; sourceTree = "<group>"; };
 		A7B6466B2BCF9B0A00339AA4 /* ConstraintStackMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintStackMatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +177,7 @@
 		A78EDA9523C47D8700695664 /* Matchers */ = {
 			isa = PBXGroup;
 			children = (
+				A7A46B5F2FA38ABF00718E4E /* UIView_Extension.swift */,
 				A78EDA9823C47D9900695664 /* ConstraintAnchorMatcher.swift */,
 				A78EDA9A23C47D9900695664 /* ConstraintConstantMatcher.swift */,
 				A78EDA9923C47D9900695664 /* ConstraintEqualMatcher.swift */,
@@ -341,6 +344,7 @@
 				A7B6466D2BCF9DBC00339AA4 /* ConstraintStackMatcher.swift in Sources */,
 				A78EDA9F23C47D9900695664 /* ConstraintConstantMatcher.swift in Sources */,
 				A78EDA9C23C47D9900695664 /* ContraintAlignMatcher.swift in Sources */,
+				A7A46B602FA38AC500718E4E /* UIView_Extension.swift in Sources */,
 				355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,7 +644,7 @@
 			repositoryURL = "https://github.com/openbakery/PinLayout.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2025.0.16;
+				minimumVersion = 2025.0.22;
 			};
 		};
 		A7A8446D2E157490002317A3 /* XCRemoteSwiftPackageReference "PinLayout" */ = {

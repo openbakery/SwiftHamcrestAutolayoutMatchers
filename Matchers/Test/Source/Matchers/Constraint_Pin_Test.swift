@@ -52,6 +52,7 @@ struct Constraint_Pin_Test {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.leadingReadable, gap: 10)
 		assertThat(view, isPinnedToReadableAnchor(.leading, gap: 10))
+		assertThat(view, isPinned(.leading, guide: .readable, gap: 10))
 		assertThat(view, not(isPinned(.leading, gap: 10)))
 	}
 
@@ -59,6 +60,7 @@ struct Constraint_Pin_Test {
 		toView.addSubview(view)
 		pinLayout.pin(view:view, to:.trailingReadable, gap: 10)
 		assertThat(view, isPinnedToReadableAnchor(.trailing, gap: 10))
+		assertThat(view, isPinned(.trailing, guide: .readable, gap: 10))
 		assertThat(view, not(isPinned(.trailing, gap: 10)))
 	}
 
@@ -86,6 +88,11 @@ struct Constraint_Pin_Test {
 		assertThat(view, isPinned(.bottomSafeArea, gap: 3))
 		assertThat(view, isPinned(.leadingSafeArea, gap: 2))
 		assertThat(view, isPinned(.trailingSafeArea, gap: 4))
+
+		assertThat(view, isPinned(.top, guide: .safeArea, gap: 1))
+		assertThat(view, isPinned(.bottom, guide: .safeArea, gap: 3))
+		assertThat(view, isPinned(.leading, guide: .safeArea, gap: 2))
+		assertThat(view, isPinned(.trailing, guide: .safeArea, gap: 4))
 
 	}
 

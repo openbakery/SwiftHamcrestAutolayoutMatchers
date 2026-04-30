@@ -6,13 +6,44 @@ import Foundation
 import Hamcrest
 import UIKit
 
+public enum Guide {
+	case safeArea
+	case readable
+	case keyboard
+	case content
+}
+
 public enum ExtraAttribute {
-	case topSafeArea, bottomSafeArea, leadingSafeArea, trailingSafeArea, leadingReadable,
+	case topSafeArea, bottomSafeArea, leadingSafeArea, trailingSafeArea,
+		leadingReadable,
 		trailingReadable
+
+	var attribute: NSLayoutConstraint.Attribute {
+		switch self {
+			case .topSafeArea:
+				return .top
+			case .bottomSafeArea:
+				return .bottom
+			case .leadingSafeArea, .leadingReadable:
+				return .leading
+			case .trailingSafeArea, .trailingReadable:
+				return .trailing
+		}
+	}
+
+	var guide: Guide {
+		switch self {
+			case .topSafeArea, .bottomSafeArea, .leadingSafeArea, .trailingSafeArea:
+				return .safeArea
+			case .leadingReadable, .trailingReadable:
+				return .readable
+		}
+	}
 }
 
 @MainActor func hasAttribute(
-	constraint: NSLayoutConstraint, attribute: NSLayoutConstraint.Attribute
+	constraint: NSLayoutConstraint,
+	attribute: NSLayoutConstraint.Attribute
 ) -> Bool {
 	if constraint.firstAttribute != attribute {
 		return false
@@ -28,7 +59,9 @@ public enum ExtraAttribute {
 }
 
 @MainActor private func matchesConstant(
-	constraint: NSLayoutConstraint, constant: CGFloat, priority: UILayoutPriority
+	constraint: NSLayoutConstraint,
+	constant: CGFloat,
+	priority: UILayoutPriority
 ) -> MatchResult {
 
 	if constraint.constant == constant && constraint.priority == priority {
@@ -53,8 +86,13 @@ public enum ExtraAttribute {
 	}
 
 	return hasAnchorConstraint(
-		for: view, superview: superview, attribute: attribute, guide: guide, constant: constant,
-		priority: priority)
+		for: view,
+		superview: superview,
+		attribute: attribute,
+		guide: guide,
+		constant: constant,
+		priority: priority
+	)
 
 }
 
@@ -72,16 +110,25 @@ public enum ExtraAttribute {
 			if hasAttribute(constraint: constraint, attribute: attribute)
 				&& constraint.secondItem === view && guideItem == guide
 			{
-				return matchesConstant(constraint: constraint, constant: constant, priority: priority)
+				return matchesConstant(
+					constraint: constraint,
+					constant: constant,
+					priority: priority
+				)
 			}
 		}
 
 		// see if the the first attribute and second attribute is swapped
 		if let guideItem = constraint.secondItem as? UILayoutGuide {
-			if hasAttribute(constraint: constraint, attribute: attribute) && constraint.firstItem === view
+			if hasAttribute(constraint: constraint, attribute: attribute)
+				&& constraint.firstItem === view
 				&& guideItem == guide
 			{
-				return matchesConstant(constraint: constraint, constant: -constant, priority: priority)
+				return matchesConstant(
+					constraint: constraint,
+					constant: -constant,
+					priority: priority
+				)
 			}
 		}
 	}
@@ -89,8 +136,13 @@ public enum ExtraAttribute {
 	// the constraint can also be set at the superview of the superview, so lets check
 	if let superview = superview.superview {
 		return hasAnchorConstraint(
-			for: view, superview: superview, attribute: attribute, guide: guide, constant: constant,
-			priority: priority)
+			for: view,
+			superview: superview,
+			attribute: attribute,
+			guide: guide,
+			constant: constant,
+			priority: priority
+		)
 	}
 	return .mismatch(nil)
 }
@@ -105,17 +157,27 @@ public enum ExtraAttribute {
 ) -> MatchResult {
 
 	for constraint in superview.constraints {
-		if constraint.firstItem === firstGuide && constraint.secondItem === secondGuide
+		if constraint.firstItem === firstGuide
+			&& constraint.secondItem === secondGuide
 			&& hasAttribute(constraint: constraint, attribute: attribute)
 		{
-			return matchesConstant(constraint: constraint, constant: constant, priority: priority)
+			return matchesConstant(
+				constraint: constraint,
+				constant: constant,
+				priority: priority
+			)
 		}
 
 		// see if the the first attribute and second attribute is swapped
-		if constraint.firstItem === secondGuide && constraint.secondItem === firstGuide
+		if constraint.firstItem === secondGuide
+			&& constraint.secondItem === firstGuide
 			&& hasAttribute(constraint: constraint, attribute: attribute)
 		{
-			return matchesConstant(constraint: constraint, constant: constant, priority: priority)
+			return matchesConstant(
+				constraint: constraint,
+				constant: constant,
+				priority: priority
+			)
 		}
 
 	}
@@ -123,80 +185,67 @@ public enum ExtraAttribute {
 	return .mismatch(nil)
 }
 
-@MainActor func hasSafeAreaGuideToViewConstraint(
+@MainActor
+private func hasAnchorConstraint(
 	for view: UIView,
-	with other: UIView? = nil,
+	baseView: UIView? = nil,
 	attribute: NSLayoutConstraint.Attribute,
+	guide: Guide,
 	constant: CGFloat = 0,
 	priority: UILayoutPriority = .required
 ) -> MatchResult {
-	if #available(iOS 11, *) {
-		if let superview = view.superview {
-			let guide: UILayoutGuide
-			if let otherGuide = other?.safeAreaLayoutGuide {
-				guide = otherGuide
-			} else {
-				guide = superview.safeAreaLayoutGuide
-			}
-
-			return hasAnchorConstraint(
-				for: view, attribute: attribute, guide: guide, constant: constant, priority: priority)
+	if let superview = view.superview {
+		var layoutGuide = baseView?.guide(guide)
+		if layoutGuide == nil {
+			layoutGuide = superview.guide(guide)
 		}
-	}
-	return .mismatch(nil)
-}
-
-@MainActor func hasSafeAreaGuideToGuideConstraint(
-	for view: UIView,
-	with other: UIView? = nil,
-	attribute: NSLayoutConstraint.Attribute,
-	constant: CGFloat = 0,
-	priority: UILayoutPriority = .required
-) -> MatchResult {
-	if #available(iOS 11, *) {
-		if let superview = view.superview {
-			let secondGuide: UILayoutGuide
-			if let otherGuide = other?.safeAreaLayoutGuide {
-				secondGuide = otherGuide
-			} else {
-				secondGuide = superview.safeAreaLayoutGuide
-			}
-
+		if let layoutGuide {
 			return hasAnchorConstraint(
-				superview: superview, firstGuide: view.safeAreaLayoutGuide, secondGuide: secondGuide,
-				attribute: attribute, constant: constant, priority: priority)
+				for: view,
+				attribute: attribute,
+				guide: layoutGuide,
+				constant: constant,
+				priority: priority
+			)
 		}
 	}
 	return .mismatch(nil)
 }
 
 @MainActor private func hasReadableAnchorConstraint(
-	for view: UIView, attribute: NSLayoutConstraint.Attribute, constant: CGFloat = 0
+	for view: UIView,
+	attribute: NSLayoutConstraint.Attribute,
+	constant: CGFloat = 0
 ) -> MatchResult {
-	if #available(iOS 9, *) {
-		if let baseView = view.superview {
-			let constantValue: CGFloat
-			switch attribute {
+	if let baseView = view.superview {
+		let constantValue: CGFloat
+		switch attribute {
 			case .trailing:
 				constantValue = -constant
 			default:
 				constantValue = constant
-			}
-			return hasAnchorConstraint(
-				for: view, attribute: attribute, guide: baseView.readableContentGuide,
-				constant: constantValue)
 		}
+		return hasAnchorConstraint(
+			for: view,
+			attribute: attribute,
+			guide: baseView.readableContentGuide,
+			constant: constantValue
+		)
 	}
 	return .mismatch(nil)
 }
 
 @MainActor private func hasAnchorConstraint(
-	for view: UIView, attribute: NSLayoutConstraint.Attribute, guide: UILayoutGuide
+	for view: UIView,
+	attribute: NSLayoutConstraint.Attribute,
+	guide: UILayoutGuide
 ) -> MatchResult {
-	if #available(iOS 9, *) {
-		return hasAnchorConstraint(for: view, attribute: attribute, guide: guide, constant: 0)
-	}
-	return .mismatch(nil)
+	return hasAnchorConstraint(
+		for: view,
+		attribute: attribute,
+		guide: guide,
+		constant: 0
+	)
 }
 
 @MainActor public func isPinnedToSafeAreaAnchor<T: UIView>(
@@ -204,32 +253,32 @@ public enum ExtraAttribute {
 ) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
-		return hasSafeAreaGuideToViewConstraint(for: value, attribute: attribute)
+		return hasAnchorConstraint(
+			for: value,
+			attribute: attribute,
+			guide: .safeArea
+		)
 	}
 }
 
-@MainActor public func isPinned<T: UIView>(_ attribute: ExtraAttribute, gap: CGFloat = 0)
-	-> Matcher<T>
-{
-	switch attribute {
-	case .topSafeArea:
-		return isPinnedToSafeAreaAnchor(.top, gap: gap)
-	case .bottomSafeArea:
-		return isPinnedToSafeAreaAnchor(.bottom, gap: gap)
-	case .leadingSafeArea:
-		return isPinnedToSafeAreaAnchor(.leading, gap: gap)
-	case .trailingSafeArea:
-		return isPinnedToSafeAreaAnchor(.trailing, gap: gap)
-	case .leadingReadable:
-		return isPinnedToReadableAnchor(.leading, gap: gap)
-	case .trailingReadable:
-		return isPinnedToReadableAnchor(.trailing, gap: gap)
-	}
-
+@MainActor public func isPinned<T: UIView>(
+	_ attribute: ExtraAttribute,
+	gap: CGFloat = 0
+) -> Matcher<T> {
+	return isPinned(attribute.attribute, guide: attribute.guide, gap: gap)
 }
 
 @MainActor public func isPinnedToSafeAreaAnchor<T: UIView>(
-	_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat
+	_ attribute: NSLayoutConstraint.Attribute,
+	gap: CGFloat
+) -> Matcher<T> {
+	return isPinned(attribute, guide: .safeArea, gap: gap)
+}
+
+@MainActor public func isPinned<T: UIView>(
+	_ attribute: NSLayoutConstraint.Attribute,
+	guide: Guide,
+	gap: CGFloat
 ) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
@@ -239,7 +288,12 @@ public enum ExtraAttribute {
 		} else {
 			gapValue = gap
 		}
-		return hasSafeAreaGuideToViewConstraint(for: value, attribute: attribute, constant: gapValue)
+		return hasAnchorConstraint(
+			for: value,
+			attribute: attribute,
+			guide: guide,
+			constant: gapValue
+		)
 	}
 }
 
@@ -248,21 +302,31 @@ public enum ExtraAttribute {
 ) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
-		return hasReadableAnchorConstraint(for: value, attribute: attribute, constant: 0)
+		return hasReadableAnchorConstraint(
+			for: value,
+			attribute: attribute,
+			constant: 0
+		)
 	}
 }
 
 @MainActor public func isPinnedToReadableAnchor<T: UIView>(
-	_ attribute: NSLayoutConstraint.Attribute, gap: CGFloat
+	_ attribute: NSLayoutConstraint.Attribute,
+	gap: CGFloat
 ) -> Matcher<T> {
 	return Matcher("view has \(attribute) anchor for safe area") {
 		(value: T) -> MatchResult in
-		return hasReadableAnchorConstraint(for: value, attribute: attribute, constant: -gap)
+		return hasReadableAnchorConstraint(
+			for: value,
+			attribute: attribute,
+			constant: -gap
+		)
 	}
 }
 
 @MainActor public func hasAnchor<T: UIView>(
-	_ attribute: NSLayoutConstraint.Attribute, _ guide: UILayoutGuide
+	_ attribute: NSLayoutConstraint.Attribute,
+	_ guide: UILayoutGuide
 ) -> Matcher<T> {
 	return Matcher("view is has anchor \(attribute))") {
 		(value: T) -> MatchResult in
