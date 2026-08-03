@@ -129,11 +129,33 @@ struct Constraint_Pin_Test {
 		assertThat(first, isPinned(.top, to: second))
 		assertThat(first, isPinned(first: .top, second: .bottom, to: second))
 	}
+	
+	@Test func pin_first_on_bottom_to_second_with_commonSuperview() {
+		let commonSuperView = UIView()
+		commonSuperView.accessibilityIdentifier = "commonSuperView"
+		let superview = UIView()
+		superview.accessibilityIdentifier = "superview"
+		let first = UIView()
+		first.accessibilityIdentifier = "first"
+		let second = UIView()
+		second.accessibilityIdentifier = "second"
+		superview.addSubview(first)
+		commonSuperView.addSubview(superview)
+		commonSuperView.addSubview(second)
+
+		first.layout.pin(.top, to: second)
+
+		// then
+		assertThat(first, isPinned(.top, to: second))
+		assertThat(first, isPinned(first: .top, second: .bottom, to: second))
+	}
 
 	@Test func pin_first_on_bottom_to_third() {
 		let superview = UIView()
 		let first = UIView()
+		first.accessibilityIdentifier = "first"
 		let second = UIView()
+		second.accessibilityIdentifier = "second"
 		let third = UIView()
 		superview.addSubview(first)
 		superview.addSubview(second)

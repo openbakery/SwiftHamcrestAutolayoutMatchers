@@ -53,7 +53,9 @@ import UIKit
 																	 priority: UILayoutPriority,
 																	 relatedBy relation: NSLayoutConstraint.Relation = .equal) -> MatchResult {
 
-	guard let commonSuperView = findSuperView(firstItem, firstItem.superview) else {
+	let secondView = (secondItem as? UIView) ?? firstItem.superview
+	
+	guard let commonSuperView = findSuperView(firstItem, secondView) else {
 		return .mismatch("no common super view found")
 	}
 
@@ -84,7 +86,9 @@ import UIKit
 																	 priority: UILayoutPriority,
 																	 relatedBy relation: NSLayoutConstraint.Relation = .equal) -> MatchResult {
 
-	guard let commonSuperView = findSuperView(view, view.superview) else {
+	let toView = (to as? UIView) ?? view.superview
+	
+	guard let commonSuperView = findSuperView(view, toView) else {
 		return .mismatch("no common super view found")
 	}
 
