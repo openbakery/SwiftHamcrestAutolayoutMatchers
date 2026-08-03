@@ -27,7 +27,7 @@ class Version(val major: Int, val minor: Int) {
 project {
 
 	params {
-		password("GITHUB_DEPLOY_TOKEN", "credentialsJSON:7654e98e-8ad4-49a7-b253-89b8efe774e5")
+		password("GITHUB_DEPLOY_TOKEN", "credentialsJSON:36388908-597b-4c2e-aacd-0f5ebb83a719")
 	}
 
 	val version = Version(2026, 0)
