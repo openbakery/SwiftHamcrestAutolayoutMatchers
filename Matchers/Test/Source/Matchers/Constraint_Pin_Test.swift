@@ -22,7 +22,6 @@ struct Constraint_Pin_Test {
 		view = UIView()
 		toView = UIView()
 		pinLayout = Layout()
-		HamcrestSwiftTesting.enable()
 	}
 
 	@Test func pin_leading_with_readableGuide() {

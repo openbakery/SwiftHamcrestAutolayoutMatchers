@@ -11,11 +11,14 @@
 		355B22D339BE5139C7FBFA84 /* ContraintMatcherConstant_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B26A1EB91B8A7D99CD062 /* ContraintMatcherConstant_Test.swift */; };
 		355B298D62F528A7ED1C89AF /* Constraint_Pin_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B2A89DDEF25136EC6411C /* Constraint_Pin_Test.swift */; };
 		355B2D0859B38344CD379F2F /* ContraintEqualCenterMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355B257F23F51EAF7864DF6A /* ContraintEqualCenterMatcher.swift */; };
+		A70781D130248DBE00EDEDFA /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A70781D030248DBE00EDEDFA /* PinLayout */; };
 		A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A741F6F5242B877400BFEB5E /* XCTest.framework */; };
 		A74CC8F42DD5D53400B02581 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A74CC8F32DD5D53400B02581 /* PinLayout */; };
 		A74D88EC2E1569F50075AF6A /* EqualSizeMatchers_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D88EB2E1569F50075AF6A /* EqualSizeMatchers_Test.swift */; };
 		A7659B462E85627B0048370F /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A7659B452E85627B0048370F /* PinLayout */; };
 		A769E03B2DCD081600A8A09E /* HamcrestSwiftTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A769E03A2DCD081600A8A09E /* HamcrestSwiftTesting */; };
+		A78B6E7030248E6200E3EB41 /* HamcrestSwiftTesting in Frameworks */ = {isa = PBXBuildFile; productRef = A78B6E6F30248E6200E3EB41 /* HamcrestSwiftTesting */; };
+		A78B6E7230248E7600E3EB41 /* Hamcrest in Frameworks */ = {isa = PBXBuildFile; productRef = A78B6E7130248E7600E3EB41 /* Hamcrest */; };
 		A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */; platformFilter = ios; };
 		A78EDA9B23C47D9900695664 /* ConstraintMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9623C47D9900695664 /* ConstraintMatcher.swift */; };
 		A78EDA9C23C47D9900695664 /* ContraintAlignMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EDA9723C47D9900695664 /* ContraintAlignMatcher.swift */; };
@@ -30,7 +33,6 @@
 		A7B20A6A2E85620B007D90E0 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = A7B20A692E85620B007D90E0 /* PinLayout */; };
 		A7B6466A2BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B646692BCF9AFC00339AA4 /* ConstraintStackMatcher_Test.swift */; };
 		A7B6466D2BCF9DBC00339AA4 /* ConstraintStackMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6466B2BCF9B0A00339AA4 /* ConstraintStackMatcher.swift */; };
-		A7E841612A8F698400820154 /* Hamcrest in Frameworks */ = {isa = PBXBuildFile; productRef = A7E841602A8F698400820154 /* Hamcrest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A741F6F6242B877400BFEB5E /* XCTest.framework in Frameworks */,
-				A7E841612A8F698400820154 /* Hamcrest in Frameworks */,
+				A78B6E7230248E7600E3EB41 /* Hamcrest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +99,10 @@
 				A7AAC5912436199500D6416E /* XCTest.framework in Frameworks */,
 				A7A8446F2E157490002317A3 /* PinLayout in Frameworks */,
 				A769E03B2DCD081600A8A09E /* HamcrestSwiftTesting in Frameworks */,
+				A78B6E7030248E6200E3EB41 /* HamcrestSwiftTesting in Frameworks */,
 				A74CC8F42DD5D53400B02581 /* PinLayout in Frameworks */,
 				A7659B462E85627B0048370F /* PinLayout in Frameworks */,
+				A70781D130248DBE00EDEDFA /* PinLayout in Frameworks */,
 				A78EDA7B23C47AB300695664 /* HamcrestAutolayoutMatchers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +253,7 @@
 			);
 			name = HamcrestAutolayoutMatchers;
 			packageProductDependencies = (
-				A7E841602A8F698400820154 /* Hamcrest */,
+				A78B6E7130248E7600E3EB41 /* Hamcrest */,
 			);
 			productName = HamcrestAutolayoutMatchers;
 			productReference = A78EDA7123C47AB200695664 /* HamcrestAutolayoutMatchers.framework */;
@@ -303,8 +307,8 @@
 			);
 			mainGroup = A78EDA6723C47AB200695664;
 			packageReferences = (
-				A7E8415F2A8F698400820154 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */,
-				A7659B442E85627B0048370F /* XCRemoteSwiftPackageReference "PinLayout" */,
+				A70781CF30248DBE00EDEDFA /* XCRemoteSwiftPackageReference "PinLayout" */,
+				A78B6E6E30248E6200E3EB41 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */,
 			);
 			productRefGroup = A78EDA7223C47AB200695664 /* Products */;
 			projectDirPath = "";
@@ -639,12 +643,28 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A70781CF30248DBE00EDEDFA /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openbakery/PinLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2026.0.29;
+			};
+		};
 		A7659B442E85627B0048370F /* XCRemoteSwiftPackageReference "PinLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/openbakery/PinLayout.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2025.0.22;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A78B6E6E30248E6200E3EB41 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nschum/SwiftHamcrest/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.2;
 			};
 		};
 		A7A8446D2E157490002317A3 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
@@ -652,7 +672,7 @@
 			repositoryURL = "https://github.com/openbakery/PinLayout";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2025.0.8;
+				minimumVersion = 2026.0;
 			};
 		};
 		A7DC44982DD5CE97005C1E14 /* XCRemoteSwiftPackageReference "PinLayout" */ = {
@@ -660,7 +680,7 @@
 			repositoryURL = "https://github.com/openbakery/PinLayout";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2025.0.8;
+				minimumVersion = 2026.0;
 			};
 		};
 		A7E8415F2A8F698400820154 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */ = {
@@ -674,6 +694,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A70781D030248DBE00EDEDFA /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A70781CF30248DBE00EDEDFA /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
 		A74CC8F32DD5D53400B02581 /* PinLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A7DC44982DD5CE97005C1E14 /* XCRemoteSwiftPackageReference "PinLayout" */;
@@ -689,6 +714,16 @@
 			package = A7E8415F2A8F698400820154 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */;
 			productName = HamcrestSwiftTesting;
 		};
+		A78B6E6F30248E6200E3EB41 /* HamcrestSwiftTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A78B6E6E30248E6200E3EB41 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */;
+			productName = HamcrestSwiftTesting;
+		};
+		A78B6E7130248E7600E3EB41 /* Hamcrest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A78B6E6E30248E6200E3EB41 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */;
+			productName = Hamcrest;
+		};
 		A7A8446E2E157490002317A3 /* PinLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A7A8446D2E157490002317A3 /* XCRemoteSwiftPackageReference "PinLayout" */;
@@ -697,11 +732,6 @@
 		A7B20A692E85620B007D90E0 /* PinLayout */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PinLayout;
-		};
-		A7E841602A8F698400820154 /* Hamcrest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A7E8415F2A8F698400820154 /* XCRemoteSwiftPackageReference "SwiftHamcrest" */;
-			productName = Hamcrest;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

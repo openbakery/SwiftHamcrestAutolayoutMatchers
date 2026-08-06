@@ -14,10 +14,6 @@ import HamcrestAutolayoutMatchers
 @MainActor
 class ContraintMatcherConstant_Test {
 
-	init() async throws {
-		HamcrestSwiftTesting.enable()
-	}
-
 
 	@Test func has_height() {
 		let layout = Layout()

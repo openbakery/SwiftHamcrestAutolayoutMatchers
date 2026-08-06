@@ -18,7 +18,6 @@ import UIKit
 class EqualSizeMatchers_Test {
 
 	init() async throws {
-		HamcrestSwiftTesting.enable()
 		superview =  UIView()
 		child = UIView()
 		superview.addSubview(child)

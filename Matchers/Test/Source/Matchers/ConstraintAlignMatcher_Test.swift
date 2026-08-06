@@ -15,10 +15,6 @@ import Testing
 @MainActor
 struct ConstraintAlignMatcherTest {
 
-	init() async throws {
-		HamcrestSwiftTesting.enable()
-	}
-
 
 	@Test func isPinned_matcher() {
 		// given

@@ -185,6 +185,7 @@ public enum ExtraAttribute {
 	return .mismatch(nil)
 }
 
+
 @MainActor
 private func hasAnchorConstraint(
 	for view: UIView,
@@ -210,6 +211,25 @@ private func hasAnchorConstraint(
 		}
 	}
 	return .mismatch(nil)
+}
+
+
+@MainActor
+private func hasAnchorConstraint(
+	for view: UIView,
+	baseView: UIView? = nil,
+	attribute: NSLayoutConstraint.Attribute,
+	guide: UILayoutGuide,
+	constant: CGFloat = 0,
+	priority: UILayoutPriority = .required
+) -> MatchResult {
+			return hasAnchorConstraint(
+				for: view,
+				attribute: attribute,
+				guide: guide,
+				constant: constant,
+				priority: priority
+			)
 }
 
 @MainActor private func hasReadableAnchorConstraint(
@@ -296,6 +316,29 @@ private func hasAnchorConstraint(
 		)
 	}
 }
+
+@MainActor public func isPinned<T: UIView>(
+	_ attribute: NSLayoutConstraint.Attribute,
+	guide: UILayoutGuide,
+	gap: CGFloat = 0
+) -> Matcher<T> {
+	return Matcher("view has \(attribute) anchor for safe area") {
+		(value: T) -> MatchResult in
+		let gapValue: CGFloat
+		if attribute == .top || attribute == .leading {
+			gapValue = -gap
+		} else {
+			gapValue = gap
+		}
+		return hasAnchorConstraint(
+			for: value,
+			attribute: attribute,
+			guide: guide,
+			constant: gapValue
+		)
+	}
+}
+
 
 @MainActor public func isPinnedToReadableAnchor<T: UIView>(
 	_ attribute: NSLayoutConstraint.Attribute

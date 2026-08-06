@@ -20,7 +20,6 @@ struct ConstraintMatcherTest {
 	let superview : UIView
 
 	init() {
-		HamcrestSwiftTesting.enable()
 		first = UIView()
 		superview = UIView()
 		superview.addSubview(first)

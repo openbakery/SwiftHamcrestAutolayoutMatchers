@@ -17,10 +17,6 @@ import PinLayout
 @MainActor 
 class ConstraintStackMatcherTest {
 
-	init() async throws {
-		HamcrestSwiftTesting.enable()
-	}
-
 
 	@Test func matches_isStack_onTopOf_whtn_first_is_stacked_onTopOf_second() {
 		// given

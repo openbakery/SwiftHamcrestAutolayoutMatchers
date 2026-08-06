@@ -13,10 +13,6 @@ import Testing
 @MainActor
 struct Contraint_Anchor_Matcher_Test {
 	
-	init() async throws {
-		HamcrestSwiftTesting.enable()
-	}
-
 
 	@Test func cell_separatorGuide() {
 		let configuration = UIListContentConfiguration.subtitleCell()
@@ -47,6 +43,20 @@ struct Contraint_Anchor_Matcher_Test {
 
 		// then
 		assertThat(label, hasAnchor(.leading, cell.separatorLayoutGuide))
+	}
+	
+	@Test func pin_to_layoutGuide() {
+		// given
+		let view = UIView()
+		let superview = UIView()
+		superview.addSubview(view)
+		
+		// when
+		view.layout.pin(.leadingReadable)
+		
+		// then
+		assertThat(view, isPinned(.leadingReadable))
+		assertThat(view, isPinned(.leading, guide: superview.readableContentGuide))
 	}
 
 }
