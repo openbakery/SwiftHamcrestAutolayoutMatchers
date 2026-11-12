@@ -134,10 +134,8 @@ assertThat(view, isPinnedToReadableAnchor(.leading))
 | `isPinned(.top, toView: otherView, gap: equalTo(20), priority: .required, relatedBy: .equal)` | full form with gap matcher |
 | `hasEqualConstraint(.top, with: otherView)` | equal constraint to another view |
 | `hasEqualConstraint(.top, constant: 10, priority: .required)` | equal constraint to superview |
-| `hasSameWidthAs(otherView)` *(README alias)* | width equal to another view |
-| `hasSameHeightAs(otherView)` *(README alias)* | height equal to another view |
-| `hasSameWidth(otherView)` | width equal; also supports `multiplier:`, `priority:`, `constant:` |
-| `hasSameHeight(otherView)` | height equal; also supports `multiplier:`, `priority:`, `constant:` |
+| `hasSameWidth(_ view: UIView, multiplier: CFloat = 1.0, priority: UILayoutPriority = .required, constant: CGFloat = 0)` | width equal; also supports `multiplier:`, `priority:`, `constant:` |
+| `hasSameHeight(_ view: UIView, multiplier: CFloat = 1.0, priority: UILayoutPriority = .required, constant: CGFloat = 0)` | height equal; also supports `multiplier:`, `priority:`, `constant:` |
 | `hasSameSize()` | width == height of the view itself (square) |
 | `hasSameWidthAndHeight()` | alias of `hasSameSize()` |
 
